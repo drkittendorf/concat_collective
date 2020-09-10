@@ -6,6 +6,8 @@
 
 * Lia Graham
 
+* Erik De Luna 
+
 
 
 
