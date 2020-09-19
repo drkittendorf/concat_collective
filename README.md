@@ -6,14 +6,7 @@
 
 * Lia Graham
 
-* Erik De Luna 
-
-
-
-
-
-
-
+* Erik De Luna
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
