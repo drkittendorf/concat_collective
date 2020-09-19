@@ -1,13 +1,20 @@
 import React from 'react';
-import {Container} from '@material-ui/core';
-import LoginCard from '../components/LoginCard'
+import { Grid } from '@material-ui/core';
+import LoginCard from '../components/LoginCard';
 
 function Login() {
-    return(
-        <Container fixed>
-            <LoginCard />
-        </Container>
-    )
+	return (
+		<Grid
+			container
+			spacing={0}
+			direction='column'
+			alignItems='center'
+			justify='center'
+			style={{ minHeight: '100vh' }}
+		>
+			<LoginCard />
+		</Grid>
+	);
 }
 
 export default Login;
