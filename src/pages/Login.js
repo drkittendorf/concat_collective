@@ -1,10 +1,12 @@
 import React from 'react';
+import {Container} from '@material-ui/core';
+import LoginCard from '../components/LoginCard'
 
 function Login() {
     return(
-        <div>
-            <h3> Login Page </h3>
-        </div>
+        <Container fixed>
+            <LoginCard />
+        </Container>
     )
 }
 
