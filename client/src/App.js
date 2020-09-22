@@ -6,15 +6,13 @@ import NoMatch from './pages/NoMatch'
 
 function App() {
   return (
-     <Router>
-     <div>
-       <Switch>
-         <Route exact path={["/", "/login"]} component={Login}/>
-         <Route exact path={["/home"]} component={Home} />
-         <Route exact path="/*" component={NoMatch} />
-       </Switch>
-     </div>
-   </Router>
+    <div>
+      <Switch>
+        <Route exact path={["/", "/login"]} component={Login} />
+        <Route exact path={["/home"]} component={Home} />
+        <Route exact path="/*" component={NoMatch} />
+      </Switch>
+    </div>
   );
 }
 
