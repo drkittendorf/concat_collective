@@ -7,6 +7,8 @@ import SearchBar from '../components/SearchBar';
 import Nav from '../components/Nav';
 
 
+// ! in the navbar create a add feature 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -28,28 +30,29 @@ export default function FullWidthGrid() {
          <Grid xs={1}/>
         <Grid  item xs={10}>
             <SearchBar/>
+            <ConcatCards msg={'Concat (collective) an opoen space for developers to gather resources and continuously imporove their skillset. Gather, rate,  and consume helpful resources for yourself and your community WELCOME'} />
         </Grid>
         <Grid xs={1}/>
         <Grid xs={1}/>
         <Grid item xs={6} sm={6}>
         <Paper className={classes.paper}>
-        <ConcatCards/>
+        <ConcatCards msg={'this for the home'} />
         </Paper>
         </Grid>
         <Grid item xs={6} sm={6}>
         <Paper className={classes.paper}>
-        <ConcatCards/>
+        <ConcatCards msg={'this for the home'} />
         </Paper>
         </Grid>
         <Grid xs={1}/>
         <Grid item xs={6} sm={6}>
         <Paper className={classes.paper}>
-        <ConcatCards/>
+        <ConcatCards msg={'this for the home'} />
         </Paper>
         </Grid>
         <Grid item xs={6} sm={6}>
         <Paper className={classes.paper}>
-        <ConcatCards/>
+        <ConcatCards msg={'this for the home'} />
         </Paper>
         </Grid>
       </Grid>

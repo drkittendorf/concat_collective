@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ConcatCards() {
+function ConcatCards(props) {
   const classes = useStyles();
 
   return (
     <div >
-        this is one card 😅 and this will eventually just be an API call 
+       {props.msg}
       </div>
   );
 }
