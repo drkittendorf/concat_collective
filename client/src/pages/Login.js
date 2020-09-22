@@ -1,10 +1,11 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import LoginCard from '../components/LoginCard';
+import './Login.css'
 
 function Login() {
 	return (
-		<Grid
+		<Grid 
 			container
 			spacing={0}
 			direction='column'
