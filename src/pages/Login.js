@@ -6,13 +6,12 @@ import './Login.css'
 function Login() {
 	return (
 		<Grid 
-			className='grid'
 			container
 			spacing={0}
 			direction='column'
 			alignItems='center'
 			justify='center'
-			style={{ minHeight: '100vh'}}
+			style={{ minHeight: '100vh', background-image: url('https://i.imgur.com/lBFQDte.png') }}
 		>
 			<LoginCard />
 		</Grid>
