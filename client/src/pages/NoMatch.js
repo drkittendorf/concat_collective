@@ -1,10 +1,10 @@
 import React from 'react';
-import {Container} from '@material-ui/core';
+import { Container } from '@material-ui/core';
 
 function NoMatch() {
-    return(
+    return (
         <Container fixed>
-            😳 well this is sad 
+            😳 well this is sad
         </Container>
     )
 }
