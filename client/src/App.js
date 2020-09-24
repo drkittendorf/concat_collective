@@ -1,12 +1,7 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-<<<<<<< HEAD
-import Login from './pages/Login'
-=======
 import { useAuth0 } from "@auth0/auth0-react";
-
 import PrivateRoute from './components/PrivateRoute'
->>>>>>> 96d806f9816fadce255f7123899de6f9f6cb34c9
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import NoMatch from './pages/NoMatch'

@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   palette: {
     primary: {
-      main: '#1976d2',
+      main: '#82b1ff',
     }
   }
 }));
@@ -47,7 +47,7 @@ function Nav() {
             concat(collective)
           </Typography>
           <Button component={Link} to="/profile">
-            Profile
+            profile
           </Button>
           <Button component={Link} to="/home">
             Home
