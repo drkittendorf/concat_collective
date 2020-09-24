@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-
 import PrivateRoute from './components/PrivateRoute'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
@@ -15,7 +14,6 @@ function App() {
   if (isLoading) {
     return <Loading />;
   }
-
 
   return (
     <div>
