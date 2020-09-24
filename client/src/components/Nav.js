@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-import AddResource from '../components/AddResource'
+import AddResourceModal from './AddResourceModal';
 
 // importing buttons
 // importing Auth0 hook
@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 	},
 	link: {
-    margin: theme.spacing(1, 1.5),
-    color: 'white',
+		margin: theme.spacing(1, 1.5),
+		color: 'white',
 	},
 	palette: {
 		primary: {
@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	button: {
-    margin: theme.spacing(1.5),
-    color: 'white',
+		margin: theme.spacing(1.5),
+		color: 'white',
 	},
 }));
 
@@ -51,7 +51,7 @@ function Nav() {
 					<Typography variant='h6' className={classes.title}>
 						concat(collective)
 					</Typography>
-          <AddResource />
+					<AddResourceModal />
 					<Button className={classes.button} component={Link} to='/profile'>
 						profile
 					</Button>
@@ -59,11 +59,7 @@ function Nav() {
 						Home
 					</Button>
 					{/* maybe we can put an icon here  */}
-					{isAuthenticated ? (
-						<LogoutButton />
-					) : (
-						<LoginButton />
-					)}
+					{isAuthenticated ? <LogoutButton /> : <LoginButton />}
 				</Toolbar>
 			</AppBar>
 		</div>

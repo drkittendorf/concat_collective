@@ -9,6 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import IconButton from '@material-ui/core/IconButton';
+import SkillDropdown from './SkillDropdown';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -49,19 +50,19 @@ export default function FormDialog() {
 					<TextField
 						autoFocus
 						margin='dense'
-						id='name'
+						id='category'
 						label='category'
 						type='text'
 						fullWidth
 					/>
 					<TextField
-						autoFocus
 						margin='dense'
-						id='name'
+						id='link'
 						label='link'
 						type='text'
 						fullWidth
 					/>
+					<SkillDropdown />
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleClose} color='primary'>
