@@ -3,9 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+// import Link from '@material-ui/core/Link';
+
+// importing buttons
+// importing Auth0 hook 
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+
+import { Link } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,25 +25,39 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  link: {
+    margin: theme.spacing(1, 1.5),
+  },
+  palette: {
+    primary: {
+      main: '#1976d2',
+    }
+  }
 }));
 
 function Nav() {
   const classes = useStyles();
+  const { isAuthenticated } = useAuth0();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
             concat(collective)
           </Typography>
+          <Button component={Link} to="/profile">
+            Profile
+          </Button>
+          <Button component={Link} to="/home">
+            Home
+          </Button>
+          {/* maybe we can put an icon here  */}
+          {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </Toolbar>
       </AppBar>
     </div>
   );
 }
 
-export default Nav; 
+export default Nav;
