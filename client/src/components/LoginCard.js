@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import LoginButton from './LoginButton'
 
 //COPYRIGHT SYMBOL
 // function Copyright() {
@@ -114,7 +115,7 @@ export default function SignIn() {
           >
             sign in with Google
           </Button>
-          
+
           {/* CAN ADD LINKS FOR FORGOT PASSWORD */}
           {/* <Grid container>
             <Grid item xs>
