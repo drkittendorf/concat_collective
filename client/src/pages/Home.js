@@ -10,6 +10,7 @@ import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
 
 import data from '../dummyData.json';
+import Api from '../utils/API'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,12 +38,20 @@ export default function FullWidthGrid() {
 
   useEffect(() => {
     console.log('this is a call')
+
+    // here we set the cards
+    // Api.getBookmarks()
+    // .then(res => {
+    //   setCards(res)
+    // })
     setCards(data); 
   }, [])
 
 
   const handleAdd = () => {
-    console.log('this function will be in charge of adding the book mark to you personal profile'); 
+    console.log('this function will be in charge of adding the book mark to you personal profile');
+    
+    // Api.saveBookmarks()
   }
 
   return (
@@ -59,7 +68,7 @@ export default function FullWidthGrid() {
           <BookmarkCards handleAdd={handleAdd} />
           <CodeJar />
           {/* {cards.length? cards.map(card => {
-              <BookmarkCards   />
+              <BookmarkCards/>
           }): ''} */}
         </Grid>
       </Grid>
