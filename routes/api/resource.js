@@ -1,15 +1,17 @@
-const router = require("express").Router();
-const resourceController = require("../../controllers/resourceController.js");
+const router = require('express').Router();
+const resourceController = require('../../controllers/resourceController.js');
 
-router.route("/")
+router.route('/')
   .get(resourceController.findAll)
   .post(resourceController.create);
 
-router.route("/resources")
+router.route('/:id')
+  .get(resourceController.findById)
+  .put(resourceController.update)
+  .delete(resourceController.remove);
+
+router.route('/resources')
   .get(resourceController.findAll)
   .post(resourceController.create);
-
-
-
 
 module.exports = router;
