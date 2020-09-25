@@ -23,12 +23,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-  useEffect(() => {
-   
-  }, [])
+
 
 export default function FullWidthGrid() {
   const classes = useStyles();
+
+
+  useEffect(() => {
+    console.log('this is a call')
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -42,12 +45,12 @@ export default function FullWidthGrid() {
             <ConcatCards />
           </Paper>
         </Grid>
-        <Grid item xs={12} container spacing={3}justify="space-around" >
+        <Grid item xs={12} container spacing={3} justify="flex-start" >
           <BookmarkCards />
           <BookmarkCards />
           <BookmarkCards />
           <BookmarkCards />
-          <CodeJar/>
+          <CodeJar />
         </Grid>
       </Grid>
     </div>

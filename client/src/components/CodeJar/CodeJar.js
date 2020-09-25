@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import hljs from 'highlight.js';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 // You can choose to use the component or the hook
 import { ReactCodeJar, useCodeJar } from "react-codejar";
@@ -39,7 +40,7 @@ const CodeJar = () => {
     }
 
     return (
-        <div>
+        <Grid item xs={12} sm={6} >
             <div className='editor' >
                 <ReactCodeJar
                     code={code} // Initial code value
@@ -49,7 +50,7 @@ const CodeJar = () => {
             </div>
             <Button className='Button' size="small" onClick={addToCollection} >Add to Collection</Button>
             <Button className='Button' size="small" onClick={compile} >run</Button>
-        </div>
+        </Grid>
     );
 };
 
