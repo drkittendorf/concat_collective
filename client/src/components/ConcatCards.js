@@ -17,8 +17,8 @@ function ConcatCards(props) {
 
   return (
     <div >
-       {props.msg}
-      </div>
+      Concat (collective) an opoen space for developers to gather resources and continuously imporove their skillset. Gather, rate,  and consume helpful resources for yourself and your community WELCOME
+    </div>
   );
 }
 
