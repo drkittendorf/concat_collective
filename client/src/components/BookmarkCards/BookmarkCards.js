@@ -34,7 +34,7 @@ export default function SimpleCard(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
-  let { title, link, id, category, skill } = props;
+  let { title, link, id, category, skill, handleAdd } = props;
 
   return (
     <Grid item xs={12} sm={6} >
@@ -59,7 +59,7 @@ export default function SimpleCard(props) {
         <CardActions>
           {/* some kind of conditional here to render 
         if this is in the home page  */}
-          <Button size="small" onClick={() => console.log('button clicked')} >Add to Collection</Button>
+          <Button size="small" onClick={handleAdd} >Add to Collection</Button>
         </CardActions>
       </Card>
     </Grid>

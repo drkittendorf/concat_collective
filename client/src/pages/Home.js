@@ -40,6 +40,11 @@ export default function FullWidthGrid() {
     setCards(data); 
   }, [])
 
+
+  const handleAdd = () => {
+    console.log('this function will be in charge of adding the book mark to you personal profile'); 
+  }
+
   return (
     <div className={classes.root}>
       <Grid container justify="center" >
@@ -51,7 +56,7 @@ export default function FullWidthGrid() {
           <ConcatCards />
         </Grid>
         <Grid item xs={12} container spacing={3} justify="flex-start" >
-          <BookmarkCards />
+          <BookmarkCards handleAdd={handleAdd} />
           <CodeJar />
           {/* {cards.length? cards.map(card => {
               <BookmarkCards   />
