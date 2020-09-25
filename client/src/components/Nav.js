@@ -49,7 +49,11 @@ function Nav() {
 			<AppBar position='static'>
 				<Toolbar>
 					<Typography variant='h6' className={classes.title}>
-						concat(collective)
+						<Link to="/">
+							<h3>
+								concat(collective)
+						</h3>
+						</Link>
 					</Typography>
 					<AddResourceModal />
 					<Button className={classes.button} component={Link} to='/profile'>

@@ -38,20 +38,15 @@ export default function FullWidthGrid() {
     <div className={classes.root}>
       <Grid container justify="center" >
         <Grid item xs={12} >
-        <Nav />
+          <Nav />
+          <SearchBar />
         </Grid>
         <Grid item xs={10}>
-          <SearchBar />
-          <Paper className={classes.paper}>
-            <ConcatCards />
-          </Paper>
+          <ConcatCards />
         </Grid>
+        
         <Grid item xs={12} container spacing={3} justify="flex-start" >
-          <BookmarkCards
-
-          
-          
-          />
+          <BookmarkCards />
           <CodeJar />
         </Grid>
       </Grid>
