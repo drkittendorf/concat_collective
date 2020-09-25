@@ -1,11 +1,21 @@
 import React, { Component, useState } from "react";
 import hljs from 'highlight.js';
 import Button from '@material-ui/core/Button';
-
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 // You can choose to use the component or the hook
 import { ReactCodeJar, useCodeJar } from "react-codejar";
-
 import "./index.css";
+
+
+
+const useStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+        borderRadius: '10px'
+      }
+  });
+
 
 const highlight = editor => {
     let code = editor.textContent;
@@ -13,23 +23,14 @@ const highlight = editor => {
     editor.innerHTML = code;
 };
 
-// const highlight = (editor) => {
-//     // highlight.js does not trims old tags,
-//     // let's do it by this hack.
-//     editor.textContent = editor.textContent;
-//     hljs.highlightBlock(editor);
-//   };
-
 const CodeJar = () => {
+    const classes = useStyles();
+
     const [code, setCode] = useState(`function(ldsfj){
         console.log('hello')
     }
     `);
 
-    // function compile(event) {
-    //     // const { name, value } = event.target;
-    //     // setFormObject({...formObject, [name]: value})
-    // };
     const compile = (event) => {
         console.log('compile')
     };
@@ -39,36 +40,19 @@ const CodeJar = () => {
     }
 
     return (
-        <div>
-            <div className='editor' >
-                <ReactCodeJar
-                    code={code} // Initial code value
-                    onUpdate={setCode} // Update the text
-                    highlight={highlight} // Highlight function, receive the editor
-                />
-            </div>
-            <Button className='Button' size="small" onClick={addToCollection} >Add to Collection</Button>
-            <Button className='Button' size="small" onClick={compile} >run</Button>
-        </div>
+        <Grid item xs={12} sm={6} >
+                <div className='editor'>
+                    <ReactCodeJar
+                        code={code} // Initial code value
+                        onUpdate={setCode} // Update the text
+                        highlight={highlight} // Highlight function, receive the editor
+                    />
+                    <Button  color='primary' className='Button' size="small" onClick={addToCollection} >Add to Collection</Button>
+                    <Button  color='secondary' className='Button' size="small" onClick={compile} >run</Button>
+                </div>
+        </Grid>
     );
 };
 
 export default CodeJar;
 
-// const HookExample = () => {
-//   const [code, setCode] = useState('(format t "lisp example")');
-
-//   const editorRef = useCodeJar({
-//     code, // Initial code value
-//     onUpdate: setCode, // Update the text
-//     highlight // Highlight function, receive the editor
-//   });
-
-//   return <div ref={editorRef}></div>;
-// };
-
-
-// code snippet cards 
-// link cards 
-
-// useful code snippets that are cards 👍🏽

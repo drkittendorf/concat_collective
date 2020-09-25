@@ -8,11 +8,14 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import "./style.css";
 
-import data from '../../dummyData.json';
+
+
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    borderRadius: '10px',
+    height: '220px'
   },
   bullet: {
     display: 'inline-block',

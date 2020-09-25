@@ -45,11 +45,14 @@ function Nav() {
 	const { isAuthenticated } = useAuth0();
 
 	return (
-		<div className={classes.root}>
 			<AppBar position='static'>
 				<Toolbar>
 					<Typography variant='h6' className={classes.title}>
-						concat(collective)
+						<Link to="/">
+							<h3>
+								concat(collective)
+						</h3>
+						</Link>
 					</Typography>
 					<AddResourceModal />
 					<Button className={classes.button} component={Link} to='/profile'>
@@ -62,7 +65,6 @@ function Nav() {
 					{isAuthenticated ? <LogoutButton /> : <LoginButton />}
 				</Toolbar>
 			</AppBar>
-		</div>
 	);
 }
 
