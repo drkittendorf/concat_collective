@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -32,10 +32,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FullWidthGrid() {
   const classes = useStyles();
+  const [cards, setCards] = useState([])
 
 
   useEffect(() => {
     console.log('this is a call')
+    setCards(data); 
   }, [])
 
   return (
@@ -51,6 +53,9 @@ export default function FullWidthGrid() {
         <Grid item xs={12} container spacing={3} justify="flex-start" >
           <BookmarkCards />
           <CodeJar />
+          {/* {cards.length? cards.map(card => {
+              <BookmarkCards   />
+          }): ''} */}
         </Grid>
       </Grid>
     </div>

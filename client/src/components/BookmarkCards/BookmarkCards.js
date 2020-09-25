@@ -34,32 +34,34 @@ export default function SimpleCard(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
+  let { title, link, id, category, skill } = props;
+
   return (
     <Grid item xs={12} sm={6} >
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom >
-          Beginner 😊
-        </Typography>
-        <Typography variant="h5" component="h2">
-          Title descriptor 
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-        category 
-        </Typography>
-        <Typography variant="body2" component="p">
+      <Card className={classes.root}>
+        <CardContent>
+          <Typography className={classes.title} color="textSecondary" gutterBottom >
+            {'Beginner' || skill}
+          </Typography>
+          <Typography variant="h5" component="h2">
+            {'Title descriptor ' || title}
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            {'category' || category}
+          </Typography>
+          <Typography variant="body2" component="p">
             {/* <link href="google.com" > link</link> */}
-          <br />
-          <Button size="small" onClick={() => console.log('this goes to the resource') } >link to resource </Button>
-        </Typography>
-
-      </CardContent>
-      <CardActions>
-        {/* some kind of conditional here to render 
+            <br />
+            {/* <Button size="small" onClick={() => console.log('this goes to the resource')} >link to resource </Button> */}
+            <Button target="_blank" href={link}>link to resource</Button>
+          </Typography>
+        </CardContent>
+        <CardActions>
+          {/* some kind of conditional here to render 
         if this is in the home page  */}
-        <Button size="small" onClick={() => console.log('button clicked') } >Add to Collection</Button>
-      </CardActions>
-    </Card>
+          <Button size="small" onClick={() => console.log('button clicked')} >Add to Collection</Button>
+        </CardActions>
+      </Card>
     </Grid>
   );
 }
