@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -7,7 +7,6 @@ import SearchBar from '../components/SearchBar';
 import Nav from '../components/Nav';
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
-import data from '../dummyData.json';
 import CodeJar from '../components/CodeJar/CodeJar'
 
 
@@ -22,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
 }));
+
+
+  useEffect(() => {
+   
+  }, [])
 
 export default function FullWidthGrid() {
   const classes = useStyles();
@@ -38,7 +42,9 @@ export default function FullWidthGrid() {
             <ConcatCards />
           </Paper>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} container spacing={3}justify="space-around" >
+          <BookmarkCards />
+          <BookmarkCards />
           <BookmarkCards />
           <BookmarkCards />
           <CodeJar/>

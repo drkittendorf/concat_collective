@@ -21,7 +21,10 @@ const highlight = editor => {
 //   };
 
 const CodeJar = () => {
-    const [code, setCode] = useState('(format t "lisp example")');
+    const [code, setCode] = useState(`function(ldsfj){
+        console.log('hello')
+    }
+    `);
 
     // function compile(event) {
     //     // const { name, value } = event.target;
