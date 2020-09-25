@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import ConcatCards from '../components/ConcatCards';
+import ConcatCards from '../components/ConcatCards/ConcatCards';
 import SearchBar from '../components/SearchBar';
 import Nav from '../components/Nav';
 
@@ -36,9 +36,9 @@ export default function FullWidthGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3} justify="center" >
+      <Grid container justify="center" >
         <Grid item xs={12} >
-          <Nav />
+        <Nav />
         </Grid>
         <Grid item xs={10}>
           <SearchBar />
@@ -47,8 +47,11 @@ export default function FullWidthGrid() {
           </Paper>
         </Grid>
         <Grid item xs={12} container spacing={3} justify="flex-start" >
-          <BookmarkCards />
-        
+          <BookmarkCards
+
+          
+          
+          />
           <CodeJar />
         </Grid>
       </Grid>
