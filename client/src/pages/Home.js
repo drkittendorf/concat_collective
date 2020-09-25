@@ -9,8 +9,9 @@ import Nav from '../components/Nav';
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
 
+import data from '../dummyData.json';
 
-// ! in the navbar create a add feature 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -47,9 +48,7 @@ export default function FullWidthGrid() {
         </Grid>
         <Grid item xs={12} container spacing={3} justify="flex-start" >
           <BookmarkCards />
-          <BookmarkCards />
-          <BookmarkCards />
-          <BookmarkCards />
+        
           <CodeJar />
         </Grid>
       </Grid>
