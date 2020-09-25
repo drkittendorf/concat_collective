@@ -31,9 +31,9 @@ export default function SimpleCard(props) {
   return (
     <Card className={classes.root}>
       <CardContent>
-        {/* <Typography className={classes.title} color="textSecondary" gutterBottom >
-          Linkies 😊
-        </Typography> */}
+        <Typography className={classes.title} color="textSecondary" gutterBottom >
+          Beginner 😊
+        </Typography>
         <Typography variant="h5" component="h2">
           Title descriptor 
         </Typography>
@@ -41,13 +41,16 @@ export default function SimpleCard(props) {
         category 
         </Typography>
         <Typography variant="body2" component="p">
-          this will be the link 
+            {/* <link href="google.com" > link</link> */}
           <br />
-          {'"a benevolent smile"'}
+          <Button size="small" onClick={() => console.log('this goes to the resource') } >link to resource </Button>
         </Typography>
+
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => console.log('button clicked') } >Checkout</Button>
+        {/* some kind of conditional here to render 
+        if this is in the home page  */}
+        <Button size="small" onClick={() => console.log('button clicked') } >Add to Collection</Button>
       </CardActions>
     </Card>
   );
