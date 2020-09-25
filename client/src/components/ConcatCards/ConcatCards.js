@@ -9,9 +9,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    fontSize: '20px', 
+    color: theme.palette.text.primary,
   },
 }));
 
@@ -21,7 +22,7 @@ function ConcatCards(props) {
   return (
     <Grid item xs={12} sm={12} className='concat' >
       <Card className={classes.root}>
-        <CardContent>
+        <CardContent className={classes.paper} >
           <h4>
             <bold>Concat (collective)</bold> an open space for developers to gather resources and continuously imporove their skillset. Gather, rate,  and consume helpful resources for yourself and your community WELCOME
       </h4>

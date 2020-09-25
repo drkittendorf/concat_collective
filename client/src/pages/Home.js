@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  margin: {
+    marginBottom: '20px'
+  }
 }));
 
 
@@ -41,10 +44,9 @@ export default function FullWidthGrid() {
           <Nav />
           <SearchBar />
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={10} className={classes.margin} >
           <ConcatCards />
         </Grid>
-        
         <Grid item xs={12} container spacing={3} justify="flex-start" >
           <BookmarkCards />
           <CodeJar />
