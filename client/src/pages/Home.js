@@ -15,6 +15,7 @@ import data from '../dummyData.json';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    height: '100%'
   },
   paper: {
     padding: theme.spacing(2),
@@ -41,7 +42,7 @@ export default function FullWidthGrid() {
     <div className={classes.root}>
       <Grid container justify="center" >
         <Grid item xs={12} >
-          <Nav />
+          {/* <Nav /> */}
           <SearchBar />
         </Grid>
         <Grid item xs={10} className={classes.margin} >

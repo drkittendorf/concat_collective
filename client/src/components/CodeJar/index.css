@@ -19,6 +19,7 @@
   );
   color: aqua;
   height: 200px;
+  border-radius: 10px; 
 }
 
 .Button {

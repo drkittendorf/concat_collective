@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import NoMatch from './pages/NoMatch'
 import Loading from "./components/Loading"
+import Nav from './components/Nav'; 
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div>
+        <Nav/>
       <Switch>
         <Route exact path={["/", "/home"]} component={Home} />
         {/* <Route exact path="/home" component={Home} /> */}

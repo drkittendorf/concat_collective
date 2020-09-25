@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    borderRadius: '10px'
   },
   paper: {
     padding: theme.spacing(4),
