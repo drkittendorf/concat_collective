@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -10,6 +10,7 @@ import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
 
 import data from '../dummyData.json';
+import Api from '../utils/API'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,11 +33,26 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FullWidthGrid() {
   const classes = useStyles();
+  const [cards, setCards] = useState([])
 
 
   useEffect(() => {
     console.log('this is a call')
+
+    // here we set the cards
+    // Api.getBookmarks()
+    // .then(res => {
+    //   setCards(res)
+    // })
+    setCards(data); 
   }, [])
+
+
+  const handleAdd = () => {
+    console.log('this function will be in charge of adding the book mark to you personal profile');
+    
+    // Api.saveBookmarks()
+  }
 
   return (
     <div className={classes.root}>
@@ -49,8 +65,11 @@ export default function FullWidthGrid() {
           <ConcatCards />
         </Grid>
         <Grid item xs={12} container spacing={3} justify="flex-start" >
-          <BookmarkCards />
+          <BookmarkCards handleAdd={handleAdd} />
           <CodeJar />
+          {/* {cards.length? cards.map(card => {
+              <BookmarkCards/>
+          }): ''} */}
         </Grid>
       </Grid>
     </div>

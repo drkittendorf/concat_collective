@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	title: {
 		flexGrow: 1,
+		color: 'white'
 	},
 	link: {
 		margin: theme.spacing(1, 1.5),
@@ -40,6 +41,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+
+// making thing thing responsive 
 function Nav() {
 	const classes = useStyles();
 	const { isAuthenticated } = useAuth0();
@@ -48,10 +51,8 @@ function Nav() {
 			<AppBar position='static'>
 				<Toolbar>
 					<Typography variant='h6' className={classes.title}>
-						<Link to="/">
-							<h3>
+						<Link to="/" className={classes.title} >
 								concat(collective)
-						</h3>
 						</Link>
 					</Typography>
 					<AddResourceModal />
