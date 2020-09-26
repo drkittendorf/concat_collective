@@ -18,6 +18,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CodeIcon from '@material-ui/icons/Code';
 import AddIcon from '@material-ui/icons/Add';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -91,7 +92,9 @@ const CodeJar = () => {
                             <VisibilityIcon fontSize='large' />
                         </Button>
                         <Button size="small" onClick={addToCollection} >
-                            <Icon className="fas fa-plus" />
+                            {/* <Icon className="fas fa-plus" /> */}
+                            {/* add to collection */}
+                            <AddCircleIcon/>
                         </Button>
                     </Typography>
                     <Dialog
