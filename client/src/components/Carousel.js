@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
 import Carousel from 'react-elastic-carousel';
+import ConcatCards from './ConcatCards'
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  }));
  
-class IntroCarousel extends Component {
-  state = {
-    items: [
-      {id: 1, title: 'item #1'},
-      {id: 2, title: 'item #2'},
-      {id: 3, title: 'item #3'},
-      {id: 4, title: 'item #4'},
-      {id: 5, title: 'item #5'}
-    ]
-  }
- 
-  render () {
-    const { items } = this.state;
+function IntroCarousel() {
+    const classes = useStyles()
     return (
       <Carousel>
-        {items.map(item => <div key={item.id}>{item.title}</div>)}
+          <Paper className={classes.paper}>
+            <ConcatCards />
+          </Paper>
+          <Paper className={classes.paper}>
+            <ConcatCards />
+          </Paper>
+          <Paper className={classes.paper}>
+            <ConcatCards />
+          </Paper>
       </Carousel>
-    )
-  }
+    ) 
 }
+
 
 export default IntroCarousel;

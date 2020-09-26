@@ -42,9 +42,6 @@ export default function FullWidthGrid() {
         <Grid item xs={10}>
           <SearchBar />
           <Carousel />
-          {/* <Paper className={classes.paper}>
-            <ConcatCards />
-          </Paper> */}
         </Grid>
         <Grid item xs={12} container spacing={3}justify="space-around" >
           <BookmarkCards />
