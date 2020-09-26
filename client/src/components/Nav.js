@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	title: {
 		flexGrow: 1,
+		color: 'white'
 	},
 	link: {
 		margin: theme.spacing(1, 1.5),
@@ -40,16 +41,19 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+
+// making thing thing responsive 
 function Nav() {
 	const classes = useStyles();
 	const { isAuthenticated } = useAuth0();
 
 	return (
-		<div className={classes.root}>
 			<AppBar position='static'>
 				<Toolbar>
 					<Typography variant='h6' className={classes.title}>
-						concat(collective)
+						<Link to="/" className={classes.title} >
+								concat(collective)
+						</Link>
 					</Typography>
 					<AddResourceModal />
 					<Button className={classes.button} component={Link} to='/profile'>
@@ -62,7 +66,6 @@ function Nav() {
 					{isAuthenticated ? <LogoutButton /> : <LoginButton />}
 				</Toolbar>
 			</AppBar>
-		</div>
 	);
 }
 
