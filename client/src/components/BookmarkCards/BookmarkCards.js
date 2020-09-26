@@ -48,13 +48,15 @@ export default function SimpleCard(props) {
       <Card className={classes.root}>
         <CardHeader
           action={
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings"
+            onClick={handleAdd}
+            >
               {/* <MoreVertIcon /> */}
               <Icon className="fas fa-bookmark" />
             </IconButton>
           }
           title={title || 'this will be the title'}
-          subheader= {skill || 'this would be the skill level '}
+          subheader={skill || 'this would be the skill level '}
         />
         <CardContent>
           {/* <Typography className={classes.skill} color="textSecondary" gutterBottom >
@@ -71,13 +73,23 @@ export default function SimpleCard(props) {
             {/* <link href="google.com" > link</link> */}
             <br />
             {/* <Button size="small" onClick={() => console.log('this goes to the resource')} >link to resource </Button> */}
-            <Button target="_blank" href={link || 'https://www.google.com'}>link to resource</Button>
+            <Button target="_blank" href={link || 'https://www.google.com'}>
+              <Icon className="fas fa-link" />
+            </Button>
+            {/* <i class="fas fa-link"></i> */}
+            {/* <IconButton aria-label="settings" >
+              <Icon className="fas fa-link" />
+            </IconButton> */}
+            {/* <Button size="small" onClick={handleAdd} >Add to Collection</Button> */}
+            <Button size="small" onClick={handleAdd} >
+              <Icon className="fas fa-plus" />
+            </Button>
           </Typography>
         </CardContent>
         <CardActions>
           {/* some kind of conditional here to render 
         if this is in the home page  */}
-          <Button size="small" onClick={handleAdd} >Add to Collection</Button>
+          {/* <Button size="small" onClick={handleAdd} >Add to Collection</Button> */}
         </CardActions>
       </Card>
     </Grid>

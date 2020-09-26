@@ -68,10 +68,7 @@ export default function FullWidthGrid() {
           <BookmarkCards handleAdd={handleAdd} />
           <CodeJar />
           {data.map(card => {
-            return <BookmarkCards
-              {...card}
-
-            />
+            return <BookmarkCards {...card} />
           })}
           {/* <BookmarkCards
             skill={'hello'} 

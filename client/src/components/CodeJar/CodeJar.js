@@ -7,14 +7,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import { ReactCodeJar, useCodeJar } from "react-codejar";
 import "./index.css";
 
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import CodeIcon from '@material-ui/icons/Code';
+import AddIcon from '@material-ui/icons/Add';
 
 
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
         borderRadius: '10px'
-      }
-  });
+    }
+});
 
 
 const highlight = editor => {
@@ -41,15 +48,34 @@ const CodeJar = () => {
 
     return (
         <Grid item xs={12} sm={6} >
+            <Card className={classes.root}>
                 <div className='editor'>
+                    {/* <CardHeader
+                        action={
+                            <IconButton aria-label="settings"
+                                onClick={addToCollection}
+                            >
+                                <Icon className="fas fa-code" />
+                            </IconButton>
+                        }
+                    /> */}
+                    {/* <i className={"fas fa-code"} ></i> */}
                     <ReactCodeJar
                         code={code} // Initial code value
                         onUpdate={setCode} // Update the text
                         highlight={highlight} // Highlight function, receive the editor
                     />
-                    <Button  color='primary' className='Button' size="small" onClick={addToCollection} >Add to Collection</Button>
-                    <Button  color='secondary' className='Button' size="small" onClick={compile} >run</Button>
+                    {/* <Button color='primary' className='Button' size="small" onClick={addToCollection} >Add to Collection</Button> */}
+                    <Button color='primary' className='Button' size="small" onClick={compile} >
+                        {/* <Icon className="fas fa-code" />
+                         */}
+                         <CodeIcon fontSize='large' />
+                    </Button>
+                    <Button color="primary" size="small" onClick={addToCollection} >
+                        <AddIcon fontSize='large' />
+                    </Button>
                 </div>
+            </Card>
         </Grid>
     );
 };

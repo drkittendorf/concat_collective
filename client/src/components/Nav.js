@@ -15,6 +15,9 @@ import Button from '@material-ui/core/Button';
 
 import { Link } from 'react-router-dom';
 
+
+{/* <i class="fas fa-home"></i> */}
+
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
