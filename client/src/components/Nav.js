@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 // import Link from "@material-ui/core/Link";
-import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import AddResourceModal from './AddResourceModal';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -12,8 +12,6 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
-import Icon from '@material-ui/core/Icon';
-import InputIcon from '@material-ui/icons/Input';
 
 const useStyles = makeStyles({
 	link: {
@@ -30,11 +28,16 @@ const useStyles = makeStyles({
 	},
 	black: {
 		backgroundColor: 'black',
+		marginBottom: '20px',
 	},
 	space: {
 		display: 'flex',
-		justifyContent: 'space-between'
-	}
+		justifyContent: 'space-between',
+	},
+	flexEnd: {
+		display: 'flex',
+		justifyContent: 'flex-end',
+	},
 });
 
 function Nav() {
@@ -47,13 +50,13 @@ function Nav() {
 				{/* <Typography variant="h6" className={classes.title}>
 					concat
 				</Typography> */}
-				<div>
+				<Grid xs={6}>
 					<Button className={classes.Logo} component={Link} to='/'>
 						concat(collective)
 					</Button>
-				</div>
+				</Grid>
 
-				<div>
+				<Grid xs={6} className={classes.flexEnd}>
 					<AddResourceModal />
 					<Button className={classes.button} component={Link} to='/profile'>
 						<PersonIcon fontSize='large' />
@@ -63,7 +66,7 @@ function Nav() {
 					</Button>
 					{/* maybe we can put an icon here  */}
 					{isAuthenticated ? <LogoutButton /> : <LoginButton />}
-				</div>
+				</Grid>
 			</Toolbar>
 		</AppBar>
 	);
