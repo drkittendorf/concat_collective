@@ -44,7 +44,7 @@ function Nav() {
 					concat
 				</Typography> */}
 				<Button className={classes.Logo} component={Link} to='/'>
-					.concat( )
+					concat()
 				</Button>
 				{/* <Link href="/" className={classes.link}>
 					Search
