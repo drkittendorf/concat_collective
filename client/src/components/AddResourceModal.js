@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import IconButton from '@material-ui/core/IconButton';
 import SkillDropdown from './SkillDropdown';
-
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
@@ -34,9 +34,11 @@ export default function FormDialog() {
 
 	return (
 		<div>
-			<IconButton className={classes.button} onClick={handleClickOpen}>
-				<AddIcon fontSize="large"  />
-			</IconButton>
+			<Tooltip title='add new card' arrow>
+				<IconButton className={classes.button} onClick={handleClickOpen}>
+					<AddIcon fontSize='medium' />
+				</IconButton>
+			</Tooltip>
 			<Dialog
 				open={open}
 				onClose={handleClose}
