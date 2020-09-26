@@ -8,8 +8,11 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import "./style.css";
 
-
-
+import IconButton from '@material-ui/core/IconButton';
+import CardHeader from '@material-ui/core/CardHeader';
+import Avatar from '@material-ui/core/Avatar';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles({
   root: {
@@ -22,38 +25,53 @@ const useStyles = makeStyles({
     margin: '0 2px',
     transform: 'scale(0.8)',
   },
-  title: {
+  skill: {
     fontSize: 14,
+    maring: '20px'
   },
   pos: {
     marginBottom: 12,
   },
+  icon: {
+    marginLeft: '100px'
+  }
 });
 
 export default function SimpleCard(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
-  let { title, link, id, category, skill, handleAdd } = props;
+  const { title, link, id, category, skill, handleAdd } = props;
 
   return (
     <Grid item xs={12} sm={6} >
       <Card className={classes.root}>
+        <CardHeader
+          action={
+            <IconButton aria-label="settings">
+              {/* <MoreVertIcon /> */}
+              <Icon className="fas fa-bookmark" />
+            </IconButton>
+          }
+          title={title || 'this will be the title'}
+          subheader= {skill || 'this would be the skill level '}
+        />
         <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom >
-            {'Beginner' || skill}
+          {/* <Typography className={classes.skill} color="textSecondary" gutterBottom >
+            {skill || 'this would be the skill level '}
+            <i className="fas fa-bookmark"></i>
           </Typography>
           <Typography variant="h5" component="h2">
-            {'Title descriptor ' || title}
-          </Typography>
+            {title || 'this will be the title'}
+          </Typography> */}
           <Typography className={classes.pos} color="textSecondary">
-            {'category' || category}
+            {category || 'this will be the category'}
           </Typography>
           <Typography variant="body2" component="p">
             {/* <link href="google.com" > link</link> */}
             <br />
             {/* <Button size="small" onClick={() => console.log('this goes to the resource')} >link to resource </Button> */}
-            <Button target="_blank" href={link}>link to resource</Button>
+            <Button target="_blank" href={link || 'https://www.google.com'}>link to resource</Button>
           </Typography>
         </CardContent>
         <CardActions>

@@ -9,7 +9,7 @@ import Nav from '../components/Nav';
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
 
-import data from '../dummyData.json';
+import data from '../dummyData.json'
 import Api from '../utils/API'
 
 
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
+// data[0].
 
 
 export default function FullWidthGrid() {
@@ -44,13 +44,13 @@ export default function FullWidthGrid() {
     // .then(res => {
     //   setCards(res)
     // })
-    setCards(data); 
+    setCards(data);
   }, [])
 
 
   const handleAdd = () => {
     console.log('this function will be in charge of adding the book mark to you personal profile');
-    
+
     // Api.saveBookmarks()
   }
 
@@ -67,9 +67,16 @@ export default function FullWidthGrid() {
         <Grid item xs={12} container spacing={3} justify="flex-start" >
           <BookmarkCards handleAdd={handleAdd} />
           <CodeJar />
-          {/* {cards.length? cards.map(card => {
-              <BookmarkCards/>
-          }): ''} */}
+          {data.map(card => {
+            return <BookmarkCards
+              {...card}
+
+            />
+          })}
+          {/* <BookmarkCards
+            skill={'hello'} 
+            title={'is this title showing up? '}
+            /> */}
         </Grid>
       </Grid>
     </div>
