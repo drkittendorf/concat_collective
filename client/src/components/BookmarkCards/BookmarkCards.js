@@ -13,6 +13,8 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Icon from '@material-ui/core/Icon';
+import AddIcon from '@material-ui/icons/Add';
+
 
 const useStyles = makeStyles({
   root: {
@@ -49,7 +51,7 @@ export default function SimpleCard(props) {
         <CardHeader
           action={
             <IconButton aria-label="settings"
-            onClick={handleAdd}
+              onClick={handleAdd}
             >
               {/* <MoreVertIcon /> */}
               <Icon className="fas fa-bookmark" />
@@ -59,37 +61,20 @@ export default function SimpleCard(props) {
           subheader={skill || 'this would be the skill level '}
         />
         <CardContent>
-          {/* <Typography className={classes.skill} color="textSecondary" gutterBottom >
-            {skill || 'this would be the skill level '}
-            <i className="fas fa-bookmark"></i>
-          </Typography>
-          <Typography variant="h5" component="h2">
-            {title || 'this will be the title'}
-          </Typography> */}
           <Typography className={classes.pos} color="textSecondary">
             {category || 'this will be the category'}
           </Typography>
           <Typography variant="body2" component="p">
-            {/* <link href="google.com" > link</link> */}
             <br />
-            {/* <Button size="small" onClick={() => console.log('this goes to the resource')} >link to resource </Button> */}
             <Button target="_blank" href={link || 'https://www.google.com'}>
               <Icon className="fas fa-link" />
             </Button>
-            {/* <i class="fas fa-link"></i> */}
-            {/* <IconButton aria-label="settings" >
-              <Icon className="fas fa-link" />
-            </IconButton> */}
-            {/* <Button size="small" onClick={handleAdd} >Add to Collection</Button> */}
             <Button size="small" onClick={handleAdd} >
               <Icon className="fas fa-plus" />
             </Button>
           </Typography>
         </CardContent>
         <CardActions>
-          {/* some kind of conditional here to render 
-        if this is in the home page  */}
-          {/* <Button size="small" onClick={handleAdd} >Add to Collection</Button> */}
         </CardActions>
       </Card>
     </Grid>

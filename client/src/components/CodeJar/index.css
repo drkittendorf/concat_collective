@@ -18,8 +18,9 @@
     rgba(0, 0, 0, 0.651) 100.2%
   );
   color: aqua;
-  height: 200px;
-  border-radius: 10px; 
+  height: 400px;
+  width: 400px;
+  /* border-radius: 10px;  */
 }
 
 .Button {
