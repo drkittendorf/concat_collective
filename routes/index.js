@@ -1,7 +1,7 @@
 const path = require('path');
 const router = require('express').Router();
 const resourceRoutes = require('./api/resource');
-const snippetRoutes = require('api/snippets')
+const snippetRoutes = require('./api/snippet')
 
 router.use('/api/resources', resourceRoutes);
 router.use('/api/snippets', snippetRoutes)
