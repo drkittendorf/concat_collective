@@ -1,9 +1,9 @@
-import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
+import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 // import Link from "@material-ui/core/Link";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 import AddResourceModal from './AddResourceModal';
 import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from './LoginButton';
@@ -12,25 +12,33 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
-import Icon from '@material-ui/core/Icon';
-import InputIcon from '@material-ui/icons/Input';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles({
 	link: {
-		color: "white",
-		padding: "0px 15px 0px 15px",
+		color: 'white',
+		padding: '0px 15px 0px 15px',
 	},
 	button: {
 		// margin: theme.spacing(1.5),
 		color: 'white',
 	},
-	Logo:{
+	Logo: {
 		color: 'white',
-		fontSize: '20px'
+		fontSize: '20px',
 	},
-	black:{
-		backgroundColor: 'black'
-	}
+	black: {
+		backgroundColor: 'black',
+		marginBottom: '20px',
+	},
+	space: {
+		display: 'flex',
+		justifyContent: 'space-between',
+	},
+	flexEnd: {
+		display: 'flex',
+		justifyContent: 'flex-end',
+	},
 });
 
 function Nav() {
@@ -38,29 +46,32 @@ function Nav() {
 	const { isAuthenticated } = useAuth0();
 
 	return (
-		<AppBar position="static" className={classes.black} >
-			<Toolbar className={classes.blue}>
+		<AppBar position='static' className={classes.black}>
+			<Toolbar className={classes.space}>
 				{/* <Typography variant="h6" className={classes.title}>
 					concat
 				</Typography> */}
-				<Button className={classes.Logo} component={Link} to='/'>
-					concat()
-				</Button>
-				{/* <Link href="/" className={classes.link}>
-					Search
-				</Link>
-				<Link href="/saved" className={classes.link}>
-					Saved
-				</Link> */}
-				<AddResourceModal />
-				<Button className={classes.button} component={Link} to='/profile'>
-					<PersonIcon fontSize='large' />
-				</Button>
-				<Button className={classes.button} component={Link} to='/home'>
-					<HomeIcon fontSize='large' />
-				</Button>
-				{/* maybe we can put an icon here  */}
-				{isAuthenticated ? <LogoutButton /> : <LoginButton />}
+				<Grid xs={6}>
+					<Button className={classes.Logo} component={Link} to='/'>
+						concat(collective)
+					</Button>
+				</Grid>
+
+				<Grid xs={6} className={classes.flexEnd}>
+					<AddResourceModal />
+					<Tooltip title='profile' arrow>
+						<Button className={classes.button} component={Link} to='/profile'>
+							<PersonIcon fontSize='medium' />
+						</Button>
+					</Tooltip>
+					<Tooltip title='home' arrow>
+						<Button className={classes.button} component={Link} to='/home'>
+							<HomeIcon fontSize='medium' />
+						</Button>
+					</Tooltip>
+
+					{isAuthenticated ? <LogoutButton /> : <LoginButton />}
+				</Grid>
 			</Toolbar>
 		</AppBar>
 	);
