@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import ConcatCards from '../components/ConcatCards/ConcatCards';
 import SearchBar from '../components/SearchBar';
 import Nav from '../components/Nav';
+import Carousel from '../components/Carousel'
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
@@ -27,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '20px'
   }
 }));
-
 
 
 
@@ -56,14 +56,12 @@ export default function FullWidthGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid container justify="center" >
-        <Grid item xs={12} >
-          {/* <Nav /> */}
+      <Grid container spacing={3} justify="center">
+        <Grid item xs={10}>
           <SearchBar />
+          <Carousel />
         </Grid>
-        <Grid item xs={10} className={classes.margin} >
-          <ConcatCards />
-        </Grid>
+
         <Grid item xs={12} container spacing={3} justify="flex-start" >
           <BookmarkCards handleAdd={handleAdd} />
           <CodeJar />
