@@ -50,26 +50,13 @@ const CodeJar = () => {
         <Grid item xs={12} sm={6} >
             <Card className={classes.root}>
                 <div className='editor'>
-                    {/* <CardHeader
-                        action={
-                            <IconButton aria-label="settings"
-                                onClick={addToCollection}
-                            >
-                                <Icon className="fas fa-code" />
-                            </IconButton>
-                        }
-                    /> */}
-                    {/* <i className={"fas fa-code"} ></i> */}
                     <ReactCodeJar
                         code={code} // Initial code value
                         onUpdate={setCode} // Update the text
                         highlight={highlight} // Highlight function, receive the editor
                     />
-                    {/* <Button color='primary' className='Button' size="small" onClick={addToCollection} >Add to Collection</Button> */}
                     <Button color='primary' className='Button' size="small" onClick={compile} >
-                        {/* <Icon className="fas fa-code" />
-                         */}
-                         <CodeIcon fontSize='large' />
+                        <CodeIcon fontSize='large' />
                     </Button>
                     <Button color="primary" size="small" onClick={addToCollection} >
                         <AddIcon fontSize='large' />
