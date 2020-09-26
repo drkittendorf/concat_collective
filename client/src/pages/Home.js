@@ -66,7 +66,7 @@ export default function FullWidthGrid() {
           <ConcatCards />
         </Grid>
         <Grid item xs={12} container spacing={3} justify="flex-start" >
-          <BookmarkCards handleAdd={handleAdd} />
+          {/* <BookmarkCards handleAdd={handleAdd} /> */}
           <CodeJar />
           {data.map(card => {
             return <BookmarkCards {...card} />

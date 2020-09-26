@@ -27,6 +27,9 @@ const useStyles = makeStyles({
 	Logo:{
 		color: 'white',
 		fontSize: '20px'
+	},
+	black:{
+		backgroundColor: 'black'
 	}
 });
 
@@ -35,13 +38,13 @@ function Nav() {
 	const { isAuthenticated } = useAuth0();
 
 	return (
-		<AppBar position="static">
+		<AppBar position="static" className={classes.black} >
 			<Toolbar className={classes.blue}>
 				{/* <Typography variant="h6" className={classes.title}>
 					concat
 				</Typography> */}
 				<Button className={classes.Logo} component={Link} to='/'>
-					concat
+					.concat( )
 				</Button>
 				{/* <Link href="/" className={classes.link}>
 					Search
