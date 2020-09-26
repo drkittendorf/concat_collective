@@ -14,6 +14,7 @@ import Avatar from '@material-ui/core/Avatar';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Icon from '@material-ui/core/Icon';
 import AddIcon from '@material-ui/icons/Add';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 
 const useStyles = makeStyles({
@@ -70,7 +71,9 @@ export default function SimpleCard(props) {
               <Icon className="fas fa-link" />
             </Button>
             <Button size="small" onClick={handleAdd} >
-              <Icon className="fas fa-plus" />
+              {/* <Icon className="fas fa-plus" /> */}
+              <AddCircleIcon/>
+              {/* add to collection */}
             </Button>
           </Typography>
         </CardContent>
