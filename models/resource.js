@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 // Create the structure of concat's Resource collection
 const resourceSchema = new Schema({
+    // title of the resource
+    title: { type: String, required: true },
     // stores the link as a string
     link: { type: String, required: true },
     // stores category information

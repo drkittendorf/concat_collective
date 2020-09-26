@@ -1,17 +1,25 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'center'
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: '25ch',
+    width: '50ch',
+    
   },
+  button: {
+    marginTop: theme.spacing(1),
+    height: '5ch',
+  }
 }));
 
 export default function LayoutTextFields() {
@@ -19,18 +27,16 @@ export default function LayoutTextFields() {
 
   return (
     <div className={classes.root}>
-      <TextField
+      <TextField className={classes.textField}
           id="standard-full-width"
-          label="Search here"
-          style={{ margin: 8 }}
           placeholder="Javascript"
-          helperText="Press enter to submit!!"
           fullWidth
           margin="normal"
           InputLabelProps={{
             shrink: true,
           }}
         />
+        <Button className={classes.button}>Search</Button> 
     </div>
   );
 }
