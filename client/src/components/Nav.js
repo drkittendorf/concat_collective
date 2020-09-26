@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles({
 	link: {
@@ -58,13 +59,17 @@ function Nav() {
 
 				<Grid xs={6} className={classes.flexEnd}>
 					<AddResourceModal />
-					<Button className={classes.button} component={Link} to='/profile'>
-						<PersonIcon fontSize='large' />
-					</Button>
-					<Button className={classes.button} component={Link} to='/home'>
-						<HomeIcon fontSize='large' />
-					</Button>
-					{/* maybe we can put an icon here  */}
+					<Tooltip title='profile' arrow>
+						<Button className={classes.button} component={Link} to='/profile'>
+							<PersonIcon fontSize='medium' />
+						</Button>
+					</Tooltip>
+					<Tooltip title='home' arrow>
+						<Button className={classes.button} component={Link} to='/home'>
+							<HomeIcon fontSize='medium' />
+						</Button>
+					</Tooltip>
+
 					{isAuthenticated ? <LogoutButton /> : <LoginButton />}
 				</Grid>
 			</Toolbar>
