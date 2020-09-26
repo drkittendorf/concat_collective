@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const snippetController = require('../../controllers/snippetsController.js');
+const snippetController = require('../../controllers/snippetController.js');
 
 router.route('/')
   .get(snippetController.findAll)
