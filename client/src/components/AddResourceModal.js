@@ -14,7 +14,7 @@ import SkillDropdown from './SkillDropdown';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
-		margin: theme.spacing(1.5),
+		// margin: theme.spacing(1.5),
 		color: 'white',
 	},
 }));
@@ -35,7 +35,7 @@ export default function FormDialog() {
 	return (
 		<div>
 			<IconButton className={classes.button} onClick={handleClickOpen}>
-				<AddIcon />
+				<AddIcon fontSize="large"  />
 			</IconButton>
 			<Dialog
 				open={open}

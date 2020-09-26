@@ -44,6 +44,7 @@ export default function FullWidthGrid() {
     // .then(res => {
     //   setCards(res)
     // })
+    // ! calling the data for now till we get the backendworking
     setCards(data);
   }, [])
 
