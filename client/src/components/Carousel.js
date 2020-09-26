@@ -3,6 +3,7 @@ import Carousel from 'react-elastic-carousel';
 import ConcatCards from './ConcatCards/ConcatCards'
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+import './Crousel.css'
 
 const useStyles = makeStyles((theme) => ({
     root: {
