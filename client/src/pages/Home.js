@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import ConcatCards from '../components/ConcatCards';
 import SearchBar from '../components/SearchBar';
 import Nav from '../components/Nav';
+import Carousel from '../components/Carousel'
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
@@ -23,24 +24,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-  useEffect(() => {
+  // useEffect(() => {
    
-  }, [])
+  // }, [])
 
 export default function FullWidthGrid() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
+      
       <Grid container spacing={3} justify="center" >
         <Grid item xs={12} >
           <Nav />
         </Grid>
+        
         <Grid item xs={10}>
           <SearchBar />
-          <Paper className={classes.paper}>
+          <Carousel />
+          {/* <Paper className={classes.paper}>
             <ConcatCards />
-          </Paper>
+          </Paper> */}
         </Grid>
         <Grid item xs={12} container spacing={3}justify="space-around" >
           <BookmarkCards />
