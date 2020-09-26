@@ -25,7 +25,7 @@ function ConcatCards(props) {
       <Card className={classes.root}>
         <CardContent className={classes.paper} >
           <h4>
-            <bold>Concat (collective)</bold> an open space for developers to gather resources and continuously imporove their skillset. Gather, rate,  and consume helpful resources for yourself and your community WELCOME
+            Concat (collective) an open space for developers to gather resources and continuously imporove their skillset. Gather, rate,  and consume helpful resources for yourself and your community WELCOME
       </h4>
         </CardContent>
       </Card>

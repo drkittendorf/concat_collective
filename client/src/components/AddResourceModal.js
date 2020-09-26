@@ -14,14 +14,14 @@ import SkillDropdown from './SkillDropdown';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
-    margin: theme.spacing(1.5),
-    color: 'white',
+		// margin: theme.spacing(1.5),
+		color: 'white',
 	},
 }));
 
 export default function FormDialog() {
 	const classes = useStyles();
-	
+
 	const [open, setOpen] = React.useState(false);
 
 	const handleClickOpen = () => {
@@ -35,7 +35,7 @@ export default function FormDialog() {
 	return (
 		<div>
 			<IconButton className={classes.button} onClick={handleClickOpen}>
-				<AddIcon />
+				<AddIcon fontSize="large"  />
 			</IconButton>
 			<Dialog
 				open={open}
@@ -45,7 +45,7 @@ export default function FormDialog() {
 				<DialogTitle id='form-dialog-title'>Add Resource</DialogTitle>
 				<DialogContent>
 					<DialogContentText>
-						Find something cool? Add it to the collection! 
+						Find something cool? Add it to the collection!
 					</DialogContentText>
 					<TextField
 						autoFocus

@@ -2,10 +2,11 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
-    margin: theme.spacing(1.5),
+    // margin: theme.spacing(1.5),
     color: 'white',
 	},
 }));
@@ -22,7 +23,7 @@ function LoginButton() {
       variant="primary"
       className={classes.button}
     >
-      Log In
+      <Icon className="fas fa-sign-in-alt" fontSize="large" />
     </Button>
   );
 };
