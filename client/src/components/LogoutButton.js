@@ -2,20 +2,21 @@ import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
-		margin: theme.spacing(1.5),
+		// margin: theme.spacing(1.5),
 		color: 'white',
 	},
 }));
 
 function LogoutButton() {
-  //to use styles
-  const classes = useStyles();
-  
-  const { logout } = useAuth0();
-  
+	//to use styles
+	const classes = useStyles();
+
+	const { logout } = useAuth0();
+
 	return (
 		<Button
 			onClick={() =>
@@ -26,7 +27,7 @@ function LogoutButton() {
 			variant='danger'
 			className={classes.button}
 		>
-			Log Out
+			<Icon className="fas fa-sign-out-alt" fontSize="large" />
 		</Button>
 	);
 }

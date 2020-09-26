@@ -8,55 +8,75 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import "./style.css";
 
-import data from '../../dummyData.json';
+import IconButton from '@material-ui/core/IconButton';
+import CardHeader from '@material-ui/core/CardHeader';
+import Avatar from '@material-ui/core/Avatar';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Icon from '@material-ui/core/Icon';
+import AddIcon from '@material-ui/icons/Add';
+
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    borderRadius: '10px',
+    height: '220px'
   },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
     transform: 'scale(0.8)',
   },
-  title: {
+  skill: {
     fontSize: 14,
+    maring: '20px'
   },
   pos: {
     marginBottom: 12,
   },
+  icon: {
+    marginLeft: '100px'
+  }
 });
 
 export default function SimpleCard(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
+  const { title, link, id, category, skill, handleAdd } = props;
+
   return (
     <Grid item xs={12} sm={6} >
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom >
-          Beginner 😊
-        </Typography>
-        <Typography variant="h5" component="h2">
-          Title descriptor 
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-        category 
-        </Typography>
-        <Typography variant="body2" component="p">
-            {/* <link href="google.com" > link</link> */}
-          <br />
-          <Button size="small" onClick={() => console.log('this goes to the resource') } >link to resource </Button>
-        </Typography>
-
-      </CardContent>
-      <CardActions>
-        {/* some kind of conditional here to render 
-        if this is in the home page  */}
-        <Button size="small" onClick={() => console.log('button clicked') } >Add to Collection</Button>
-      </CardActions>
-    </Card>
+      <Card className={classes.root}>
+        <CardHeader
+          action={
+            <IconButton aria-label="settings"
+              onClick={handleAdd}
+            >
+              {/* <MoreVertIcon /> */}
+              <Icon className="fas fa-bookmark" />
+            </IconButton>
+          }
+          title={title || 'this will be the title'}
+          subheader={skill || 'this would be the skill level '}
+        />
+        <CardContent>
+          <Typography className={classes.pos} color="textSecondary">
+            {category || 'this will be the category'}
+          </Typography>
+          <Typography variant="body2" component="p">
+            <br />
+            <Button target="_blank" href={link || 'https://www.google.com'}>
+              <Icon className="fas fa-link" />
+            </Button>
+            <Button size="small" onClick={handleAdd} >
+              <Icon className="fas fa-plus" />
+            </Button>
+          </Typography>
+        </CardContent>
+        <CardActions>
+        </CardActions>
+      </Card>
     </Grid>
   );
 }

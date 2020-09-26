@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "title": "learning Javascript",
+      "link": "https://www.youtube.com/watch?v=PkZNo7MFNFg",
+      "category": "javascript",
+      "skill": "beginner"
+    },
+    {
+      "id": 2,
+      "title": "material-ui",
+      "link": "https://material-ui.com/customization/spacing/",
+      "category": "css",
+      "skill": "beginner"
+    },
+    {
+      "id": 3,
+      "title": "highlight.js",
+      "link": "https://www.youtube.com/watch?v=PkZNo7MFNFg",
+      "category": "library",
+      "skill": "beginner"
+    },
+    {
+      "id": 4,
+      "title": "Mice Chase is Vue",
+      "link": "https://codepen.io/elsemeow/pen/WNwPNog",
+      "category": "javascript",
+      "skill": "intermediate"
+    },
+    {
+      "id": 5,
+      "title": "learning Javascript",
+      "link": "https://www.youtube.com/watch?v=PkZNo7MFNFg",
+      "category": "javascript",
+      "skill": "beginner"
+    }
+  ]
+  
