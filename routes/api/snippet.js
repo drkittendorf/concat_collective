@@ -10,8 +10,4 @@ router.route('/:id')
   .put(snippetController.update)
   .delete(snippetController.remove);
 
-router.route('/snippets')
-  .get(snippetController.findAll)
-  .post(snippetController.create);
-
 module.exports = router;
