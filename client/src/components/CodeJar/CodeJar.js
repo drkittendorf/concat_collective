@@ -68,7 +68,7 @@ const CodeJar = () => {
     }
 
     // this is used by the accordion
-    const [expanded, setExpanded] = React.useState('panel1');
+    const [expanded, setExpanded] = useState('');
 
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
@@ -91,14 +91,16 @@ const CodeJar = () => {
                 <CardContent>
                     <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                            <Typography>Collapsible Group Item #1</Typography>
+                            <Typography>view preview here 🧐 </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        </Typography>
+                            <div className='editor'>
+                                <ReactCodeJar
+                                    code={code} // Initial code value
+                                    onUpdate={setCode} // Update the text
+                                    highlight={highlight} // Highlight function, receive the editor
+                                />
+                            </div>
                         </AccordionDetails>
                     </Accordion>
                     <Typography color="textSecondary">
