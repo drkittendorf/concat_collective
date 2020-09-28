@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import Tooltip from '@material-ui/core/Tooltip';
+import MenuDropdown from './MenuDropdown/MenuDropdown'
 
 const useStyles = makeStyles({
 	link: {
@@ -71,6 +72,9 @@ function Nav() {
 					</Tooltip>
 
 					{isAuthenticated ? <LogoutButton /> : <LoginButton />}
+				</Grid>
+				<Grid xs={3} className={classes.flexEnd}>
+					<MenuDropdown />
 				</Grid>
 			</Toolbar>
 		</AppBar>

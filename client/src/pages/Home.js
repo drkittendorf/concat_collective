@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import ConcatCards from '../components/ConcatCards/ConcatCards';
 import SearchBar from '../components/SearchBar';
 import Nav from '../components/Nav';
-import Carousel from '../components/Carousel'
+import Carousel from '../components/Carousel/Carousel'
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
