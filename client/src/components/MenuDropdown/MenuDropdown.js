@@ -6,6 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../LoginButton';
 import LogoutButton from '../LogoutButton';
+import './MenuDropdown.css'
 
 
 export default function SimpleMenu() {
@@ -22,9 +23,9 @@ export default function SimpleMenu() {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <div>
+    <div className='menuDropdown'>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        <MenuIcon/>
+        <MenuIcon style={{ color: 'white'}}/>
       </Button>
       <Menu
         id="simple-menu"
