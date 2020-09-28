@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import SearchBar from '../components/SearchBar';
-<<<<<<< HEAD
-import Nav from '../components/Nav';
 import Carousel from '../components/Carousel/Carousel'
-=======
-import Carousel from '../components/Carousel'
->>>>>>> 7020b863044facddce885ab0844fe63fcc2d74d5
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
