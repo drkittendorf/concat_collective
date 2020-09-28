@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import ConcatCards from '../components/ConcatCards/ConcatCards';
 import SearchBar from '../components/SearchBar';
-import Nav from '../components/Nav';
 import Carousel from '../components/Carousel'
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
@@ -33,19 +30,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FullWidthGrid() {
   const classes = useStyles();
-  const [cards, setCards] = useState([])
+  const [bookmarkCards, setBookmarkCards] = useState([]); 
+  const [codeCards, setCodeCards] = useState([]); 
 
 
   useEffect(() => {
     console.log('this is a call')
 
-    // here we set the cards
-    // Api.getBookmarks()
-    // .then(res => {
-    //   setCards(res)
-    // })
+    // set the booksmarks cards 
+    Api.getBookmarks()
+    .then(res => {
+      let data = res.data 
+      setBookmarkCards(data);
+      console.log(data)
+    })
+    // Api.getBookmarks().then(res => {
+    //   console.log('hello res')
+
+   
+
+
     // ! calling the data for now till we get the backendworking
-    setCards(data);
+    // setCards(data);
   }, [])
 
 
@@ -59,14 +65,15 @@ export default function FullWidthGrid() {
     <div className={classes.root}>
       <Grid container spacing={3} justify="center">
         <Grid item xs={10}>
-          <SearchBar />
           <Carousel />
+          <SearchBar />
+          {/* filter buttons here */}
         </Grid>
 
         <Grid item xs={12} container spacing={3} justify="flex-start" >
           {/* <BookmarkCards handleAdd={handleAdd} /> */}
           <CodeJar />
-          {data.map(card => {
+          {bookmarkCards.map(card => {
             return <BookmarkCards {...card} />
           })}
           {/* <BookmarkCards
@@ -90,3 +97,46 @@ export default function FullWidthGrid() {
 //     location={friend.location}
 //   />
 // ))}
+
+
+// todo: live chat with help v2  => problem
+// todo: create new collection
+// todo: code cards get thing 
+// todo: code accordion
+// todo: delete from you own but not global
+// todo: search code cards or links
+// todo: search slider for categories (filters) 
+    // => new bookmarks or code 
+
+
+// todo: minigame: 
+
+// todo: emoji: rick roll link [DONE]
+// todo: (newlyConcated) (language(dropdowm))
+
+
+
+// ! modal categories button dropdown cascading
+// JavaScript
+// React.js
+// Node.js
+// Python
+// HTML
+// CSS
+// C++
+// TypeScript
+// Rust
+// Scheme
+// Java 
+// Kotlin
+// C#
+// Perl
+// PHP
+// Scala 
+// Swift
+// MATLAB
+// SQL
+// R Programming Language
+// Golang (Go)
+// Ruby
+// Other
