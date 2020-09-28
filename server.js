@@ -18,11 +18,16 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/concat_collective", { useNewUrlParser: true });
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/concat_collective',
+ { 
+   useNewUrlParser: true, 
+   useFindAndModify: false,
+   useCreateIndex: true,
+   useUnifiedTopology: true
+ }
+ );
+
 
 // Start the API server
 app.listen(PORT, function() {
