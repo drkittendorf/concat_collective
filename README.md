@@ -2,7 +2,8 @@
 
 ## APP URLS
 https://github.com/drkittendorf/concat_collective <br>
-https://drkittendorf.github.io/concat_collective/
+https://drkittendorf.github.io/concat_collective/ <br>
+https://afternoon-sea-65522.herokuapp.com/ 
 
 
 ## CONTRIBUTORS
@@ -18,6 +19,7 @@ https://drkittendorf.github.io/concat_collective/
 
 ## SCREENSHOTS
   ![screenshot1] 
+
 
 ## VIDEO
 
