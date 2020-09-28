@@ -45,9 +45,6 @@ const useStyles = makeStyles((theme) => ({
 //     },
 //   }))(MuiAccordionDetails);
 
-
-
-
 const highlight = editor => {
     let code = editor.textContent;
     code = code.replace(/\((\w+?)(\b)/g, '(<font color="#8a2be2">$1</font>$2');
@@ -104,7 +101,7 @@ const CodeJar = () => {
                 <CardContent>
                     <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                            <Typography>view preview here 🧐 </Typography>
+                            <Typography>view preview here ... </Typography>
                         </AccordionSummary>
                         <AccordionDetails className={classes.details} >
                             <div className='editor'>
