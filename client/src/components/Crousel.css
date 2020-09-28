@@ -2,7 +2,7 @@ button.chowzb:hover:enabled,
 button.chowzb:focus:enabled {
 	color: #333;
 	background-color: transparent;
-	box-shadow: 0 0 0px 0 transparent;
+    box-shadow: 0 0 0px 0 transparent;
 }
 
 button.chowzb {
@@ -13,7 +13,7 @@ button.chowzb {
 	color: #333;
 	box-shadow: 0 0 0px 0px transparent;
 	border-radius: 50%;
-	border: none;
+    border: none;
 }
 
 button.hCVuYx {
@@ -34,7 +34,7 @@ button.brcpxa {
 	margin: 5px;
 	background-color: #333;
 	font-size: 1.3em;
-	content: '';
+	content: 100px;
 	height: 10px;
 	width: 10px;
 	border-radius: 50%;
@@ -57,15 +57,6 @@ button.ikyGAt:focus {
 	box-shadow: 0 0 1px 2px #333;
 }
 
-.cfKeGQ {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	width: 100%;
-	background-color: teal;
-	padding: 30px;
+div.cfKeGQ{
+    width: 100vw;
 }

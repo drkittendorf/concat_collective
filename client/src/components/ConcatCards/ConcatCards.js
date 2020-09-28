@@ -7,12 +7,11 @@ import CardContent from '@material-ui/core/CardContent';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    borderRadius: '10px'
+    borderRadius: 0,
   },
   paper: {
-    padding: theme.spacing(4),
     textAlign: 'center',
-    fontSize: '20px', 
+    fontSize: '15px', 
     color: theme.palette.text.primary,
   },
 }));
@@ -21,12 +20,12 @@ function ConcatCards(props) {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} sm={12} className='concat' >
+    <Grid item xs={12} sm={12}>
       <Card className={classes.root}>
         <CardContent className={classes.paper} >
-          <h4>
+          <p>
             Concat (collective) an open space for developers to gather resources and continuously imporove their skillset. Gather, rate,  and consume helpful resources for yourself and your community WELCOME
-      </h4>
+          </p>
         </CardContent>
       </Card>
     </Grid>

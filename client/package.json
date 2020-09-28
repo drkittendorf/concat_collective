@@ -10,12 +10,14 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "highlight.js": "^10.2.0",
+    "material-auto-rotating-carousel": "^3.0.2",
     "react": "^16.13.1",
     "react-codejar": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-elastic-carousel": "^0.7.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-swipeable-views": "^0.13.9",
     "styled-components": "^5.2.0"
   },
   "scripts": {
