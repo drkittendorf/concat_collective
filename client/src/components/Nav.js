@@ -37,6 +37,10 @@ const useStyles = makeStyles({
 		display: 'flex',
 		justifyContent: 'space-between',
 	},
+	menuIcon:{
+		display:'flex',
+		justifyContent:'flex-end'
+	}
 });
 
 function Nav() {
@@ -56,7 +60,7 @@ function Nav() {
 						</Button>
 					</Grid>
 
-					<Grid item xs={6} className='menuIconList' style={{display:'flex', justifyContent:'flex-end'}}>
+					<Grid item xs={6} className={classes.menuIcon}>
 						<AddResourceModal />
 						<Tooltip title='profile' arrow>
 							<Button className={classes.button} component={Link} to='/profile'>

@@ -9,7 +9,7 @@ const resourceSchema = new Schema({
     // stores category information
     category: { type: String, required: true },
     // stores the experience level
-    experience: { type: String, required: true },
+    skill: { type: String, required: true },
 });
 // Defines the resource schema from above
 const Resource = mongoose.model("Resource", resourceSchema);

@@ -10,8 +10,4 @@ router.route('/:id')
   .put(resourceController.update)
   .delete(resourceController.remove);
 
-router.route('/resources')
-  .get(resourceController.findAll)
-  .post(resourceController.create);
-
 module.exports = router;
