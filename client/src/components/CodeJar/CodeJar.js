@@ -21,6 +21,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import { set } from "mongoose";
 // import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 
 
@@ -51,10 +52,11 @@ const highlight = editor => {
     editor.innerHTML = code;
 };
 
-const CodeJar = () => {
+const CodeJar = (props) => {
     const classes = useStyles();
-
     const [open, setOpen] = useState(false);
+
+    const { description, language, snippet, _id } = props;
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -64,10 +66,9 @@ const CodeJar = () => {
         setOpen(false);
     };
 
-    const [code, setCode] = useState(`function(ldsfj){
-        console.log('hello')
-    }
-    `);
+    const [code, setCode] = useState(`${snippet} `);
+
+    // setCode(snippet)
 
     const compile = (event) => {
         console.log('compile')
@@ -95,8 +96,8 @@ const CodeJar = () => {
                             <CodeIcon fontSize='large' />
                         </IconButton>
                     }
-                    title={'Code title'}
-                    subheader={'this would be the skill level '}
+                    title={language}
+                    subheader={description}
                 />
                 <CardContent>
                     <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
