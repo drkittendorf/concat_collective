@@ -17,6 +17,11 @@ import AddIcon from '@material-ui/icons/Add';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -62,6 +67,13 @@ const CodeJar = () => {
         console.log('send to the api')
     }
 
+    // this is used by the accordion
+    const [expanded, setExpanded] = React.useState('panel1');
+
+    const handleChange = (panel) => (event, newExpanded) => {
+        setExpanded(newExpanded ? panel : false);
+    };
+
     return (
         <Grid item xs={12} sm={6} >
             <Card className={classes.root}>
@@ -70,8 +82,6 @@ const CodeJar = () => {
                         <IconButton aria-label="settings"
                             onClick={handleClickOpen}
                         >
-                            {/* <MoreVertIcon /> */}
-                            {/* <Icon className="fas fa-code" /> */}
                             <CodeIcon fontSize='large' />
                         </IconButton>
                     }
@@ -79,8 +89,20 @@ const CodeJar = () => {
                     subheader={'this would be the skill level '}
                 />
                 <CardContent>
+                    <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                            <Typography>Collapsible Group Item #1</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                                sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+                        </Typography>
+                        </AccordionDetails>
+                    </Accordion>
                     <Typography color="textSecondary">
-                        this will be the category
+                        {/* this will be the category */}
                     </Typography>
                     <Typography className={classes.pos}>
                         <br />
