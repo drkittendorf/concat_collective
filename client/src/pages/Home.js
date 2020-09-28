@@ -44,14 +44,14 @@ export default function FullWidthGrid() {
       setBookmarkCards(data);
       console.log(data)
     })
-    // Api.getBookmarks().then(res => {
-    //   console.log('hello res')
-
-   
-
-
-    // ! calling the data for now till we get the backendworking
-    // setCards(data);
+ 
+    // set code cards
+    Api.getSnippets()
+    .then(res => {
+      let data = res.data 
+      setCodeCards(data);
+      console.log(data)
+    })
   }, [])
 
 
@@ -74,12 +74,12 @@ export default function FullWidthGrid() {
           {/* <BookmarkCards handleAdd={handleAdd} /> */}
           <CodeJar />
           {bookmarkCards.map(card => {
-            return <BookmarkCards {...card} />
+            return <BookmarkCards key={card._id} {...card} />
           })}
-          {/* <BookmarkCards
-            skill={'hello'} 
-            title={'is this title showing up? '}
-            /> */}
+          {codeCards.map(card => {
+            return <CodeJar key={card._id} {...card} />
+          })}
+          
         </Grid>
       </Grid>
     </div>
@@ -108,7 +108,7 @@ export default function FullWidthGrid() {
 // todo: search slider for categories (filters) 
     // => new bookmarks or code 
 
-
+// todo: sandbox api 
 // todo: minigame: 
 
 // todo: emoji: rick roll link [DONE]

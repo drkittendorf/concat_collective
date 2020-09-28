@@ -13,7 +13,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Icon from '@material-ui/core/Icon';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
-
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -68,7 +67,7 @@ export default function SimpleCard(props) {
             </Button>
             <Button size="small" onClick={handleAdd} >
               {/* <Icon className="fas fa-plus" /> */}
-              <AddCircleIcon/>
+              <AddCircleIcon />
               {/* add to collection */}
             </Button>
           </Typography>
