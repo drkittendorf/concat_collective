@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    img:{
+        height: '7rem',
+        borderRadius: '50%'
+    }
 }));
 
 function Profile() {
@@ -30,12 +34,9 @@ function Profile() {
                         <img
                             src={picture}
                             alt="Profile"
+                            className={classes.img}
                         />
-                    </Paper>
-                </Grid>
-                <Grid item xs={6}>
-                    <Paper className={classes.paper}>
-                        <h2>{name}</h2>
+                         <h2>{name}</h2>
                         <p >{email}</p>
                     </Paper>
                 </Grid>
