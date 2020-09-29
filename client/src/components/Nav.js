@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import Tooltip from '@material-ui/core/Tooltip';
+import MenuDropdown from './MenuDropdown/MenuDropdown';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles({
 	link: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles({
 		display: 'flex',
 		justifyContent: 'space-between',
 	},
-	flexEnd: {
+	menuIcon: {
 		display: 'flex',
 		justifyContent: 'flex-end',
 	},
@@ -43,6 +45,7 @@ const useStyles = makeStyles({
 
 function Nav() {
 	const classes = useStyles();
+	const matches = useMediaQuery('(min-width:768px)');
 	const { isAuthenticated } = useAuth0();
 
 	return (
@@ -51,27 +54,36 @@ function Nav() {
 				{/* <Typography variant="h6" className={classes.title}>
 					concat
 				</Typography> */}
-				<Grid xs={6}>
-					<Button className={classes.Logo} component={Link} to='/'>
-						concat(collective)
-					</Button>
+				<Grid container xs={12}>
+					<Grid item xs={6}>
+						<Button className={classes.Logo} component={Link} to='/'>
+							concat(collective)
+						</Button>
+					</Grid>
+
+					{matches && (
+						<Grid item xs={6} className={classes.menuIcon}>
+							<AddResourceModal />
+							<Tooltip title='profile' arrow>
+								<Button
+									className={classes.button}
+									component={Link}
+									to='/profile'
+								>
+									<PersonIcon fontSize='medium' />
+								</Button>
+							</Tooltip>
+							<Tooltip title='home' arrow>
+								<Button className={classes.button} component={Link} to='/home'>
+									<HomeIcon fontSize='medium' />
+								</Button>
+							</Tooltip>
+							{isAuthenticated ? <LogoutButton /> : <LoginButton />}
+						</Grid>
+					)}
 				</Grid>
 
-				<Grid xs={6} className={classes.flexEnd}>
-					<AddResourceModal />
-					<Tooltip title='profile' arrow>
-						<Button className={classes.button} component={Link} to='/profile'>
-							<PersonIcon fontSize='medium' />
-						</Button>
-					</Tooltip>
-					<Tooltip title='home' arrow>
-						<Button className={classes.button} component={Link} to='/home'>
-							<HomeIcon fontSize='medium' />
-						</Button>
-					</Tooltip>
-
-					{isAuthenticated ? <LogoutButton /> : <LoginButton />}
-				</Grid>
+				<MenuDropdown className='menuDropdown' />
 			</Toolbar>
 		</AppBar>
 	);
