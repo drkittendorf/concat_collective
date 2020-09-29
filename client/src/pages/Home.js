@@ -63,15 +63,12 @@ export default function FullWidthGrid() {
   // homepage closure
   // id of the card 
   // change setcodecards send and object with the change 
-  const handleDelete = (id) => (e) => {
-    e.preventDefault();
+  const handleAdd = (id) => (e) => {
+    e.preventDefault(); 
     // find the card in the array 
     // ** then send it to the user database 
     // dispatch(deleteUser(id));
-  };
-
-  const handleAdd = (id) => (e) => {
-    e.preventDefault(); 
+    
 
   }
 
