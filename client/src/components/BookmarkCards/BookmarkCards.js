@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 export default function SimpleCard(props) {
   const classes = useStyles();
 
-  const { title, link, id, category, skill, handleAdd } = props;
+  const { title, link, _id, category, skill, handleAdd } = props;
 
   return (
     <Grid item xs={12} sm={6} >
@@ -47,7 +47,7 @@ export default function SimpleCard(props) {
         <CardHeader
           action={
             <IconButton aria-label="settings"
-              onClick={handleAdd}
+              onClick={handleAdd(_id)}
             >
               {/* <MoreVertIcon /> */}
               <Icon className="fas fa-bookmark" />

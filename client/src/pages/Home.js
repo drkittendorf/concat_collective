@@ -30,35 +30,49 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FullWidthGrid() {
   const classes = useStyles();
-  const [bookmarkCards, setBookmarkCards] = useState([]); 
-  const [codeCards, setCodeCards] = useState([]); 
+  const [bookmarkCards, setBookmarkCards] = useState([]);
+  const [codeCards, setCodeCards] = useState([]);
+
+  // convert to array  reduce key object 
+  // convert to object reduce 
+  // reduce explanation 
+  /// transformers 
 
 
+  //call the api to get the cards 
   useEffect(() => {
     console.log('this is a call')
 
     // set the booksmarks cards 
     Api.getBookmarks()
-    .then(res => {
-      let data = res.data 
-      setBookmarkCards(data);
-      console.log(data)
-    })
- 
+      .then(res => {
+        let data = res.data
+        setBookmarkCards(data);
+        console.log(data)
+      })
+
     // set code cards
     Api.getSnippets()
-    .then(res => {
-      let data = res.data 
-      setCodeCards(data);
-      console.log(data)
-    })
+      .then(res => {
+        let data = res.data
+        setCodeCards(data);
+        console.log(data)
+      })
   }, [])
 
+  // homepage closure
+  // id of the card 
+  // change setcodecards send and object with the change 
+  const handleDelete = (id) => (e) => {
+    e.preventDefault();
+    // find the card in the array 
+    // ** then send it to the user database 
+    // dispatch(deleteUser(id));
+  };
 
-  const handleAdd = () => {
-    console.log('this function will be in charge of adding the book mark to you personal profile');
+  const handleAdd = (id) => (e) => {
+    e.preventDefault(); 
 
-    // Api.saveBookmarks()
   }
 
   return (
@@ -69,34 +83,21 @@ export default function FullWidthGrid() {
           <SearchBar />
           {/* filter buttons here */}
         </Grid>
-
         <Grid item xs={12} container spacing={3} justify="flex-start" >
-          {/* <BookmarkCards handleAdd={handleAdd} /> */}
-          <CodeJar />
           {bookmarkCards.map(card => {
-            return <BookmarkCards key={card._id} {...card} />
+            return <BookmarkCards 
+            key={card._id} {...card} 
+            handleAdd={handleAdd}  
+            />
           })}
           {codeCards.map(card => {
             return <CodeJar key={card._id} {...card} />
           })}
-          
         </Grid>
       </Grid>
     </div>
   );
 }
-
-// {this.state.friends.map(friend => (
-//   <FriendCard
-//     removeFriend={this.removeFriend}
-//     id={friend.id}
-//     key={friend.id}
-//     name={friend.name}
-//     image={friend.image}
-//     occupation={friend.occupation}
-//     location={friend.location}
-//   />
-// ))}
 
 
 // todo: live chat with help v2  => problem

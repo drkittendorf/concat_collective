@@ -22,6 +22,8 @@ function Profile() {
     const { user } = useAuth0();
     const { name, picture, email } = user;
 
+    console.log(user); 
+
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
