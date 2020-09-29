@@ -19,7 +19,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 const useStyles = makeStyles({
 	link: {
 		color: 'white',
-		padding: '0px 15px 0px 15px',
 	},
 	button: {
 		// margin: theme.spacing(1.5),
@@ -54,7 +53,7 @@ function Nav() {
 				<Toolbar className={classes.space}>
 					<Grid item xs={6}>
 						<Button className={classes.Logo} component={Link} to='/'>
-							<img src='/concatCollective.png' alt='concat(collective)' />
+							<img className={classes.img} src='/concatCollective.png' alt='concat(collective)' />
 						</Button>
 					</Grid>
 

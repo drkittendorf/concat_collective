@@ -6,8 +6,11 @@ const snippetSchema = new Schema({
     description: { type: String, required: true },
     // stores the link as a string
     language: { type: String, required: true },
+     // add date created for sorting purposes
+     created: {type: Date, default:Date.now},
     // stores the snippet information
     snippet: { type: String, required: true },
+   
 });
 // Defines the resource schema from above
 const Snippet = mongoose.model("Snippet", snippetSchema);

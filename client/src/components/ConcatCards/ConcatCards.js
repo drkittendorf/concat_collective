@@ -24,12 +24,11 @@ function ConcatCards(props) {
 			<Card className={classes.root}>
 				<CardContent className={classes.paper}>
 					<p>
-						Concat (collective) is an open space for developers to gather
-						resources and continuously imporove their skillset.
+						Concat(collective) is an open learning space built by developers for developers. We aim to bring together
+						the best resources for everyone seeking to upskill.
 						<br />
 						<br />
-						Gather, rate, and consume helpful resources for yourself and your
-						community
+						Gather, share, and consume helpful coding resources with your fellow developers.
 						<br />
 						<br />
 						<strong>WELCOME</strong>
