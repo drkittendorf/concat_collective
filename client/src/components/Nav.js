@@ -26,12 +26,12 @@ const useStyles = makeStyles({
 		color: 'white',
 	},
 	Logo: {
-		color: 'white',
-		fontSize: '20px',
+		padding: '0px',
 	},
 	black: {
 		backgroundColor: 'black',
 		marginBottom: '20px',
+		height: '20vh'
 	},
 	space: {
 		display: 'flex',
@@ -49,15 +49,12 @@ function Nav() {
 	const { isAuthenticated } = useAuth0();
 
 	return (
-		<AppBar position='static' className={classes.black}>
-			<Toolbar className={classes.space}>
-				{/* <Typography variant="h6" className={classes.title}>
-					concat
-				</Typography> */}
-				<Grid container xs={12}>
+		<Grid container xs={12}>
+			<AppBar position='static' className={classes.black}>
+				<Toolbar className={classes.space}>
 					<Grid item xs={6}>
 						<Button className={classes.Logo} component={Link} to='/'>
-							concat(collective)
+							<img src='/concatCollective.png' alt='concat(collective)' />
 						</Button>
 					</Grid>
 
@@ -81,11 +78,11 @@ function Nav() {
 							{isAuthenticated ? <LogoutButton /> : <LoginButton />}
 						</Grid>
 					)}
-				</Grid>
 
-				<MenuDropdown className='menuDropdown' />
-			</Toolbar>
-		</AppBar>
+					<MenuDropdown className='menuDropdown' />
+				</Toolbar>
+			</AppBar>
+		</Grid>
 	);
 }
 
