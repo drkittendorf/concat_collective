@@ -9,13 +9,24 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import IconButton from '@material-ui/core/IconButton';
-import SkillDropdown from './SkillDropdown';
 import Tooltip from '@material-ui/core/Tooltip';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
 		// margin: theme.spacing(1.5),
 		color: 'white',
+	},
+	formControl: {
+		margin: theme.spacing(1),
+		minWidth: 120,
+	},
+	selectEmpty: {
+		marginTop: theme.spacing(2),
 	},
 }));
 
@@ -23,6 +34,16 @@ export default function FormDialog() {
 	const classes = useStyles();
 
 	const [open, setOpen] = React.useState(false);
+	const [category, setCategory] = React.useState('');
+	const [skill, setSkill] = React.useState('');
+
+	const handleCategoryChange = (event) => {
+		setCategory(event.target.value);
+	};
+
+	const handleSkillChange = (event) => {
+		setCategory(event.target.value);
+	};
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -49,14 +70,7 @@ export default function FormDialog() {
 					<DialogContentText>
 						Find something cool? Add it to the collection!
 					</DialogContentText>
-					<TextField
-						autoFocus
-						margin='dense'
-						id='category'
-						label='category'
-						type='text'
-						fullWidth
-					/>
+					{/* where they enter the link/resource */}
 					<TextField
 						margin='dense'
 						id='link'
@@ -64,7 +78,63 @@ export default function FormDialog() {
 						type='text'
 						fullWidth
 					/>
-					<SkillDropdown />
+					
+					{/* select category */}
+					<FormControl className={classes.formControl}>
+						<Select
+							value={category}
+							onChange={handleCategoryChange}
+							displayEmpty
+							className={classes.selectEmpty}
+							inputProps={{ 'aria-label': 'Without label' }}
+						>
+							<MenuItem value='' disabled>
+								Select Category
+							</MenuItem>
+							<MenuItem value={'Algorithms'}>Algorithms</MenuItem>
+							<MenuItem value={'C#'}>C#</MenuItem>
+							<MenuItem value={'C++'}>C++</MenuItem>
+							<MenuItem value={'CSS'}>CSS</MenuItem>
+							<MenuItem value={'Golang (Go)'}>Golang (Go)</MenuItem>
+							<MenuItem value={'HTML'}>HTML</MenuItem>
+							<MenuItem value={'Java'}>Java</MenuItem>
+							<MenuItem value={'JavaScript'}>JavaScript</MenuItem>
+							<MenuItem value={'MATLAB'}>MATLAB</MenuItem>
+							<MenuItem value={'Node.js'}>Node.js</MenuItem>
+							<MenuItem value={'Perl'}>Perl</MenuItem>
+							<MenuItem value={'PHP'}>PHP</MenuItem>
+							<MenuItem value={'R'}>R</MenuItem>
+							<MenuItem value={'React.js'}>React.js</MenuItem>
+							<MenuItem value={'Ruby'}>Ruby</MenuItem>
+							<MenuItem value={'Rust'}>Rust</MenuItem>
+							<MenuItem value={'Scheme'}>Scheme</MenuItem>
+							<MenuItem value={'Scala'}>Scala</MenuItem>
+							<MenuItem value={'SQL'}>SQL</MenuItem>
+							<MenuItem value={'Swift'}>Swift</MenuItem>
+							<MenuItem value={'TypeScript'}>TypeScript</MenuItem>
+							<MenuItem value={'Other'}>Other</MenuItem>
+						</Select>
+						<FormHelperText>EX: Javascript</FormHelperText>
+					</FormControl>
+					
+					{/* select skill level */}
+					<FormControl className={classes.formControl}>
+						<Select
+							value={skill}
+							onChange={handleSkillChange}
+							displayEmpty
+							className={classes.selectEmpty}
+							inputProps={{ 'aria-label': 'Without label' }}
+						>
+							<MenuItem value='' disabled>
+								Select Skill Level
+							</MenuItem>
+							<MenuItem value={'Beginner'}>Beginner</MenuItem>
+							<MenuItem value={'Intermediate'}>Intermediate</MenuItem>
+							<MenuItem value={'Expert'}>Expert</MenuItem>
+						</Select>
+						<FormHelperText>EX: Beginner</FormHelperText>
+					</FormControl>
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleClose} color='primary'>
