@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import Tooltip from '@material-ui/core/Tooltip';
+import MenuDropdown from './MenuDropdown/MenuDropdown';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles({
 	link: {
@@ -24,18 +26,18 @@ const useStyles = makeStyles({
 		color: 'white',
 	},
 	Logo: {
-		color: 'white',
-		fontSize: '20px',
+		padding: '0px',
 	},
 	black: {
 		backgroundColor: 'black',
 		marginBottom: '20px',
+		height: '20vh'
 	},
 	space: {
 		display: 'flex',
 		justifyContent: 'space-between',
 	},
-	flexEnd: {
+	menuIcon: {
 		display: 'flex',
 		justifyContent: 'flex-end',
 	},
@@ -43,37 +45,44 @@ const useStyles = makeStyles({
 
 function Nav() {
 	const classes = useStyles();
+	const matches = useMediaQuery('(min-width:768px)');
 	const { isAuthenticated } = useAuth0();
 
 	return (
-		<AppBar position='static' className={classes.black}>
-			<Toolbar className={classes.space}>
-				{/* <Typography variant="h6" className={classes.title}>
-					concat
-				</Typography> */}
-				<Grid xs={6}>
-					<Button className={classes.Logo} component={Link} to='/'>
-						concat(collective)
-					</Button>
-				</Grid>
-
-				<Grid xs={6} className={classes.flexEnd}>
-					<AddResourceModal />
-					<Tooltip title='profile' arrow>
-						<Button className={classes.button} component={Link} to='/profile'>
-							<PersonIcon fontSize='medium' />
+		<Grid container xs={12}>
+			<AppBar position='static' className={classes.black}>
+				<Toolbar className={classes.space}>
+					<Grid item xs={6}>
+						<Button className={classes.Logo} component={Link} to='/'>
+							<img src='/concatCollective.png' alt='concat(collective)' />
 						</Button>
-					</Tooltip>
-					<Tooltip title='home' arrow>
-						<Button className={classes.button} component={Link} to='/home'>
-							<HomeIcon fontSize='medium' />
-						</Button>
-					</Tooltip>
+					</Grid>
 
-					{isAuthenticated ? <LogoutButton /> : <LoginButton />}
-				</Grid>
-			</Toolbar>
-		</AppBar>
+					{matches && (
+						<Grid item xs={6} className={classes.menuIcon}>
+							<AddResourceModal />
+							<Tooltip title='profile' arrow>
+								<Button
+									className={classes.button}
+									component={Link}
+									to='/profile'
+								>
+									<PersonIcon fontSize='medium' />
+								</Button>
+							</Tooltip>
+							<Tooltip title='home' arrow>
+								<Button className={classes.button} component={Link} to='/home'>
+									<HomeIcon fontSize='medium' />
+								</Button>
+							</Tooltip>
+							{isAuthenticated ? <LogoutButton /> : <LoginButton />}
+						</Grid>
+					)}
+
+					<MenuDropdown className='menuDropdown' />
+				</Toolbar>
+			</AppBar>
+		</Grid>
 	);
 }
 
