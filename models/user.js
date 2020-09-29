@@ -9,8 +9,8 @@ const userSchema = new Schema({
     // stores email information
     email: { type: String, required: true },
     //! need arrays to store card and snippet arrays
-    userBookmarks: [ Resource.Types.ObjectId ],
-    userSnippets:  [ Snippet.Types.ObjectId ]
+    // userBookmarks: [ Resource.Types.ObjectId ],
+    // userSnippets:  [ Snippet.Types.ObjectId ]
 });
 // Defines the resource schema from above
 const User = mongoose.model("User", userSchema);
