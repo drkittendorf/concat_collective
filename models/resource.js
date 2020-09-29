@@ -10,6 +10,8 @@ const resourceSchema = new Schema({
     category: { type: String, required: true },
     // stores the experience level
     skill: { type: String, required: true },
+    // add date created for sorting purposes
+    created: {type: Date, default:Date.now},
 });
 // Defines the resource schema from above
 const Resource = mongoose.model("Resource", resourceSchema);
