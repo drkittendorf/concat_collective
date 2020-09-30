@@ -9,6 +9,7 @@ import CodeJar from '../components/CodeJar/CodeJar'
 
 import data from '../dummyData.json'
 import Api from '../utils/API'
+import Transform from '../utils/Transform'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,35 +31,36 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FullWidthGrid() {
   const classes = useStyles();
-  const [bookmarkCards, setBookmarkCards] = useState([]); 
-  const [codeCards, setCodeCards] = useState([]); 
+  const [bookmarkCards, setBookmarkCards] = useState([]);
+  const [codeCards, setCodeCards] = useState([]);
 
+  /// ******  transformers [done]
 
   useEffect(() => {
-    console.log('this is a call')
-
-    // set the booksmarks cards 
-    Api.getBookmarks()
-    .then(res => {
-      let data = res.data 
-      setBookmarkCards(data);
-      console.log(data)
-    })
- 
-    // set code cards
-    Api.getSnippets()
-    .then(res => {
-      let data = res.data 
-      setCodeCards(data);
-      console.log(data)
-    })
+    Api.getBookmarks().then(res => setBookmarkCards(res.data))
+    Api.getSnippets().then(res => setCodeCards(res.data))
   }, [])
 
+  // homepage closure
+  // id of the card 
+  // change setcodecards send and object with the change 
+  const handleAdd = (id) => (e) => {
+    e.preventDefault(); 
+    // find the card in the array 
+    // ** then send it to the user database 
+    // dispatch(deleteUser(id));
 
-  const handleAdd = () => {
-    console.log('this function will be in charge of adding the book mark to you personal profile');
-
-    // Api.saveBookmarks()
+    // turn array to object? 
+    let card = Transform.toObject(bookmarkCards.concat(codeCards))
+    // send this object to the be saved as a new entry for the user database 
+    // so this will probably need to be pushed to the array in the in the database 
+    if(card[id].snippet){
+      console.log('this is a code card send it here')
+      console.log(card[id]); 
+    }else{
+      console.log('this is not a code card send it here')
+      console.log(card[id]); 
+    }
   }
 
   return (
@@ -69,34 +71,24 @@ export default function FullWidthGrid() {
           <SearchBar />
           {/* filter buttons here */}
         </Grid>
-
         <Grid item xs={12} container spacing={3} justify="flex-start" >
-          {/* <BookmarkCards handleAdd={handleAdd} /> */}
-          <CodeJar />
           {bookmarkCards.map(card => {
-            return <BookmarkCards key={card._id} {...card} />
+            return <BookmarkCards 
+            key={card._id} {...card} 
+            handleAdd={handleAdd}  
+            />
           })}
           {codeCards.map(card => {
-            return <CodeJar key={card._id} {...card} />
+            return <CodeJar 
+            key={card._id} {...card}
+            handleAdd={handleAdd}  
+             />
           })}
-          
         </Grid>
       </Grid>
     </div>
   );
 }
-
-// {this.state.friends.map(friend => (
-//   <FriendCard
-//     removeFriend={this.removeFriend}
-//     id={friend.id}
-//     key={friend.id}
-//     name={friend.name}
-//     image={friend.image}
-//     occupation={friend.occupation}
-//     location={friend.location}
-//   />
-// ))}
 
 
 // todo: live chat with help v2  => problem

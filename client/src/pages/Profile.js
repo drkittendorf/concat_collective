@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { useAuth0 } from "@auth0/auth0-react";
+import SearchBar from "../components/SearchBar"
 
 
 
@@ -12,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         padding: theme.spacing(2),
-        textAlign: 'center',
+        // textAlign: 'center',
         color: theme.palette.text.secondary,
     },
 }));
@@ -21,6 +22,13 @@ function Profile() {
     const classes = useStyles();
     const { user } = useAuth0();
     const { name, picture, email } = user;
+    
+
+    useEffect(() => {
+
+
+
+    }, [])
 
     return (
         <div className={classes.root}>
@@ -28,10 +36,12 @@ function Profile() {
                 <Grid item xs={12}>
                     <Paper className={classes.paper}>
                         <img
+                            className={classes.paper}
                             src={picture}
                             alt="Profile"
                         />
                     </Paper>
+                    <SearchBar />
                 </Grid>
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
