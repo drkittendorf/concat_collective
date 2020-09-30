@@ -82,7 +82,6 @@ const CodeJar = (props) => {
 
     // this is used by the accordion
     const [expanded, setExpanded] = useState('');
-
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
@@ -109,7 +108,11 @@ const CodeJar = (props) => {
                         <AccordionDetails className={classes.details} >
                             <div className='editor'>
                                 <ReactCodeJar
+                                    // the code will be passed from the
+                                    // the page component
                                     code={code} // Initial code value
+                                    // on update here from the 
+                                    // main page and the props
                                     onUpdate={setCode} // Update the text
                                     highlight={highlight} // Highlight function, receive the editor
                                 />
@@ -155,6 +158,3 @@ const CodeJar = (props) => {
 };
 
 export default CodeJar;
-
-
-// todo: implement the custom if the team doesn't like the regular 

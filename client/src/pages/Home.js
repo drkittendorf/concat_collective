@@ -33,13 +33,8 @@ export default function FullWidthGrid() {
   const [bookmarkCards, setBookmarkCards] = useState([]);
   const [codeCards, setCodeCards] = useState([]);
 
-  // convert to array  reduce key object 
-  // convert to object reduce 
-  // reduce explanation 
-  /// transformers 
+  /// ******  transformers [done]
 
-
-  //call the api to get the cards 
   useEffect(() => {
     console.log('this is a call')
 
@@ -68,7 +63,7 @@ export default function FullWidthGrid() {
     // find the card in the array 
     // ** then send it to the user database 
     // dispatch(deleteUser(id));
-    
+    console.log(id, 'This is the card id')
 
   }
 
