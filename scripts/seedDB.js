@@ -11,49 +11,57 @@ const resourceSeed = [
       title: 'Java 101',
       link: 'https://www.youtube.com/playlist?list=PLj__9coPa5w_Yya7zbT9YebxQyBfy0w3b',
       category: 'Java',
-      experience: 'Beginner'
+      experience: 'Beginner',
+      created: ''
    },
    {
       title: 'Python 101',
       link: 'https://www.youtube.com/watch?v=hcbfF8I9zCob',
       category: 'Python',
-      experience: 'Beginner'
+      experience: 'Beginner',
+      created: ''
    },
    {
       title: 'JavaScript 101',
       link: 'https://www.youtube.com/watch?v=GPFDsBImjiE',
       category: 'JavaScript',
-      experience: 'Beginner'
+      experience: 'Beginner',
+      created: ''
    },
    {
       title: 'C# 101',
       link: 'https://www.youtube.com/watch?v=gfkTfcpWqAY',
       category: 'C#',
-      experience: 'Beginner'
+      experience: 'Beginner',
+      created: ''
    },
    {
       title: 'Ruby 101',
       link: 'https://www.youtube.com/watch?v=Dji9ALCgfpM',
       category: 'Ruby',
-      experience: 'Beginner'
+      experience: 'Beginner',
+      created: ''
    },
    {
       title: 'HTML & CSS 101',
       link: 'https://www.youtube.com/watch?v=kMT54MPz9oE',
       category: 'HTML',
-      experience: 'Beginner'
+      experience: 'Beginner',
+      created: ''
    },
    {
       title: 'C++ 101',
       link: 'https://www.youtube.com/watch?v=NxS_0vR-PPg',
       category: 'C++',
-      experience: 'Beginner'
+      experience: 'Beginner',
+      created: ''
    },
    {
       title: 'Golang 101',
       link: 'https://www.youtube.com/watch?v=CF9S4QZuV30',
       category: 'Golang',
-      experience: 'Beginner'
+      experience: 'Beginner',
+      created: ''
    },
 
 ];
@@ -75,6 +83,7 @@ const snippetSeed = [
    {
       description: 'QuickSort Algorithm',
       language: 'Algorithm',
+      created: '',
       snippet: `var unsorted = [];
       for (var index = 0, t = 400000; index < t; index++) {
         unsorted.push(Math.round(Math.random() * t));
@@ -107,6 +116,7 @@ const snippetSeed = [
    {
       description: 'Setting breakpoints for responsive design',
       language: 'JavaScript',
+      created: '',
       snippet: `function isBreakPoint(bp) {
          // The breakpoints that you set in your css
          var bps = [320, 480, 768, 1024];
@@ -125,6 +135,7 @@ const snippetSeed = [
    {
       description: 'Counting clicks',
       language: 'JavaScript',
+      created: '',
       snippet: `$(element)
       .data('counter', 0) // begin counter at zero
       .click(function() {
@@ -136,6 +147,7 @@ const snippetSeed = [
    {
       description: 'Maximum width or height in a set of elements',
       language: 'JavaScript',
+      created: '',
       snippet: `var getMaxHeight = function ($elms) {
          var maxHeight = 0;
          $elms.each(function () {
