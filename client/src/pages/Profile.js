@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -34,11 +34,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Profile() {
+
 	const classes = useStyles();
 	const { user } = useAuth0();
 	const { name, picture, email } = user;
 
 	console.log(user);
+
 
 	return (
 		<div className={classes.root}>
