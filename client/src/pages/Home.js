@@ -9,6 +9,7 @@ import CodeJar from '../components/CodeJar/CodeJar'
 
 import data from '../dummyData.json'
 import Api from '../utils/API'
+import Transform from '../utils/Transform'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +44,7 @@ export default function FullWidthGrid() {
       .then(res => {
         let data = res.data
         setBookmarkCards(data);
-        console.log(data)
+        // console.log(data)
       })
 
     // set code cards
@@ -51,7 +52,7 @@ export default function FullWidthGrid() {
       .then(res => {
         let data = res.data
         setCodeCards(data);
-        console.log(data)
+        // console.log(data)
       })
   }, [])
 
@@ -63,8 +64,13 @@ export default function FullWidthGrid() {
     // find the card in the array 
     // ** then send it to the user database 
     // dispatch(deleteUser(id));
-    console.log(id, 'This is the card id')
 
+    // turn array to object? 
+    let BookmarkToSave = Transform.toObject(bookmarkCards)
+
+    // send this object to the be saved as a new entry for the user database 
+    // so this will probably need to be pushed to the array in the in the database 
+    console.log(BookmarkToSave[id]); 
   }
 
   return (
