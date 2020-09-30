@@ -37,23 +37,8 @@ export default function FullWidthGrid() {
   /// ******  transformers [done]
 
   useEffect(() => {
-    console.log('this is a call')
-
-    // set the booksmarks cards 
-    Api.getBookmarks()
-      .then(res => {
-        let data = res.data
-        setBookmarkCards(data);
-        // console.log(data)
-      })
-
-    // set code cards
-    Api.getSnippets()
-      .then(res => {
-        let data = res.data
-        setCodeCards(data);
-        // console.log(data)
-      })
+    Api.getBookmarks().then(res => setBookmarkCards(res.data))
+    Api.getSnippets().then(res => setCodeCards(res.data))
   }, [])
 
   // homepage closure
