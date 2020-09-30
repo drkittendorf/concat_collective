@@ -9,6 +9,7 @@ import CodeJar from '../components/CodeJar/CodeJar'
 
 import data from '../dummyData.json'
 import Api from '../utils/API'
+import Transform from '../utils/Transform'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,31 +34,11 @@ export default function FullWidthGrid() {
   const [bookmarkCards, setBookmarkCards] = useState([]);
   const [codeCards, setCodeCards] = useState([]);
 
-  // convert to array  reduce key object 
-  // convert to object reduce 
-  // reduce explanation 
-  /// transformers 
+  /// ******  transformers [done]
 
-
-  //call the api to get the cards 
   useEffect(() => {
-    console.log('this is a call')
-
-    // set the booksmarks cards 
-    Api.getBookmarks()
-      .then(res => {
-        let data = res.data
-        setBookmarkCards(data);
-        console.log(data)
-      })
-
-    // set code cards
-    Api.getSnippets()
-      .then(res => {
-        let data = res.data
-        setCodeCards(data);
-        console.log(data)
-      })
+    Api.getBookmarks().then(res => setBookmarkCards(res.data))
+    Api.getSnippets().then(res => setCodeCards(res.data))
   }, [])
 
   // homepage closure
@@ -68,8 +49,18 @@ export default function FullWidthGrid() {
     // find the card in the array 
     // ** then send it to the user database 
     // dispatch(deleteUser(id));
-    
 
+    // turn array to object? 
+    let card = Transform.toObject(bookmarkCards.concat(codeCards))
+    // send this object to the be saved as a new entry for the user database 
+    // so this will probably need to be pushed to the array in the in the database 
+    if(card[id].snippet){
+      console.log('this is a code card send it here')
+      console.log(card[id]); 
+    }else{
+      console.log('this is not a code card send it here')
+      console.log(card[id]); 
+    }
   }
 
   return (
@@ -88,7 +79,10 @@ export default function FullWidthGrid() {
             />
           })}
           {codeCards.map(card => {
-            return <CodeJar key={card._id} {...card} />
+            return <CodeJar 
+            key={card._id} {...card}
+            handleAdd={handleAdd}  
+             />
           })}
         </Grid>
       </Grid>

@@ -65,7 +65,7 @@ export default function SimpleCard(props) {
             <Button target="_blank" href={link || 'https://www.google.com'}>
               <Icon className="fas fa-link" />
             </Button>
-            <Button size="small" onClick={handleAdd} >
+            <Button size="small" onClick={handleAdd(_id)} >
               {/* <Icon className="fas fa-plus" /> */}
               <AddCircleIcon />
               {/* add to collection */}
