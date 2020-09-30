@@ -51,11 +51,16 @@ export default function FullWidthGrid() {
     // dispatch(deleteUser(id));
 
     // turn array to object? 
-    let BookmarkToSave = Transform.toObject(bookmarkCards)
-
+    let card = Transform.toObject(bookmarkCards.concat(codeCards))
     // send this object to the be saved as a new entry for the user database 
     // so this will probably need to be pushed to the array in the in the database 
-    console.log(BookmarkToSave[id]); 
+    if(card[id].snippet){
+      console.log('this is a code card send it here')
+      console.log(card[id]); 
+    }else{
+      console.log('this is not a code card send it here')
+      console.log(card[id]); 
+    }
   }
 
   return (
@@ -74,7 +79,10 @@ export default function FullWidthGrid() {
             />
           })}
           {codeCards.map(card => {
-            return <CodeJar key={card._id} {...card} />
+            return <CodeJar 
+            key={card._id} {...card}
+            handleAdd={handleAdd}  
+             />
           })}
         </Grid>
       </Grid>

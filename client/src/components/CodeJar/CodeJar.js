@@ -56,7 +56,7 @@ const CodeJar = (props) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
 
-    const { description, language, snippet, _id } = props;
+    const { description, language, snippet, _id, handleAdd } = props;
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -76,9 +76,9 @@ const CodeJar = (props) => {
         console.log('compile')
     };
 
-    const addToCollection = () => {
-        console.log('send to the api')
-    }
+    // const addToCollection = () => {
+    //     console.log('send to the api')
+    // }
 
     // this is used by the accordion
     const [expanded, setExpanded] = useState('');
@@ -128,7 +128,7 @@ const CodeJar = (props) => {
                         <Button size="small" onClick={handleClickOpen}  >
                             <VisibilityIcon fontSize='large' />
                         </Button>
-                        <Button size="small" onClick={addToCollection} >
+                        <Button size="small" onClick={handleAdd(_id)} >
                             <AddCircleIcon />
                         </Button>
                     </Typography>
@@ -146,7 +146,7 @@ const CodeJar = (props) => {
                             <Button color='primary' className='Button' size="small" onClick={compile} >
                                 <CodeIcon fontSize='large' />
                             </Button>
-                            <Button color="primary" size="small" onClick={addToCollection} >
+                            <Button color="primary" size="small" onClick={handleAdd(_id)} >
                                 <AddIcon fontSize='large' />
                             </Button>
                         </div>
