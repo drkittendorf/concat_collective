@@ -7,7 +7,7 @@ const snippetSchema = new Schema({
     // stores the link as a string
     language: { type: String, required: true },
      // add date created for sorting purposes
-     created: {type: Date, default:Date.now},
+    created: {type: Date, default:Date.now},
     // stores the snippet information
     snippet: { type: String, required: true },
    
