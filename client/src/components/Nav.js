@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 		color: 'white',
 	},
 	black: {
-		backgroundColor: '#1D3437',
+		backgroundColor: '#000000',
 		marginBottom: '20px',
 		height: '7rem'
 	},
