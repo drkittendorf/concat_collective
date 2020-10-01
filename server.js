@@ -3,8 +3,31 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 
 const PORT = process.env.PORT || 3001;
+const appOrigin = process.env.APP_ORIGIN;
+const audience = process.env.AUTH0_AUDIENCE;
+const issuer = process.env.AUTH0_ISSUER;
+
+if (!issuer || !audience) {
+    throw new Error('Confirm .env is populated');
+}
+
+const checkJwt = jwt({
+    secret: jwksRsa.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri:`${issuer}.well-known/jwks.json`,
+
+    }),
+
+    audience: 'https://concat.api/',
+    issuer: 'https://dev-2b7i14d1.us.auth0.com/',
+    algorithms: ['RS256'],
+});
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
