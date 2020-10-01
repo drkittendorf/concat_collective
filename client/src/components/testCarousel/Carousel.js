@@ -1,24 +1,40 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import Grid from '@material-ui/core/Grid';
+import './Carousel.css';
 
 function IntroCarousel() {
 	return (
-		<Carousel>
-			<Carousel.Item>
-				<img className='d-block w-100' src='/heading1.png' alt='First slide' />
-			</Carousel.Item>
-			<Carousel.Item>
-				<img className='d-block w-100' src='/heading1.png' alt='Third slide' />
+		<Grid xs={12} className='carousel'>
+			<Carousel indicators={false}>
+				<Carousel.Item>
+					<img
+						className='d-block w-100'
+						src='/titleslide1.png'
+						alt='First slide'
+					/>
+				</Carousel.Item>
+				<Carousel.Item>
+					<img
+						className='d-block w-100'
+						src='/titleslide1.png'
+						alt='Third slide'
+					/>
 
-				{/* <Carousel.Caption>
+					{/* <Carousel.Caption>
 					<h3>Second slide label</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</Carousel.Caption> */}
-			</Carousel.Item>
-			<Carousel.Item>
-				<img className='d-block w-100' src='/heading1.png' alt='Third slide' />
-			</Carousel.Item>
-		</Carousel>
+				</Carousel.Item>
+				<Carousel.Item>
+					<img
+						className='d-block w-100'
+						src='/titleslide1.png'
+						alt='Third slide'
+					/>
+				</Carousel.Item>
+			</Carousel>
+		</Grid>
 	);
 }
 
