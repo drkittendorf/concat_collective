@@ -24,13 +24,10 @@ const useStyles = makeStyles({
 		// margin: theme.spacing(1.5),
 		color: 'white',
 	},
-	Logo: {
-		padding: '0px',
-	},
 	black: {
 		backgroundColor: 'black',
 		marginBottom: '20px',
-		height: '20vh'
+		height: '7rem'
 	},
 	space: {
 		display: 'flex',
