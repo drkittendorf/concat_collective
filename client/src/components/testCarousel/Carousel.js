@@ -10,15 +10,15 @@ function IntroCarousel() {
 				<Carousel.Item>
 					<img
 						className='d-block w-100'
-						src='/titleslide1.png'
+						src='/Title.png'
 						alt='First slide'
 					/>
 				</Carousel.Item>
 				<Carousel.Item>
 					<img
 						className='d-block w-100'
-						src='/titleslide1.png'
-						alt='Third slide'
+						src='/Mission.png'
+						alt='Second slide'
 					/>
 
 					{/* <Carousel.Caption>
@@ -26,13 +26,13 @@ function IntroCarousel() {
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</Carousel.Caption> */}
 				</Carousel.Item>
-				<Carousel.Item>
+				{/* <Carousel.Item>
 					<img
 						className='d-block w-100'
-						src='/titleslide1.png'
+						src='#'
 						alt='Third slide'
 					/>
-				</Carousel.Item>
+				</Carousel.Item> */}
 			</Carousel>
 		</Grid>
 	);
