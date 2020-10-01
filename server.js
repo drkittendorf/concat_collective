@@ -8,8 +8,8 @@ const jwksRsa = require('jwks-rsa');
 
 const PORT = process.env.PORT || 3001;
 const appOrigin = process.env.APP_ORIGIN;
-const audience = process.env.AUTH0_AUDIENCE;
-const issuer = process.env.AUTH0_ISSUER;
+const audience = process.env.REACT_APP_AUDIENCE;
+const issuer = process.env.REACT_APP_ISSUER;
 
 if (!issuer || !audience) {
     throw new Error('Confirm .env is populated');
