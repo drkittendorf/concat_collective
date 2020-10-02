@@ -34,9 +34,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center'
     },
-    accordion:{
+    accordion: {
         backgroundColor: '#E0ECED',
-        borderRadius:'5px'
+        borderRadius: '5px'
     },
 
 }));
@@ -73,10 +73,6 @@ const CodeJar = (props) => {
 
     const handleClose = () => {
         setOpen(false);
-    };
-
-    const compile = (event) => {
-        console.log('compile')
     };
 
     const [expanded, setExpanded] = useState('');
@@ -127,7 +123,7 @@ const CodeJar = (props) => {
                         onClose={handleClose}
                         aria-labelledby='form-dialog-title'
                     >
-                        <div className='editor'>
+                        {/* <div className='editor'>
                             <div ref={editorRef}></div>
                             <Button color='primary' className='Button' size="small" onClick={compile} >
                                 <CodeIcon fontSize='large' />
@@ -135,6 +131,9 @@ const CodeJar = (props) => {
                             <Button color="primary" size="small" onClick={handleAdd(_id)} >
                                 <AddIcon fontSize='large' />
                             </Button>
+                        </div> */}
+                        <div className='editor'>
+                            <div ref={editorRef}></div>
                         </div>
                     </Dialog>
                 </CardContent>
