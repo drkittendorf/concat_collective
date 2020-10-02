@@ -28,7 +28,8 @@ import { set } from "mongoose";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        borderRadius: '10px'
+        borderRadius: '10px',
+        backgroundColor: '#FEFBF8',
     },
     button: {
         // margin: theme.spacing(1.5),
@@ -36,7 +37,14 @@ const useStyles = makeStyles((theme) => ({
     },
     details: {
         // mixHeight: '10px',
-    }
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    accordion:{
+        backgroundColor: '#E0ECED',
+        borderRadius:'5px'
+    },
+
 }));
 
 // const AccordionDetails = withStyles((theme) => ({
@@ -101,9 +109,9 @@ const CodeJar = (props) => {
                     subheader={description}
                 />
                 <CardContent>
-                    <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                    <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                            <Typography>view preview here ... </Typography>
+                            <Typography >click to view snippet</Typography>
                         </AccordionSummary>
                         <AccordionDetails className={classes.details} >
                             <div className='editor'>

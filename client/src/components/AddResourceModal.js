@@ -55,9 +55,9 @@ export default function FormDialog() {
 	return (
 		<div>
 			<Tooltip title='add new resource' arrow>
-				<IconButton className={classes.button} onClick={handleClickOpen}>
+				<Button className={classes.button} onClick={handleClickOpen}>
 					<AddIcon fontSize='medium' />
-				</IconButton>
+				</Button>
 			</Tooltip>
 			<Dialog
 				open={open}

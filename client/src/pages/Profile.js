@@ -14,12 +14,13 @@ const useStyles = makeStyles((theme) => ({
 		// textAlign: 'center',
         color: theme.palette.text.secondary,
         display: 'flex',
-        width: '50%',
-        alignItems: 'center'
+        width: '75%',
+		alignItems: 'center',
+		fontSize: '1%'
 	},
 	img: {
-		height: '10rem',
-        borderRadius: '50%',
+		height: '10vh',
+        // borderRadius: '50%',
         padding: '0px 20px 0px 0px '
     },
     imgContainer:{
