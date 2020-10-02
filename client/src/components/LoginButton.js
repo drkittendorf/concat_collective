@@ -28,10 +28,9 @@ function LoginButton() {
 	return (
 		<>
 			{desktop && (
-				<Tooltip F0E0D7='login' arrow>
+				<Tooltip title='login' arrow>
 					<Button
 						onClick={() => loginWithRedirect()}
-						variant='primary'
 						className={classes.button}
 					>
 						<Icon className='fas fa-sign-in-alt' fontSize='medium' />
@@ -42,7 +41,6 @@ function LoginButton() {
 				<Tooltip title='login' arrow>
 					<Button
 						onClick={() => loginWithRedirect()}
-						variant='primary'
 						className={classes.mobileButton}
 					>
 						<Icon className='fas fa-sign-in-alt' fontSize='medium'>Login</Icon>
