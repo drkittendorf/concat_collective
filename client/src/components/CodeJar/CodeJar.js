@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         borderRadius: '10px',
-        backgroundColor: '#FEFBF8',
+        backgroundColor: '#ECF0F1',
     },
     button: {
         // margin: theme.spacing(1.5),
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center'
     },
     accordion:{
-        backgroundColor: '#E0ECED',
+        backgroundColor: 'white',
         borderRadius:'5px'
     },
 
