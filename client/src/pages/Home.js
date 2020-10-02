@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import SearchBar from '../components/SearchBar';
-import Carousel from '../components/Carousel/Carousel'
+import Carousel from '../components/testCarousel/Carousel'
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
@@ -14,7 +14,7 @@ import transform from '../utils/transform'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    height: '100%'
+    height: '100%',
   },
   paper: {
     padding: theme.spacing(2),
@@ -78,7 +78,7 @@ export default function FullWidthGrid() {
           <SearchBar />
           {/* filter buttons here */}
         </Grid>
-        <Grid item xs={12} container spacing={3} justify="flex-start" >
+        <Grid item xs={10} container spacing={3} justify="flex-start" >
           {bookmarkCards.map(card => {
             return <BookmarkCards
               key={card._id} {...card}
