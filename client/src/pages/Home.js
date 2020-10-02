@@ -15,7 +15,7 @@ import Transform from '../utils/Transform'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    height: '100%'
+    height: '100%',
   },
   paper: {
     padding: theme.spacing(2),
@@ -71,7 +71,7 @@ export default function FullWidthGrid() {
           <SearchBar />
           {/* filter buttons here */}
         </Grid>
-        <Grid item xs={12} container spacing={3} justify="flex-start" >
+        <Grid item xs={10} container spacing={3} justify="flex-start" >
           {bookmarkCards.map(card => {
             return <BookmarkCards 
             key={card._id} {...card} 

@@ -28,7 +28,7 @@ function LoginButton() {
 	return (
 		<>
 			{desktop && (
-				<Tooltip title='login' arrow>
+				<Tooltip F0E0D7='login' arrow>
 					<Button
 						onClick={() => loginWithRedirect()}
 						variant='primary'

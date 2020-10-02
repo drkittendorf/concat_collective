@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 		color: 'white',
 	},
 	black: {
-		backgroundColor: '#000000',
+		backgroundColor: '#1D3437',
 		marginBottom: '20px',
 		height: '7rem'
 	},
@@ -36,7 +36,7 @@ const useStyles = makeStyles({
 	menuIcon: {
 		display: 'flex',
 		justifyContent: 'flex-end',
-	},
+	}
 });
 
 function Nav() {
