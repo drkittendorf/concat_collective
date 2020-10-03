@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
  // store jwt object data here
     jwt: {  
+        token: String,
         email: { type: String, required: true },
         email_verified: '',
         name: { type: String, required: true },
