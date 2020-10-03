@@ -34,8 +34,11 @@ const useStyles = makeStyles({
 		marginBottom: 12,
 	},
 	icon: {
-    marginLeft: '100px',
-  },
+		marginLeft: '100px',
+	},
+	linkPreview:{
+		width: '100%'
+	}
 });
 
 export default function SimpleCard(props) {
@@ -58,8 +61,9 @@ export default function SimpleCard(props) {
 				/>
 				<CardContent>
 					<Typography variant='body2' component='p'>
-						<Grid item >
+						<Grid item>
 							<ReactTinyLink
+								className={classes.linkPreview}
 								cardSize='large'
 								showGraphic={true}
 								// maxLine={2}
