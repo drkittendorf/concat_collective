@@ -17,7 +17,8 @@
 		"react-codejar": "^1.0.1",
 		"react-dom": "^16.13.1",
 		"react-router-dom": "^5.2.0",
-		"react-scripts": "3.4.3"
+		"react-scripts": "3.4.3",
+		"react-tiny-link": "^3.6.0"
 	},
 	"scripts": {
 		"start": "react-scripts start",

@@ -9,14 +9,14 @@ mongoose.connect(
 const resourceSeed = [
    {
       title: 'Java 101',
-      link: 'https://www.youtube.com/playlist?list=PLj__9coPa5w_Yya7zbT9YebxQyBfy0w3b',
+      link: 'https://youtu.be/r59xYe3Vyks',
       category: 'Java',
       experience: 'Beginner',
       created: ''
    },
    {
       title: 'Python 101',
-      link: 'https://www.youtube.com/watch?v=hcbfF8I9zCob',
+      link: 'https://youtu.be/_uQrJ0TkZlc',
       category: 'Python',
       experience: 'Beginner',
       created: ''
