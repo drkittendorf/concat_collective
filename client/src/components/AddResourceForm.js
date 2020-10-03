@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AddResource() {
-    const classes = useStyles();
-
+    const classes = useStyles()
+    
     const [open, setOpen] = React.useState(false);
 
     const [category, setCategory] = React.useState('');

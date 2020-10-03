@@ -46,8 +46,12 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
-		backgroundColor: theme.palette.background.paper,
+		
 	},
+	appBar:{
+		backgroundColor: '#B6D3D2',
+		borderBottom: '3px solid grey',
+	}
 }));
 
 export default function SimpleTabs() {
@@ -61,7 +65,7 @@ export default function SimpleTabs() {
 	return (
 		<div className={classes.root}>
 
-			<AppBar position='static'>
+			<AppBar position='static' className={classes.appBar}>
 				<Tabs
 					value={value}
 					onChange={handleChange}
