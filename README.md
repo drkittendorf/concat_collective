@@ -6,6 +6,7 @@ https://drkittendorf.github.io/concat_collective/ <br>
 https://afternoon-sea-65522.herokuapp.com/ 
 
 
+## MEET THE TEAM 
 ## CONTRIBUTORS
 * Mark McDonald
 * Lia Graham
@@ -14,7 +15,9 @@ https://afternoon-sea-65522.herokuapp.com/
 
 ## USER STORY
   AS A SOFTWARE DEVELOPER CONSTANTLY LEARNING NEW SKILLS, 
+
   I WANT A RESOURCE TO SAVE USEFUL LINKS AND CODE SNIPPETS, THAT IS BROWSER INDEPENDENT,
+
   I ALSO WANT OTHER DEVELOPERS TO BE ABLE TO ACCESS AND SAVE THESE LINKS AND SNIPPETS.
 
 ## SCREENSHOTS
@@ -22,6 +25,7 @@ https://afternoon-sea-65522.herokuapp.com/
 
 
 ## VIDEO
+
 
 ## FOR FURTHER DEVELOPMENT
 
