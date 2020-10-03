@@ -35,23 +35,45 @@ export default function FullWidthGrid() {
   const [codeCards, setCodeCards] = useState({});
   const { user } = useAuth0();
 
-
+console.log(user)
 
   useEffect(() => {
-    Api.getBookmarks().then(res => setBookmarkCards(res.data))
-    Api.getSnippets().then(res => {
 
+    // promise.all([Api.getBookmarks, getUserBookmarks]).then(([resGetBookmarks, resGetUserBookmarks]) => {
+
+    //   
+  //  setBookmarkCards(resGetUserBookmarks.toObject   ===  resGetBookmarks)
+  //})
+
+    Api.getBookmarks().then(res => {
+
+      // if (user) {
+      //   res.data.filter(fiteredCards => {
+      //     fiteredCards // 
+      ////compare to the user cards  turn the arr in user
+      //   })
+      // } else {
+        setBookmarkCards(res.data)
+      // }
+
+
+    })
+    Api.getSnippets().then(res => {
       const cardData = transform.toObject(res.data)
       setCodeCards(cardData)
     })
+
   }, [])
 
   const handleAdd = (id) => (e) => {
+
+    // filter the cards here too
+
     // I think this is saying
     // save a previous value and then do something else // carrying 
     // get this id and then => send this callback function too 
     e.preventDefault();
- 
+
     let card = transform.toObject(bookmarkCards.concat(transform.toArray(codeCards)))
 
     if (card[id].snippet && user) {
@@ -78,6 +100,8 @@ export default function FullWidthGrid() {
     setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
   }
 
+
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3} justify="center">
@@ -93,6 +117,7 @@ export default function FullWidthGrid() {
               handleAdd={handleAdd}
             />
           })}
+
           {Object.keys(codeCards).map(key => {
             const card = codeCards[key]
             return <CodeJar

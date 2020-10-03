@@ -44,6 +44,22 @@ function Profile() {
 	const { user } = useAuth0();
 	const { name, picture, email } = user;
 
+
+	const handleAdd = (id) => (e) => {
+
+		return user ? console.log('bookmark already added') : '';
+	}
+
+
+	// user action to add a new card to the array 
+	// get user bookmarks actions
+	// get home page bookmarks 
+	// home action to add a new card to the array 
+	// save all bookmarks 
+	// and save the only key id in the arrays
+	
+
+
 	// authencation is this correct 
 	// authorize 
 
@@ -67,14 +83,17 @@ function Profile() {
 					</Paper>
 				</Grid>
 				<Grid item xs={12} spacing={3} justify="flex-start" >
-					{/* {
+					{
 						data.map(card => {
 							return <BookmarkCards
+								profile={true}
+								key={card._id} {...card}
+								handleAdd={handleAdd}
 							/>
 						})
 						||
 						<h1>Nothing has been added to your collection yet!</h1>
-					} */}
+					}
 				</Grid>
 			</Grid>
 		</div>
