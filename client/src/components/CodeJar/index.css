@@ -19,7 +19,8 @@
   );
   color: aqua;
   height: 400px;
-  width: 400px;
+  width: 100%;
+  overflow: scroll;
   /* overflow-wrap: normal; */
   /* border-radius: 10px;  */
 }

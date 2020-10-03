@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         borderRadius: '10px',
         backgroundColor: '#ECF0F1',
+        height: '100%'
     },
     button: {
         // margin: theme.spacing(1.5),
@@ -95,7 +96,7 @@ const CodeJar = (props) => {
     };
 
     return (
-        <Grid item xs={12} sm={6} >
+        <Grid item xs={12} sm={4} >
             <Card className={classes.root}>
                 <CardHeader
                     action={
@@ -109,11 +110,11 @@ const CodeJar = (props) => {
                     subheader={description}
                 />
                 <CardContent>
-                    <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                    {/* <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                             <Typography >click to view snippet</Typography>
                         </AccordionSummary>
-                        <AccordionDetails className={classes.details} >
+                        <AccordionDetails className={classes.details} > */}
                             <div className='editor'>
                                 <ReactCodeJar
                                     // the code will be passed from the
@@ -125,8 +126,8 @@ const CodeJar = (props) => {
                                     highlight={highlight} // Highlight function, receive the editor
                                 />
                             </div>
-                        </AccordionDetails>
-                    </Accordion>
+                        {/* </AccordionDetails> */}
+                    {/* </Accordion> */}
                     <Typography color="textSecondary">
                         {/* this will be the category */}
                     </Typography>

@@ -17,6 +17,7 @@ import { ReactTinyLink } from 'react-tiny-link';
 const useStyles = makeStyles({
 	root: {
 		minWidth: 275,
+		height: '100%',
 		borderRadius: '10px',
 		backgroundColor: '#ECF0F1',
 	},
@@ -43,7 +44,7 @@ export default function SimpleCard(props) {
 	const { title, link, _id, category, skill, handleAdd } = props;
 
 	return (
-		<Grid item xs={12} sm={6}>
+		<Grid item xs={12} sm={4}>
 			<Card className={classes.root}>
 				<CardHeader
 					action={
