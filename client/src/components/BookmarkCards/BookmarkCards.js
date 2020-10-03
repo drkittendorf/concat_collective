@@ -52,7 +52,7 @@ export default function SimpleCard(props) {
             >
               {/* <MoreVertIcon /> */}
               <Icon className="fas fa-bookmark" />
-            </IconButton>
+            </IconButton> || 'if this is in the user profile'
           }
           title={title || 'this will be the title'}
           subheader={skill || 'this would be the skill level '}
@@ -66,11 +66,14 @@ export default function SimpleCard(props) {
             <Button target="_blank" href={link || 'https://www.google.com'}>
               <Icon className="fas fa-link" />
             </Button>
-            <Button size="small" onClick={handleAdd(_id)} >
+            {(<Button size="small" onClick={handleAdd(_id)} >
               {/* <Icon className="fas fa-plus" /> */}
               <AddCircleIcon />
               {/* add to collection */}
-            </Button>
+            </Button>)
+            ||
+            'if this is in the user profile'
+            }
           </Typography>
         </CardContent>
         <CardActions>
