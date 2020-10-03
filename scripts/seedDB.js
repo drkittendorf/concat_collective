@@ -53,7 +53,7 @@ const resourceSeed = [
       title: 'C++ 101',
       link: 'https://www.youtube.com/watch?v=NxS_0vR-PPg',
       category: 'C++',
-      experience: 'Beginner',
+      skill: 'Beginner',
       created: ''
    },
    {
