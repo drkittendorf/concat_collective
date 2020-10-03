@@ -15,7 +15,6 @@ import PersonIcon from '@material-ui/icons/Person';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuDropdown from './MenuDropdown/MenuDropdown';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import './Nav.css'
 
 const useStyles = makeStyles({
 	root:{

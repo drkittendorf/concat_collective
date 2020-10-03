@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         borderRadius: '10px',
-        backgroundColor: '#FEFBF8',
+        backgroundColor: '#ECF0F1',
+        height: '100%'
     },
     button: {
         // margin: theme.spacing(1.5),
@@ -34,9 +35,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center'
     },
-    accordion: {
-        backgroundColor: '#E0ECED',
-        borderRadius: '5px'
+    accordion:{
+        backgroundColor: 'white',
+        borderRadius:'5px'
     },
     spacing: {
         marginRight: '70px'
@@ -84,7 +85,7 @@ const CodeJar = (props) => {
     };
 
     return (
-        <Grid item xs={12} sm={6} >
+        <Grid item xs={12} sm={4} >
             <Card className={classes.root}>
                 <CardHeader
                     action={
@@ -98,20 +99,16 @@ const CodeJar = (props) => {
                     subheader={description}
                 />
                 <CardContent>
-                    <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                        <AccordionSummary
-                            aria-controls="panel1d-content" id="panel1d-header">
-                            <Typography
-                                className={classes.spacing}
-                            >click to view snippet  </Typography>
-                            <VisibilityIcon fontSize='small' />
+                    {/* <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                            <Typography >click to view snippet</Typography>
                         </AccordionSummary>
-                        <AccordionDetails className={classes.details} >
+                        <AccordionDetails className={classes.details} > */}
                             <div className='editor'>
                                 <div ref={editorRef}></div>
                             </div>
-                        </AccordionDetails>
-                    </Accordion>
+                        {/* </AccordionDetails> */}
+                    {/* </Accordion> */}
                     <Typography color="textSecondary">
                         {/* this will be the category */}
                     </Typography>
