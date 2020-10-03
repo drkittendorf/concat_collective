@@ -11,56 +11,56 @@ const resourceSeed = [
       title: 'Java 101',
       link: 'https://youtu.be/r59xYe3Vyks',
       category: 'Java',
-      experience: 'Beginner',
+      skill: 'Beginner',
       created: ''
    },
    {
       title: 'Python 101',
       link: 'https://youtu.be/_uQrJ0TkZlc',
       category: 'Python',
-      experience: 'Beginner',
+      skill: 'Beginner',
       created: ''
    },
    {
       title: 'JavaScript 101',
-      link: 'https://www.youtube.com/watch?v=GPFDsBImjiE',
+      link: 'https://youtu.be/GPFDsBImjiE',
       category: 'JavaScript',
-      experience: 'Beginner',
+      skill: 'Beginner',
       created: ''
    },
    {
       title: 'C# 101',
-      link: 'https://www.youtube.com/watch?v=gfkTfcpWqAY',
+      link: 'https://youtu.be/gfkTfcpWqAY',
       category: 'C#',
-      experience: 'Beginner',
+      skill: 'Beginner',
       created: ''
    },
    {
       title: 'Ruby 101',
-      link: 'https://www.youtube.com/watch?v=Dji9ALCgfpM',
+      link: 'https://youtu.be/Dji9ALCgfpM',
       category: 'Ruby',
-      experience: 'Beginner',
+      skill: 'Beginner',
       created: ''
    },
    {
       title: 'HTML & CSS 101',
-      link: 'https://www.youtube.com/watch?v=kMT54MPz9oE',
+      link: 'https://youtu.be/kMT54MPz9oE',
       category: 'HTML',
-      experience: 'Beginner',
+      skill: 'Beginner',
       created: ''
    },
    {
       title: 'C++ 101',
-      link: 'https://www.youtube.com/watch?v=NxS_0vR-PPg',
+      link: 'https://youtu.be/NxS_0vR-PPg',
       category: 'C++',
-      experience: 'Beginner',
+      skill: 'Beginner',
       created: ''
    },
    {
       title: 'Golang 101',
-      link: 'https://www.youtube.com/watch?v=CF9S4QZuV30',
+      link: 'https://youtu.be/CF9S4QZuV30',
       category: 'Golang',
-      experience: 'Beginner',
+      skill: 'Beginner',
       created: ''
    },
 
