@@ -8,6 +8,8 @@ const snippetSchema = new Schema({
     language: { type: String, required: true },
      // add date created for sorting purposes
     created: {type: Date, default:Date.now},
+    // store User Object?
+    snippetUser: [{ type: Schema.Types.ObjectId, ref:'User'}],
     // stores the snippet information
     snippet: { type: String, required: true },
    
