@@ -99,19 +99,9 @@ const CodeJar = (props) => {
                     subheader={description}
                 />
                 <CardContent>
-<<<<<<< HEAD
                     {/* <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                             <Typography >click to view snippet</Typography>
-=======
-                    <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                        <AccordionSummary
-                            aria-controls="panel1d-content" id="panel1d-header">
-                            <Typography
-                                className={classes.spacing}
-                            >click to view snippet  </Typography>
-                            <VisibilityIcon fontSize='small' />
->>>>>>> 8fb7c01906e39d49cb5a5d3640eb2998a4a57aa6
                         </AccordionSummary>
                         <AccordionDetails className={classes.details} > */}
                             <div className='editor'>
