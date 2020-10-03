@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import { useCodeJar } from "react-codejar";
+import { ReactCodeJar, useCodeJar } from "react-codejar";
 import "./index.css";
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -38,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#E0ECED',
         borderRadius: '5px'
     },
+    spacing: {
+        marginRight: '70px'
+    }
 
 }));
 
@@ -96,8 +99,12 @@ const CodeJar = (props) => {
                 />
                 <CardContent>
                     <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                            <Typography >click to view snippet</Typography>
+                        <AccordionSummary
+                            aria-controls="panel1d-content" id="panel1d-header">
+                            <Typography
+                                className={classes.spacing}
+                            >click to view snippet  </Typography>
+                            <VisibilityIcon fontSize='small' />
                         </AccordionSummary>
                         <AccordionDetails className={classes.details} >
                             <div className='editor'>
@@ -111,9 +118,9 @@ const CodeJar = (props) => {
                     <Typography className={classes.pos}>
                         <br />
                         {/* onClick={handleAdd} */}
-                        <Button size="small" onClick={handleClickOpen}  >
-                            <VisibilityIcon fontSize='large' />
-                        </Button>
+                        {/* <Button size="small" onClick={handleClickOpen}  > */}
+                        {/* <VisibilityIcon fontSize='large' /> */}
+                        {/* </Button> */}
                         <Button size="small" onClick={handleAdd(_id)} >
                             <AddCircleIcon />
                         </Button>
@@ -133,7 +140,14 @@ const CodeJar = (props) => {
                             </Button>
                         </div> */}
                         <div className='editor'>
-                            <div ref={editorRef}></div>
+                            {/* <div
+                                ref={editorRef}>
+                            </div> */}
+                            <ReactCodeJar
+                                code={snippet} // Initial code value
+                                onUpdate={setCode} // Update the text
+                                highlight={highlight} // Highlight function, receive the editor
+                            />
                         </div>
                     </Dialog>
                 </CardContent>
