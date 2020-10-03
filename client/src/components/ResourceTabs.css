@@ -1,0 +1,12 @@
+.MuiTabs-flexContainer button:active{
+    border-bottom: #3fa29f;
+}
+
+.MuiTabs-flexContainer button:focus{
+    outline: 0px auto;
+    color: #1D3437;
+}
+
+.MuiTabs-flexContainer button:hover{
+    color: #1D3437;
+}

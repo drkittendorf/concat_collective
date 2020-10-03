@@ -16,21 +16,16 @@ import Tooltip from '@material-ui/core/Tooltip';
 import MenuDropdown from './MenuDropdown/MenuDropdown';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+import './Nav.css';
+
 const useStyles = makeStyles({
-	root:{
-		hover: 'none',
-	},
-	link: {
-		color: 'white',
-	},
 	button: {
-		// margin: theme.spacing(1.5),
 		color: 'white',
 	},
 	black: {
 		backgroundColor: '#1D3437',
 		marginBottom: '20px',
-		height: '7rem'
+		height: '7rem',
 	},
 	space: {
 		display: 'flex',
@@ -39,7 +34,7 @@ const useStyles = makeStyles({
 	menuIcon: {
 		display: 'flex',
 		justifyContent: 'flex-end',
-	}
+	},
 });
 
 function Nav() {
@@ -53,7 +48,11 @@ function Nav() {
 				<Toolbar className={classes.space}>
 					<Grid item xs={6}>
 						<Button className={classes.Logo} component={Link} to='/'>
-							<img className={classes.img} src='/concatCollective.png' alt='concat(collective)' />
+							<img
+								className={classes.img}
+								src='/concatCollective.png'
+								alt='concat(collective)'
+							/>
 						</Button>
 					</Grid>
 
@@ -62,15 +61,15 @@ function Nav() {
 							<AddResourceModal />
 							<Tooltip title='profile' arrow>
 								<Button
-									className={classes.button}
 									component={Link}
 									to='/profile'
+									className={classes.button}
 								>
 									<PersonIcon fontSize='medium' />
 								</Button>
 							</Tooltip>
 							<Tooltip title='home' arrow>
-								<Button className={classes.button} component={Link} to='/home'>
+								<Button component={Link} to='/home' className={classes.button}>
 									<HomeIcon fontSize='medium' />
 								</Button>
 							</Tooltip>
