@@ -11,6 +11,8 @@ const resourceSchema = new Schema({
     category: { type: String, required: true },
     // stores the experience level
     skill: { type: String, required: true },
+    // store User Object?
+    resourceUser: [{ type: Schema.Types.ObjectId, ref:'User'}],
     // add date created for sorting purposes
     created: {type: Date, default:Date.now},
 });
