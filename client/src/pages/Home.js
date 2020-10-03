@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import SearchBar from '../components/SearchBar';
 import Carousel from '../components/testCarousel/Carousel'
+import { useAuth0 } from '@auth0/auth0-react';
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
@@ -32,43 +33,74 @@ export default function FullWidthGrid() {
   const classes = useStyles();
   const [bookmarkCards, setBookmarkCards] = useState([]);
   const [codeCards, setCodeCards] = useState({});
+  const { user } = useAuth0();
+
+console.log(user)
 
   useEffect(() => {
-    Api.getBookmarks().then(res => setBookmarkCards(res.data))
-    Api.getSnippets().then(res => {
 
+    // promise.all([Api.getBookmarks, getUserBookmarks]).then(([resGetBookmarks, resGetUserBookmarks]) => {
+
+    //   
+  //  setBookmarkCards(resGetUserBookmarks.toObject   ===  resGetBookmarks)
+  //})
+
+    Api.getBookmarks().then(res => {
+
+      // if (user) {
+      //   res.data.filter(fiteredCards => {
+      //     fiteredCards // 
+      ////compare to the user cards  turn the arr in user
+      //   })
+      // } else {
+        setBookmarkCards(res.data)
+      // }
+
+
+    })
+    Api.getSnippets().then(res => {
       const cardData = transform.toObject(res.data)
       setCodeCards(cardData)
     })
+
   }, [])
 
   const handleAdd = (id) => (e) => {
-    e.preventDefault();
-    // find the card in the array 
-    // ** then send it to the user database 
-    // dispatch(deleteUser(id));
 
-    // turn array to object? 
+    // filter the cards here too
+
+    // I think this is saying
+    // save a previous value and then do something else // carrying 
+    // get this id and then => send this callback function too 
+    e.preventDefault();
+
     let card = transform.toObject(bookmarkCards.concat(transform.toArray(codeCards)))
-    // send this object to the be saved as a new entry for the user database 
-    // so this will probably need to be pushed to the array in the in the database 
-    if (card[id].snippet) {
+
+    if (card[id].snippet && user) {
       console.log('this is a code card send it here')
       console.log(card[id]);
-    } else {
+      // Api.saveBookmarks(card[id])
+    } else if (user) {
       console.log('this is not a code card send it here')
       console.log(card[id]);
+      Api.saveBookmarks(card[id])
+    } else {
+      console.log(`you must be signed in to add a card to your card! `)
     }
   }
 
   const setCodeWrapper = (id) => (snippet) => {
     // where is the snippet parameter being used in this fucntion 
-    // and do we need it? 
+    // I want this info first // let me save it and the do something else 
+    // ! and do we need it 
+    // ! where is the snippet coming from 
 
     // just setting each card to have an id as the key and then
     // then rest of the object as the value of the key 
     setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
   }
+
+
 
   return (
     <div className={classes.root}>
@@ -85,6 +117,7 @@ export default function FullWidthGrid() {
               handleAdd={handleAdd}
             />
           })}
+
           {Object.keys(codeCards).map(key => {
             const card = codeCards[key]
             return <CodeJar
@@ -117,27 +150,3 @@ export default function FullWidthGrid() {
 
 
 
-// ! modal categories button dropdown cascading
-// JavaScript
-// React.js
-// Node.js
-// Python
-// HTML
-// CSS
-// C++
-// TypeScript
-// Rust
-// Scheme
-// Java 
-// Kotlin
-// C#
-// Perl
-// PHP
-// Scala 
-// Swift
-// MATLAB
-// SQL
-// R Programming Language
-// Golang (Go)
-// Ruby
-// Other

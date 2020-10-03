@@ -14,6 +14,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 //link preview package
 import { ReactTinyLink } from 'react-tiny-link';
+import { useAuth0 } from '@auth0/auth0-react';
 
 //importing css
 import './style.css';
@@ -46,9 +47,10 @@ const useStyles = makeStyles({
 });
 
 export default function SimpleCard(props) {
-	const classes = useStyles();
+  const classes = useStyles();
+  const { user } = useAuth0();
 
-	const { title, link, _id, category, skill, handleAdd } = props;
+	const { title, link, _id, category, skill, handleAdd, profile } = props;
 
 	return (
 		<Grid item xs={12} sm={6} md={4}>
@@ -83,11 +85,11 @@ export default function SimpleCard(props) {
 						<Button target='_blank' href={link || 'https://www.google.com'}>
 							<Icon className='fas fa-link' />
 						</Button>
-						<Button size='small' onClick={handleAdd(_id)}>
+						{user && profile ? 'added' : <Button size='small' onClick={handleAdd(_id)}>
 							{/* <Icon className="fas fa-plus" /> */}
 							<AddCircleIcon />
 							{/* add to collection */}
-						</Button>
+						</Button> }
 					</Typography>
 				</CardContent>
 				<CardActions></CardActions>
@@ -95,3 +97,10 @@ export default function SimpleCard(props) {
 		</Grid>
 	);
 }
+
+
+// todo: user log in i want to filter the one he added i dont want to show those 
+
+//only gonna show the ones we can add 
+
+

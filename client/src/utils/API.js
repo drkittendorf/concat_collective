@@ -14,8 +14,9 @@ export default {
     return axios.delete("/api/resources" + id);
   },
   // Saves a book to the database
-  saveBookmarks: function(bookData) {
-    return axios.post("/api/resources", bookData);
+  // we gotta check the id of the user 
+  saveBookmarks: (userID) => (bookmarkID) =>  {
+    return axios.post(`/api/resources/ ${userID} `, bookmarkID);
   }, 
   getSnippets: function() {
     return axios.get("/api/snippets");

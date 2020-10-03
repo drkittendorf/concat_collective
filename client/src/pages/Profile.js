@@ -4,6 +4,10 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { useAuth0 } from '@auth0/auth0-react';
 import SearchBar from '../components/SearchBar';
+import Typography from '@material-ui/core/Typography';
+import API from '../utils/API';
+import data from '../dummyData.json';
+import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -12,26 +16,26 @@ const useStyles = makeStyles((theme) => ({
 	paper: {
 		padding: theme.spacing(2),
 		// textAlign: 'center',
-        color: theme.palette.text.secondary,
-        display: 'flex',
-        width: '75%',
+		color: theme.palette.text.secondary,
+		display: 'flex',
+		width: '75%',
 		alignItems: 'center',
 		fontSize: '1%'
 	},
 	img: {
 		height: '10vh',
-        // borderRadius: '50%',
-        padding: '0px 20px 0px 0px '
-    },
-    imgContainer:{
-        display: 'flex',
-        justifyContent: 'flex-end'
-    },
-    headerContainer: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+		// borderRadius: '50%',
+		padding: '0px 20px 0px 0px '
+	},
+	imgContainer: {
+		display: 'flex',
+		justifyContent: 'flex-end'
+	},
+	headerContainer: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 }));
 
 function Profile() {
@@ -40,8 +44,24 @@ function Profile() {
 	const { user } = useAuth0();
 	const { name, picture, email } = user;
 
-	console.log(user);
 
+	const handleAdd = (id) => (e) => {
+
+		return user ? console.log('bookmark already added') : '';
+	}
+
+
+	// user action to add a new card to the array 
+	// get user bookmarks actions
+	// get home page bookmarks 
+	// home action to add a new card to the array 
+	// save all bookmarks 
+	// and save the only key id in the arrays
+	
+
+
+	// authencation is this correct 
+	// authorize 
 
 	return (
 		<div className={classes.root}>
@@ -61,6 +81,19 @@ function Profile() {
 							<p>{email}</p>
 						</Grid>
 					</Paper>
+				</Grid>
+				<Grid item xs={12} spacing={3} justify="flex-start" >
+					{
+						data.map(card => {
+							return <BookmarkCards
+								profile={true}
+								key={card._id} {...card}
+								handleAdd={handleAdd}
+							/>
+						})
+						||
+						<h1>Nothing has been added to your collection yet!</h1>
+					}
 				</Grid>
 			</Grid>
 		</div>
