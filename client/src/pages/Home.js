@@ -8,7 +8,7 @@ import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
 
 import Api from '../utils/API'
-import transform from '../utils/Transform'
+import transform from '../utils/transform'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +39,7 @@ export default function FullWidthGrid() {
 
       const cardData = transform.toObject(res.data)
       setCodeCards(cardData)
-    }) 
+    })
   }, [])
 
   const handleAdd = (id) => (e) => {
@@ -67,7 +67,7 @@ export default function FullWidthGrid() {
 
     // just setting each card to have an id as the key and then
     // then rest of the object as the value of the key 
-    setCodeCards({...codeCards, [id]: { ...codeCards[id], snippet } })
+    setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
   }
 
   return (
