@@ -18,7 +18,7 @@
     rgba(0, 0, 0, 0.651) 100.2%
   );
   color: aqua;
-  height: 400px;
+  height: auto;
   width: 400px;
   /* overflow-wrap: normal; */
   /* border-radius: 10px;  */
