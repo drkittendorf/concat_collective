@@ -1,0 +1,11 @@
+button:hover{
+    color: #B6D3D2
+}
+
+div a:hover {
+    color: #B6D3D2;
+}
+
+div button:focus {
+    outline: 0px
+}

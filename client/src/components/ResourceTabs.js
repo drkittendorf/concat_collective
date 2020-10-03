@@ -7,7 +7,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import './ResourceTabs.css';
-
 import AddResourceForm from './AddResourceForm';
 
 function TabPanel(props) {
@@ -55,7 +54,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleTabs() {
 	const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+	const [value, setValue] = React.useState(0);
+	
+	
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
