@@ -58,7 +58,7 @@ export default function SimpleCard(props) {
 				/>
 				<CardContent>
 					<Typography variant='body2' component='p'>
-						<Grid item>
+						<Grid item >
 							<ReactTinyLink
 								cardSize='large'
 								showGraphic={true}
