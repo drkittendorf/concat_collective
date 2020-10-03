@@ -18,8 +18,10 @@
     rgba(0, 0, 0, 0.651) 100.2%
   );
   color: aqua;
-  height: auto;
-  width: 400px;
+  height: 385px;
+  width: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
   /* overflow-wrap: normal; */
   /* border-radius: 10px;  */
 }
