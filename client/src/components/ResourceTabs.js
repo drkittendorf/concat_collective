@@ -6,9 +6,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import './ResourceTabs.css';
 
-
-import AddResourceForm from './AddResourceForm'
+import AddResourceForm from './AddResourceForm';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -49,9 +49,8 @@ const useStyles = makeStyles((theme) => ({
 		
 	},
 	appBar:{
-		backgroundColor: '#B6D3D2',
-		borderBottom: '3px solid grey',
-	}
+		backgroundColor: '#B6D3D2'
+	},
 }));
 
 export default function SimpleTabs() {
@@ -70,6 +69,7 @@ export default function SimpleTabs() {
 					value={value}
 					onChange={handleChange}
 					aria-label='simple tabs example'
+					indicatorColor='primary'
 				>
 					<Tab label='Add Resource' {...a11yProps(0)} />
 					<Tab label='Add Snippet' {...a11yProps(1)} />
