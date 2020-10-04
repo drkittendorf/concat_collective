@@ -9,7 +9,7 @@ import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
 
 import Api from '../utils/API'
-import transform from '../utils/transform'
+import transform from '../utils/Transform'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -105,7 +105,7 @@ console.log(user)
   return (
     <div className={classes.root}>
       <Grid container spacing={3} justify="center">
-        <Grid item xs={10}>
+        <Grid item xs={12} md={10}>
           <Carousel />
           <SearchBar />
           {/* filter buttons here */}

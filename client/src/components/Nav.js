@@ -30,6 +30,7 @@ const useStyles = makeStyles({
 	space: {
 		display: 'flex',
 		justifyContent: 'space-between',
+		paddingTop: '15px'
 	},
 	menuIcon: {
 		display: 'flex',
@@ -47,9 +48,8 @@ function Nav() {
 			<AppBar position='static' className={classes.black}>
 				<Toolbar className={classes.space}>
 					<Grid item xs={6}>
-						<Button className={classes.Logo} component={Link} to='/'>
+						<Button className={classes.logo} component={Link} to='/'>
 							<img
-								className={classes.img}
 								src='/concatCollective.png'
 								alt='concat(collective)'
 							/>
