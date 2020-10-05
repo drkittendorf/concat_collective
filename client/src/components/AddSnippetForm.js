@@ -19,11 +19,15 @@ const useStyles = makeStyles((theme) => ({
 	},
 	formControl: {
 		margin: theme.spacing(1),
-		minWidth: 500,
+        minWidth: 520,
+        minHeight: 175,
 	},
 	selectEmpty: {
 		marginTop: theme.spacing(2),
-	},
+    },
+    textArea:{
+        height: 30
+    }
 }));
 
 export default function AddResource() {
@@ -38,7 +42,7 @@ export default function AddResource() {
 	return (
 		<div>
 			<DialogTitle id='form-dialog-title'>Add Resource</DialogTitle>
-			<DialogContent>
+			<DialogContent className={classes.formControl}>
 				<DialogContentText>Save code here!</DialogContentText>
 				{/* where they enter the snippet */}
                 <TextField
@@ -49,7 +53,6 @@ export default function AddResource() {
                     fullWidth
                     variant='outlined'
                     multiline
-                    className={classes.formControl}
 				/>
 			</DialogContent>
 			<DialogActions>
