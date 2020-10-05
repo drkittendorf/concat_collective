@@ -16,17 +16,21 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
+
+    console.log(req.params)
+
+
     db.User
       // .findByIdAndUpdate(req.body)
-      // .findOneAndUpdate({ _id: req.params.id }, { $push: { userBookmarks:req.body } })
+      .findOneAndUpdate({ _id: req.params.id }, { $push: { userBookmarks: req.params.userBookmarks } })
       // .findById({ _id: req.params.id })
       // .updateOne({_id: req.params.id }, {$push:{ userBookmarks: req.params.bookmark }})
-      .findById(req.params.id)
-      .update({
+      // .findById(req.params.id)
+      // .update({
 
-          userBookmarks: "code sdlfjs"
-        }
-      )
+      //     userBookmarks: "5f6f9536d016d1733295ba06"
+      //   }
+      // )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
