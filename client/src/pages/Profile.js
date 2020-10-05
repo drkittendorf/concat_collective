@@ -12,20 +12,13 @@ import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
-	},
-	paper: {
-		padding: theme.spacing(2),
-		// textAlign: 'center',
-		color: theme.palette.text.secondary,
 		display: 'flex',
-		width: '75%',
-		alignItems: 'center',
-		fontSize: '1%',
 	},
 	img: {
-		height: '10vh',
+		height: '150px',
 		// borderRadius: '50%',
 		padding: '0px 20px 0px 0px ',
+		marginBottom: '30px'
 	},
 	imgContainer: {
 		display: 'flex',
@@ -64,7 +57,6 @@ function Profile() {
 				<Grid item xs={12} sm={10} className={classes.headerContainer}>
 						<Grid item xs={6} className={classes.imgContainer}>
 							<img
-								className={classes.paper}
 								src={picture}
 								alt='Profile'
 								className={classes.img}
@@ -75,7 +67,7 @@ function Profile() {
 							<p>{email}</p>
 						</Grid>
 				</Grid>
-				<Grid item xs={12} justify='flex-start'>
+				<Grid container xs={12} sm={10}  spacing={3} justify='flex-start'>
 					{data.map((card) => {
 						return (
 							<BookmarkCards

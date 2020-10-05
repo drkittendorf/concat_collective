@@ -47,8 +47,8 @@ const useStyles = makeStyles({
 });
 
 export default function SimpleCard(props) {
-  const classes = useStyles();
-  const { user } = useAuth0();
+	const classes = useStyles();
+	const { user } = useAuth0();
 
 	const { title, link, _id, category, skill, handleAdd, profile } = props;
 
@@ -85,11 +85,15 @@ export default function SimpleCard(props) {
 						<Button target='_blank' href={link || 'https://www.google.com'}>
 							<Icon className='fas fa-link' />
 						</Button>
-						{user && profile ? 'added' : <Button size='small' onClick={handleAdd(_id)}>
-							{/* <Icon className="fas fa-plus" /> */}
-							<AddCircleIcon />
-							{/* add to collection */}
-						</Button> }
+						{user && profile ? (
+							'added'
+						) : (
+							<Button size='small' onClick={handleAdd(_id)}>
+								{/* <Icon className="fas fa-plus" /> */}
+								<AddCircleIcon />
+								{/* add to collection */}
+							</Button>
+						)}
 					</Typography>
 				</CardContent>
 				<CardActions></CardActions>
@@ -98,9 +102,6 @@ export default function SimpleCard(props) {
 	);
 }
 
+// todo: user log in i want to filter the one he added i dont want to show those
 
-// todo: user log in i want to filter the one he added i dont want to show those 
-
-//only gonna show the ones we can add 
-
-
+//only gonna show the ones we can add
