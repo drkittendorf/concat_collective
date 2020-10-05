@@ -65,7 +65,7 @@ function Profile() {
 
 	return (
 		<div className={classes.root}>
-			<Grid container spacing={3}>
+			<Grid container spacing={3} justify="center">
 				{/* profile info  */}
 				<Grid item xs={12} className={classes.headerContainer}>
 					<Paper className={classes.paper}>
@@ -88,7 +88,7 @@ function Profile() {
 				item xs={12} 
 				spacing={3} 
 				container
-				justify="center" >
+				justify="flex-start" >
 					{
 						data.map(card => {
 							return <BookmarkCards
