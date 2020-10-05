@@ -22,12 +22,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	imgContainer: {
 		display: 'flex',
-<<<<<<< HEAD
 		justifyContent: 'flex-end',
 		alignItems: 'center',
-=======
-		justifyContent: 'flex-start'
->>>>>>> 2c374e91753875b1684a68d8cc41fd36b6c67101
 	},
 	headerContainer: {
 		display: 'flex',
@@ -45,7 +41,6 @@ function Profile() {
 		return user ? console.log('bookmark already added') : '';
 	};
 
-<<<<<<< HEAD
 	// user action to add a new card to the array
 	// get user bookmarks actions
 	// get home page bookmarks
@@ -59,63 +54,23 @@ function Profile() {
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3} justify='center'>
-				<Grid item xs={12} sm={10} className={classes.headerContainer}>
+				<Grid item xs={10} className={classes.headerContainer}>
 						<Grid item xs={6} className={classes.imgContainer}>
-=======
-	{
-		// user action to add a new card to the array 
-		// get user bookmarks actions
-		// get home page bookmarks 
-		// home action to add a new card to the array 
-		// save all bookmarks 
-		// and save the only key id in the arrays
-
-
-
-		// authencation is this correct 
-		// authorize 
-	}
-
-	return (
-		<div className={classes.root}>
-			<Grid container spacing={3} justify="center">
-				{/* profile info  */}
-				<Grid item xs={12} className={classes.headerContainer}>
-					<Paper className={classes.paper}>
-						<Grid item xs={4} className={classes.imgContainer}>
->>>>>>> 2c374e91753875b1684a68d8cc41fd36b6c67101
 							<img
 								src={picture}
 								alt='Profile'
 								className={classes.img}
 							/>
 						</Grid>
-<<<<<<< HEAD
 						<Grid item xs={6}>
 							<h2>{name}</h2>
-=======
-						<Grid item xs={2} >
-							<h4>{name}</h4>
->>>>>>> 2c374e91753875b1684a68d8cc41fd36b6c67101
 							<p>{email}</p>
 						</Grid>
 				</Grid>
-<<<<<<< HEAD
-				<Grid container xs={12} sm={10}  spacing={3} justify='flex-start'>
+				<Grid container xs={10} spacing={3} justify='flex-start'>
 					{data.map((card) => {
 						return (
 							<BookmarkCards
-=======
-				{/* cards added by the user  */}
-				<Grid 
-				item xs={12} 
-				spacing={3} 
-				container
-				justify="flex-start" >
-					{
-						data.map(card => {
-							return <BookmarkCards
->>>>>>> 2c374e91753875b1684a68d8cc41fd36b6c67101
 								profile={true}
 								key={card._id}
 								{...card}
