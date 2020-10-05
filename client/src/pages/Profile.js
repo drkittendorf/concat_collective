@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	imgContainer: {
 		display: 'flex',
-		justifyContent: 'flex-end'
+		justifyContent: 'flex-start'
 	},
 	headerContainer: {
 		display: 'flex',
@@ -46,29 +46,30 @@ function Profile() {
 
 
 	const handleAdd = (id) => (e) => {
-
 		return user ? console.log('bookmark already added') : '';
 	}
 
+	{
+		// user action to add a new card to the array 
+		// get user bookmarks actions
+		// get home page bookmarks 
+		// home action to add a new card to the array 
+		// save all bookmarks 
+		// and save the only key id in the arrays
 
-	// user action to add a new card to the array 
-	// get user bookmarks actions
-	// get home page bookmarks 
-	// home action to add a new card to the array 
-	// save all bookmarks 
-	// and save the only key id in the arrays
-	
 
 
-	// authencation is this correct 
-	// authorize 
+		// authencation is this correct 
+		// authorize 
+	}
 
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
+				{/* profile info  */}
 				<Grid item xs={12} className={classes.headerContainer}>
 					<Paper className={classes.paper}>
-						<Grid item xs={6} className={classes.imgContainer}>
+						<Grid item xs={4} className={classes.imgContainer}>
 							<img
 								className={classes.paper}
 								src={picture}
@@ -76,13 +77,18 @@ function Profile() {
 								className={classes.img}
 							/>
 						</Grid>
-						<Grid item xs={6} >
-							<h2>{name}</h2>
+						<Grid item xs={2} >
+							<h4>{name}</h4>
 							<p>{email}</p>
 						</Grid>
 					</Paper>
 				</Grid>
-				<Grid item xs={12} spacing={3} justify="flex-start" >
+				{/* cards added by the user  */}
+				<Grid 
+				item xs={12} 
+				spacing={3} 
+				container
+				justify="center" >
 					{
 						data.map(card => {
 							return <BookmarkCards
@@ -101,3 +107,5 @@ function Profile() {
 }
 
 export default Profile;
+
+
