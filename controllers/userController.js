@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
   db.User
-    .findAll({})
+    .find({}).select('email')
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
@@ -24,9 +24,12 @@ module.exports = {
   },
   update: function (req, res) {
     db.User
-      .findOneAndUpdate({ _id: '5f78cac568deff551fc8665d' }, { $push: { userBookmarks: req.params.id } })
+      .findOneAndUpdate(req.body , { $push: { userBookmarks: req.params.id } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+    // console.log(req.body)
+    // res.send(req.body)
+    console.log(`added to the database`)
   }
        // .findByIdAndUpdate(req.body)
       // .findById({ _id: req.params.id })
