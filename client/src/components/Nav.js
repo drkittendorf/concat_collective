@@ -40,9 +40,11 @@ const useStyles = makeStyles({
 
 function Nav() {
 	const classes = useStyles();
-	
 	const { isAuthenticated } = useAuth0();
-	const desktop = useMediaQuery('(min-width:768px)');
+
+	const matches = useMediaQuery('(min-width:768px)');
+	const mobile = useMediaQuery('(max-width:768px)');
+	
 
 	return (
 		<Grid container xs={12}>
@@ -57,7 +59,7 @@ function Nav() {
 						</Button>
 					</Grid>
 
-					{desktop && (
+					{matches && (
 						<Grid item xs={6} className={classes.menuIcon}>
 							<AddResourceModal />
 							<Tooltip title='profile' arrow>
@@ -77,8 +79,11 @@ function Nav() {
 							{isAuthenticated ? <LogoutButton /> : <LoginButton />}
 						</Grid>
 					)}
-
-					<MenuDropdown className='menuDropdown' />
+					
+					{mobile && (
+						<MenuDropdown className='menuDropdown' />
+					)}
+					
 				</Toolbar>
 			</AppBar>
 		</Grid>

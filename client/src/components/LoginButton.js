@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	mobileButton: {
 		color: 'black',
+		paddingLeft: '16px'
 	},
 }));
 

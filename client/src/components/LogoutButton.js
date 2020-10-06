@@ -26,7 +26,7 @@ function LogoutButton() {
 	const { logout } = useAuth0();
 
 	return (
-		<div className={classes.mobileButton}>
+		<div >
 			{desktop && (
 				<Tooltip title='logout' arrow>
 					<Button

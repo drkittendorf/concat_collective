@@ -56,7 +56,6 @@ export default function SimpleMenu() {
 				</MenuItem>
 
 				{isAuthenticated ? <LogoutButton /> : <LoginButton />}
-				
 			</Menu>
 		</div>
 	);
