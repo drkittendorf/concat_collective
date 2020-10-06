@@ -35,7 +35,7 @@ export default function FullWidthGrid() {
   const [codeCards, setCodeCards] = useState({});
   const { user } = useAuth0();
 
-console.log(user)
+console.log(Boolean(user))
 
   useEffect(() => {
 
@@ -44,6 +44,20 @@ console.log(user)
     //   
   //  setBookmarkCards(resGetUserBookmarks.toObject   ===  resGetBookmarks)
   //})
+
+  // call for an email and if no matched trigger create
+  // unique
+
+  // dont create a user 
+  // just the user and get us their ID 
+
+  // if not create a the user 
+
+    // if(user){
+    //   Api.createUse(user).then
+    // }
+
+
 
     Api.getBookmarks().then(res => {
 
