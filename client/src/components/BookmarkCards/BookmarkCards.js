@@ -98,8 +98,9 @@ export default function SimpleCard(props) {
 						<Button
 							onClick={() => props.deleteBookmark(props._id)}
 							className='remove'
+							variant='primary'
 						>
-							<HighlightOffIcon/>
+							<HighlightOffIcon />
 						</Button>
 					</Typography>
 				</CardContent>
