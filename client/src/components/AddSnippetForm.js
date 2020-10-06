@@ -19,15 +19,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 	formControl: {
 		margin: theme.spacing(1),
-        minWidth: 520,
-        minHeight: 175,
 	},
 	selectEmpty: {
 		marginTop: theme.spacing(2),
     },
-    textArea:{
-        height: 30
-    }
 }));
 
 export default function AddResource() {
@@ -52,7 +47,7 @@ export default function AddResource() {
 					type='text'
                     fullWidth
                     variant='outlined'
-                    multiline
+					multiline
 				/>
 			</DialogContent>
 			<DialogActions>

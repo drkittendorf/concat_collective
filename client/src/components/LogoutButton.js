@@ -26,7 +26,7 @@ function LogoutButton() {
 	const { logout } = useAuth0();
 
 	return (
-		<>
+		<div className={classes.mobileButton}>
 			{desktop && (
 				<Tooltip title='logout' arrow>
 					<Button
@@ -43,21 +43,17 @@ function LogoutButton() {
 				</Tooltip>
 			)}
 			{mobile && (
-				<Tooltip title='logout' arrow>
 					<Button
 						onClick={() =>
 							logout({
 								returnTo: window.location.origin,
 							})
 						}
-						variant='danger'
-						className={classes.mobileButton}
 					>
-						<Icon className='fas fa-sign-out-alt' fontSize='medium' />
 					</Button>
-				</Tooltip>
+	
 			)}
-		</>
+		</div>
 	);
 }
 

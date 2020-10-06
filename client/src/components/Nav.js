@@ -40,8 +40,9 @@ const useStyles = makeStyles({
 
 function Nav() {
 	const classes = useStyles();
-	const matches = useMediaQuery('(min-width:768px)');
+	
 	const { isAuthenticated } = useAuth0();
+	const desktop = useMediaQuery('(min-width:768px)');
 
 	return (
 		<Grid container xs={12}>
@@ -56,7 +57,7 @@ function Nav() {
 						</Button>
 					</Grid>
 
-					{matches && (
+					{desktop && (
 						<Grid item xs={6} className={classes.menuIcon}>
 							<AddResourceModal />
 							<Tooltip title='profile' arrow>
