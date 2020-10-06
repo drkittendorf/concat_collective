@@ -78,12 +78,12 @@ console.log(user)
 
     if (card[id].snippet && user) {
       console.log('this is a code card send it here')
-      console.log(card[id]);
-      // Api.saveBookmarks(card[id])
+      console.log(card[id]['_id']);
+      // Api.saveBookmarks(card[id],)
     } else if (user) {
       console.log('this is not a code card send it here')
-      console.log(card[id]);
-      Api.saveBookmarks(card[id])
+      console.log(card[id]['_id']);
+      // Api.saveBookmarks(card[id])
     } else {
       console.log(`you must be signed in to add a card to your card! `)
     }
@@ -94,6 +94,7 @@ console.log(user)
     // I want this info first // let me save it and the do something else 
     // ! and do we need it 
     // ! where is the snippet coming from 
+    // ** snippet is coming from the source code 
 
     // just setting each card to have an id as the key and then
     // then rest of the object as the value of the key 

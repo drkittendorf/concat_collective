@@ -22,7 +22,7 @@ module.exports = {
 
     db.User
       // .findByIdAndUpdate(req.body)
-      .findOneAndUpdate({ _id: req.params.id }, { $push: { userBookmarks: req.params.userBookmarks } })
+      .findOneAndUpdate({ _id: '5f78cac568deff551fc8665d' }, { $push: { userBookmarks: req.params.id } })
       // .findById({ _id: req.params.id })
       // .updateOne({_id: req.params.id }, {$push:{ userBookmarks: req.params.bookmark }})
       // .findById(req.params.id)

@@ -8,8 +8,8 @@ router.route('/')
 
 router.route('/:id')
     .get(userController.findById)
-    .post(userController.create)
-    .put(userController.update);
+    // .post(userController.create)
+    .post(userController.update);
 // .delete(userController.remove);
 
 
