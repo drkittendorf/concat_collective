@@ -33,7 +33,7 @@ export default {
   saveSnippets: function(bookData) {
     return axios.post("/api/snippets", bookData);
   }, 
-  createUse: (userData) => axios.post(`api/userAPI`, userData)
+  createUser: (userData) => axios.post(`api/userAPI`, userData)
 
 };
 
