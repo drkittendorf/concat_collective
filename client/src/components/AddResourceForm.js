@@ -1,6 +1,5 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -41,13 +40,6 @@ export default function AddResource() {
 		setCategory(event.target.value);
     };
     
-    const handleClickOpen = () => {
-		setOpen(true);
-	};
-
-	const handleClose = () => {
-		setOpen(false);
-    };
     
 
 	return (
@@ -123,14 +115,6 @@ export default function AddResource() {
 					<FormHelperText>EX: Beginner</FormHelperText>
 				</FormControl>
 			</DialogContent>
-			<DialogActions>
-				<Button onClick={handleClose} color='primary'>
-					Cancel
-				</Button>
-				<Button onClick={handleClose} color='primary'>
-					Submit
-				</Button>
-			</DialogActions>
 		</div>
 	);
 }

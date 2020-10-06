@@ -50,14 +50,6 @@ export default function AddResource() {
 					multiline
 				/>
 			</DialogContent>
-			<DialogActions>
-				<Button onClick={handleClose} color='primary'>
-					Cancel
-				</Button>
-				<Button onClick={handleClose} color='primary'>
-					Submit
-				</Button>
-			</DialogActions>
 		</div>
 	);
 }

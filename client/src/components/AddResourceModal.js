@@ -6,6 +6,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Tooltip from '@material-ui/core/Tooltip';
 import ResourceTabs from './ResourceTabs';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import DialogActions from '@material-ui/core/DialogActions';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
@@ -46,11 +47,7 @@ export default function FormDialog() {
 					</Button>
 				</Tooltip>
 			)}
-			{mobile && (
-				<Button onClick={handleClickOpen}>
-					Add Resource
-				</Button>
-			)}
+			{mobile && <Button onClick={handleClickOpen}>Add Resource</Button>}
 
 			<Dialog
 				open={open}
@@ -58,6 +55,14 @@ export default function FormDialog() {
 				aria-labelledby='form-dialog-title'
 			>
 				<ResourceTabs />
+				<DialogActions>
+					<Button onClick={handleClose} color='primary'>
+						Cancel
+					</Button>
+					<Button onClick={handleClose} color='primary'>
+						Submit
+					</Button>
+				</DialogActions>
 			</Dialog>
 		</>
 	);
