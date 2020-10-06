@@ -23,10 +23,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
-
-    console.log(req.params)
-
-
     db.User
       .findOneAndUpdate({ _id: '5f78cac568deff551fc8665d' }, { $push: { userBookmarks: req.params.id } })
       .then(dbModel => res.json(dbModel))
@@ -41,9 +37,4 @@ module.exports = {
       //     userBookmarks: "5f6f9536d016d1733295ba06"
       //   }
       // )
-
-
-
-
-
 };
