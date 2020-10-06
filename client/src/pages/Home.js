@@ -35,7 +35,7 @@ export default function FullWidthGrid() {
   const [codeCards, setCodeCards] = useState({});
   const { user } = useAuth0();
 
-console.log(user)
+console.log(Boolean(user))
 
   useEffect(() => {
 
@@ -44,6 +44,20 @@ console.log(user)
     //   
   //  setBookmarkCards(resGetUserBookmarks.toObject   ===  resGetBookmarks)
   //})
+
+  // call for an email and if no matched trigger create
+  // unique
+
+  // dont create a user 
+  // just the user and get us their ID 
+
+  // if not create a the user 
+
+    // if(user){
+    //   Api.createUse(user).then
+    // }
+
+
 
     Api.getBookmarks().then(res => {
 
@@ -78,12 +92,12 @@ console.log(user)
 
     if (card[id].snippet && user) {
       console.log('this is a code card send it here')
-      console.log(card[id]);
-      // Api.saveBookmarks(card[id])
+      console.log(card[id]['_id']);
+      // Api.saveBookmarks(card[id],)
     } else if (user) {
       console.log('this is not a code card send it here')
-      console.log(card[id]);
-      Api.saveBookmarks(card[id])
+      console.log(card[id]['_id']);
+      // Api.saveBookmarks(card[id])
     } else {
       console.log(`you must be signed in to add a card to your card! `)
     }
@@ -94,6 +108,7 @@ console.log(user)
     // I want this info first // let me save it and the do something else 
     // ! and do we need it 
     // ! where is the snippet coming from 
+    // ** snippet is coming from the source code 
 
     // just setting each card to have an id as the key and then
     // then rest of the object as the value of the key 
