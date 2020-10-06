@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Icon from '@material-ui/core/Icon';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 //link preview package
 import { ReactTinyLink } from 'react-tiny-link';
@@ -86,7 +87,7 @@ export default function SimpleCard(props) {
 							<Icon className='fas fa-link' />
 						</Button>
 						{user && profile ? (
-							'added'
+							'added' 
 						) : (
 							<Button size='small' onClick={handleAdd(_id)}>
 								{/* <Icon className="fas fa-plus" /> */}
@@ -94,6 +95,12 @@ export default function SimpleCard(props) {
 								{/* add to collection */}
 							</Button>
 						)}
+						<Button
+							onClick={() => props.deleteBookmark(props._id)}
+							className='remove'
+						>
+							<HighlightOffIcon/>
+						</Button>
 					</Typography>
 				</CardContent>
 				<CardActions></CardActions>

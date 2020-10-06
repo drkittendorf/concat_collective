@@ -11,7 +11,7 @@ export default {
   },
   // Deletes the book with the given id
   deleteBookmarks: function(id) {
-    return axios.delete("/api/resources" + id);
+    return axios.delete("/api/resources/" + id);
   },
   // Saves a book to the database
   // we gotta check the id of the user 
