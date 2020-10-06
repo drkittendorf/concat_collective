@@ -2,7 +2,7 @@ import React from 'react';
 import './Loading.css'
 
 const loadingLink =
-	'https://cdn.auth0.com/blog/auth0-react-sample/assets/loading.svg';
+	'/30.gif';
 
 function Loading() {
 	return (
