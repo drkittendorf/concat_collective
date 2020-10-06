@@ -35,29 +35,10 @@ export default function FullWidthGrid() {
   const [codeCards, setCodeCards] = useState({});
   const { user } = useAuth0();
 
-console.log(Boolean(user))
+  // console.log(user)
+  console.log(Boolean(user)) // false // when not logged in 
 
   useEffect(() => {
-
-    // promise.all([Api.getBookmarks, getUserBookmarks]).then(([resGetBookmarks, resGetUserBookmarks]) => {
-
-    //   
-  //  setBookmarkCards(resGetUserBookmarks.toObject   ===  resGetBookmarks)
-  //})
-
-  // call for an email and if no matched trigger create
-  // unique
-
-  // dont create a user 
-  // just the user and get us their ID 
-
-  // if not create a the user 
-
-    // if(user){
-    //   Api.createUse(user).then
-    // }
-
-
 
     Api.getBookmarks().then(res => {
 
@@ -67,7 +48,7 @@ console.log(Boolean(user))
       ////compare to the user cards  turn the arr in user
       //   })
       // } else {
-        setBookmarkCards(res.data)
+      setBookmarkCards(res.data)
       // }
 
 
@@ -78,6 +59,51 @@ console.log(Boolean(user))
     })
 
   }, [])
+
+
+  const checkIfUser = (cardId) => {
+
+    Api.getUsersByEmail()
+      .then(res => {
+        let users = transform.toObjectByEmail(res.data)
+        // check if user is logged in
+        if (Boolean(user)) {
+          if (Boolean(users[user.email])) {
+            // existing member
+            Api.saveBookmarks(cardId, { email: user.email })
+            .then(res => {
+                console.log(res, 'has been added! ')
+              })
+
+            console.log(`this is the cardId: ${cardId}`)
+            console.log(`this is the user: ${user.email}`)
+          } //else {
+          //   // new member
+          //   // create a profile with the auth0 object 
+          //   Api.createUser(user)
+          //     .then(res => {
+          //       // console.log(`user created ${JSON.stringify(res)} `)
+          //       // now that we have created the user
+          //       // we can now add the bookmark to the profile model 
+          //       // console.log(res.data.email);
+
+          //       // send the id of the card and the user email 
+          //       Api.saveBookmarks(cardId, res.data.email)
+          //         .then(res => {
+          //           console.log(res, 'has been added! ,  and welcome new user')
+          //         })
+
+          //     })
+          // }
+
+        } else {
+
+
+
+
+        }
+      });
+  }
 
   const handleAdd = (id) => (e) => {
 
@@ -94,12 +120,22 @@ console.log(Boolean(user))
       console.log('this is a code card send it here')
       console.log(card[id]['_id']);
       // Api.saveBookmarks(card[id],)
+      checkIfUser(card[id]['_id'])
+
+
     } else if (user) {
-      console.log('this is not a code card send it here')
+      console.log('this is bookmark card send it here')
       console.log(card[id]['_id']);
       // Api.saveBookmarks(card[id])
+      checkIfUser(card[id]['_id'])
+
+
     } else {
       console.log(`you must be signed in to add a card to your card! `)
+
+
+
+
     }
   }
 
@@ -165,3 +201,21 @@ console.log(Boolean(user))
 
 
 
+
+    // promise.all([Api.getBookmarks, getUserBookmarks]).then(([resGetBookmarks, resGetUserBookmarks]) => {
+
+    //   
+  //  setBookmarkCards(resGetUserBookmarks.toObject   ===  resGetBookmarks)
+  //})
+
+  // call for an email and if no matched trigger create
+  // unique
+
+  // dont create a user 
+  // just the user and get us their ID 
+
+  // if not create a the user 
+
+    // if(user){
+    //   Api.createUse(user).then
+    // }
