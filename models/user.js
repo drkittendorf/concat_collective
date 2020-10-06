@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 // Create the structure of concat's User DB
 const userSchema = new Schema({
  // store jwt object data here
- email: { type: String, required: true },
+ email: { type: String, required: true, unique:true },
  name: { type: String, required: true },
  nickname: {type: String },
  sub: {type: String },
@@ -14,16 +14,7 @@ const userSchema = new Schema({
  picture: {type: String}, 
  token: String,
 
-    // jwt: {  
-    //     token: String,
-    //     email: { type: String, required: true },
-    //     email_verified: '',
-    //     name: { type: String, required: true },
-    //     nickname: '',
-    //     picture: '',
-    //     sub: '',
-    //     updated_at: ''
-    //  },
+    
     //! need arrays to store card and snippet arrays
     userBookmarks: [{
         type: Schema.Types.ObjectId, ref: 'Resource'
@@ -43,3 +34,14 @@ module.exports = User;
     // name: { type: String, required: true },
     // stores email information
     // email: { type: String, required: true },
+
+    // jwt: {  
+    //     token: String,
+    //     email: { type: String, required: true },
+    //     email_verified: '',
+    //     name: { type: String, required: true },
+    //     nickname: '',
+    //     picture: '',
+    //     sub: '',
+    //     updated_at: ''
+    //  },
