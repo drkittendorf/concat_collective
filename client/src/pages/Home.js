@@ -2,29 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import SearchBar from '../components/SearchBar';
-import Carousel from '../components/testCarousel/Carousel'
+import Carousel from '../components/testCarousel/Carousel';
 import { useAuth0 } from '@auth0/auth0-react';
 
-import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
-import CodeJar from '../components/CodeJar/CodeJar'
+import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
+import CodeJar from '../components/CodeJar/CodeJar';
 
-import Api from '../utils/API'
-import transform from '../utils/transform'
-
+import API from '../utils/API';
+import transform from '../utils/Transform';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    height: '100%',
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-  margin: {
-    marginBottom: '20px'
-  }
+	root: {
+		flexGrow: 1,
+		height: '100%',
+	},
+	paper: {
+		padding: theme.spacing(2),
+		textAlign: 'center',
+		color: theme.palette.text.secondary,
+	},
+	margin: {
+		marginBottom: '20px',
+	},
 }));
 
 // data[0].
@@ -183,18 +182,17 @@ export default function FullWidthGrid() {
   );
 }
 
-
 // todo: live chat with help v2  => problem
 // todo: create new collection
-// todo: code cards get thing 
+// todo: code cards get thing
 // todo: code accordion
 // todo: delete from you own but not global
 // todo: search code cards or links
-// todo: search slider for categories (filters) 
-    // => new bookmarks or code 
+// todo: search slider for categories (filters)
+// => new bookmarks or code
 
-// todo: sandbox api 
-// todo: minigame: 
+// todo: sandbox api
+// todo: minigame:
 
 // todo: emoji: rick roll link [DONE]
 // todo: (newlyConcated) (language(dropdowm))

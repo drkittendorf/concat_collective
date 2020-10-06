@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	mobileButton: {
 		color: 'black',
+		paddingLeft: '16px'
 	},
 }));
 
@@ -38,14 +39,12 @@ function LoginButton() {
 				</Tooltip>
 			)}
 			{mobile && (
-				<Tooltip title='login' arrow>
 					<Button
 						onClick={() => loginWithRedirect()}
 						className={classes.mobileButton}
 					>
-						<Icon className='fas fa-sign-in-alt' fontSize='medium'>Login</Icon>
+						Login
 					</Button>
-				</Tooltip>
 			)}
 		</>
 	);

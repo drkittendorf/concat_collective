@@ -9,3 +9,7 @@ div a:hover {
 div button:focus {
     outline: 0px
 }
+
+.logo img:focus{
+    outline: 0px;
+}

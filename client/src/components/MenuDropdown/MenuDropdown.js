@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -8,9 +8,12 @@ import LoginButton from '../LoginButton';
 import LogoutButton from '../LogoutButton';
 import './MenuDropdown.css';
 import { Link } from 'react-router-dom';
+import AddResourceModal from '../AddResourceModal';
 
 export default function SimpleMenu() {
 	const [anchorEl, setAnchorEl] = React.useState(null);
+
+	const [open, setOpen] = React.useState(false);
 
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -20,10 +23,14 @@ export default function SimpleMenu() {
 		setAnchorEl(null);
 	};
 
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
 	const { isAuthenticated } = useAuth0();
 
 	return (
-		<div className='menuDropdown'>
+		<div>
 			<Button
 				aria-controls='simple-menu'
 				aria-haspopup='true'
@@ -38,11 +45,16 @@ export default function SimpleMenu() {
 				open={Boolean(anchorEl)}
 				onClose={handleClose}
 			>
-				<MenuItem onClick={handleClose}>
-					Add Resource
+				<MenuItem onClick={handleClickOpen}>
+					<AddResourceModal />
 				</MenuItem>
-				<MenuItem onClick={handleClose} component={Link} to='/profile'>My Profile</MenuItem>
-				<MenuItem onClick={handleClose} component={Link} to='/home'>Home</MenuItem>
+				<MenuItem component={Link} to='/profile'>
+					<Button>My Profile</Button>
+				</MenuItem>
+				<MenuItem component={Link} to='/home'>
+					<Button>Home</Button>
+				</MenuItem>
+
 				{isAuthenticated ? <LogoutButton /> : <LoginButton />}
 			</Menu>
 		</div>
