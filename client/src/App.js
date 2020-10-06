@@ -5,7 +5,7 @@ import PrivateRoute from './components/PrivateRoute'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import NoMatch from './pages/NoMatch'
-import Loading from "./components/Loading"
+import Loading from './components/Loading';
 import Nav from './components/Nav'; 
 import './App.css'
 
