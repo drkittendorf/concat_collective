@@ -35,9 +35,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center'
     },
-    accordion:{
+    accordion: {
         backgroundColor: 'white',
-        borderRadius:'5px'
+        borderRadius: '5px'
     },
     spacing: {
         marginRight: '70px'
@@ -61,7 +61,9 @@ const CodeJar = (props) => {
         snippet,
         _id,
         handleAdd,
-        setCode
+        setCode,
+        created,
+        profile
     } = props;
 
     const editorRef = useCodeJar({
@@ -104,10 +106,10 @@ const CodeJar = (props) => {
                             <Typography >click to view snippet</Typography>
                         </AccordionSummary>
                         <AccordionDetails className={classes.details} > */}
-                            <div className='editor'>
-                                <div ref={editorRef}></div>
-                            </div>
-                        {/* </AccordionDetails> */}
+                    <div className='editor'>
+                        <div ref={editorRef}></div>
+                    </div>
+                    {/* </AccordionDetails> */}
                     {/* </Accordion> */}
                     <Typography color="textSecondary">
                         {/* this will be the category */}
@@ -118,9 +120,13 @@ const CodeJar = (props) => {
                         {/* <Button size="small" onClick={handleClickOpen}  > */}
                         {/* <VisibilityIcon fontSize='large' /> */}
                         {/* </Button> */}
-                        <Button size="small" onClick={handleAdd(_id)} >
-                            <AddCircleIcon />
-                        </Button>
+                        {
+                            props.profile ? 'saved' :
+                                <Button size="small" onClick={handleAdd(_id)} >
+                                    <AddCircleIcon />
+                                </Button>
+                        }
+
                     </Typography>
                     <Dialog
                         open={open}

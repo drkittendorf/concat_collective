@@ -8,10 +8,11 @@ module.exports = {
     .catch(err => res.status(422).json(err));
   },
   
-  findById: function (req, res) {
+  findByToken: function (req, res) {
   db.User
-      .findById(req.params.id)
+      .find({email: req.params.id})
       .populate("userBookmarks")
+      .populate("userSnippets")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
