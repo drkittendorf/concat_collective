@@ -61,7 +61,7 @@ export default function FullWidthGrid() {
     setOpen(false);
   };
 
-  // >>>>>> 
+  // >>>>>> comp
   const saveBookmarkToUser = ({ cardId, userEmail }) => {
     Api.saveBookmarks(cardId, userEmail);
     return 'added'
@@ -70,39 +70,57 @@ export default function FullWidthGrid() {
     setOpen(true)
     setMsg(msg)
   };
+  // >>>>> se
 
+  const bookmarkSaveChoices = (dataBase, cardId) => {
+    // ** existing member
+    // then you add the bookmark card
+    // ? here we check if the user is in the database
+    if (Boolean(dataBase[user.email])) {
+      // ** add the card to the users database 
+      pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
 
+      // ** new member // not in the database 
+      // ? we need to create a user 
+    } else {
 
-  const checkUser = (cardId) => {
+      // ** create the user here 
+      Api.createUser(user)
+        .then(res => {
 
-    // ** GET USER DATA
-    Api.getUsersByEmail()
-      .then(res => {
-
-        // ** turn array of users to Object 
-        let usersDatabase = transform.toObjectByEmail(res.data)
-
-        // ** existing member
-        // then you add the bookmark card
-        // ? here we check if the user is in the database
-        if (Boolean(usersDatabase[user.email])) {
-          // ** add the card to the users database 
+          // ** now that the user is created, we save the bookmark to the user 
           pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
 
-          // ** new member // not in the database 
-          // ? we need to create a user 
-        } else {
+        })
+    }
+  }
 
-          // ** create the user here 
-          Api.createUser(user)
-            .then(res => {
+  const codeCardChoices = (dataBase, cardId) => {
+    console.log('this is the code card choices')
+  }
 
-              // ** now that the user is created, we save the bookmark to the user 
-              pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
+  const checkUser = async (cardId, cardType) => {
+    // ** GET USER DATA
+    let response = await Api.getUsersByEmail()
 
-            })
-        }
-      });
+    // ** turn array of users to Object 
+    let usersDatabase = await transform.toObjectByEmail(response.data)
+
+    // we want two function one for adding bookmarks and the other for adding code snippets
+    // this has to be split by a switch
+    // the cardType will decide which function we use 
+    switch (cardType) {
+      case 'codeCard':
+        // we gotta figure out this path 
+        // codeCardChoices(usersDatabase, cardId)
+        break;
+      case 'bookMarkCard':
+        bookmarkSaveChoices(usersDatabase, cardId)
+        break;
+    
+      default: console.log('something went really wont in the switch for choices')
+        break;
+    }
   }
 
   const handleAdd = (id) => (e) => {
@@ -117,7 +135,7 @@ export default function FullWidthGrid() {
     // ? check the id of the snippet and if the user is logged in 
     if (card[id].snippet && user) {
       // ** code card
-      checkIfUser(card[id]['_id'], 'codeCard')
+      checkUser(card[id]['_id'], 'codeCard')
 
       // ? check if user is logged in 
     } else if (user) {
@@ -177,6 +195,10 @@ export default function FullWidthGrid() {
     </div>
   );
 }
+
+
+
+// ? where can I use more closures in my code ?
 
 // todo: live chat with help v2  => problem
 // todo: create new collection
@@ -265,3 +287,31 @@ export default function FullWidthGrid() {
                         // saveBookmarkToUser(cardId, { email: user.email })
 
               // postNotification('added')
+
+
+
+
+
+
+
+    // // ** existing member
+    // // then you add the bookmark card
+    // // ? here we check if the user is in the database
+    // if (Boolean(usersDatabase[user.email])) {
+    //   // ** add the card to the users database 
+    //   pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
+
+    //   // ** new member // not in the database 
+    //   // ? we need to create a user 
+    // } else {
+
+    //   // ** create the user here 
+    //   Api.createUser(user)
+    //     .then(res => {
+
+    //       // ** now that the user is created, we save the bookmark to the user 
+    //       pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
+
+    //     })
+    // }
+    // });
