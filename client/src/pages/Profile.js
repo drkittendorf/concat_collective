@@ -8,7 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import API from '../utils/API';
 import transform from '../utils/transform';
 import data from '../dummyData.json';
+
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
+import CodeJar from '../components/CodeJar/CodeJar';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -38,28 +40,25 @@ function Profile() {
 	const { user } = useAuth0();
 	const { name, picture, email } = user;
 
-	const [bookmarkCards, setBookmarkCards] = useState([]);
+	const [bookmarkCards, setBookmarkCards] = useState({});
 	const [codeCards, setCodeCards] = useState({});
 
 
 	useEffect(() => {
-		
+
 		API.getUserCards(user.email)
-		.then( userData => {
+			.then(userData => {
 
-			console.log(userData.data[0].userBookmarks)
-			console.log(userData.data[0].userSnippets)
+				let userBookmarks = (userData.data[0].userBookmarks)
+				let userSnippets = (userData.data[0].userSnippets)
 
-		})
-		// we need to call the user and get the arrays to populate the data
+				setBookmarkCards(transform.toObject(userBookmarks))
+				setCodeCards(transform.toObject(userSnippets))
 
-		// Promise.all([]).then(([x, x]) => {
-		// 	const cardData = transform.toObject(snippets.data)
-		// 	setBookmarkCards(bookmarks.data)
-		// 	setCodeCards(cardData)
-		// });
+			})
 
 	}, [])
+
 
 	const handleAdd = (id) => (e) => {
 		return user ? console.log('bookmark already added') : '';
@@ -78,6 +77,10 @@ function Profile() {
 			.catch((err) => console.log(err));
 	}
 
+	const setCodeWrapper = (id) => (snippet) => {
+		setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
+	}
+
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3} justify='center'>
@@ -91,17 +94,23 @@ function Profile() {
 					</Grid>
 				</Grid>
 				<Grid container xs={10} spacing={3} justify='flex-start'>
-					{data.map((card) => {
-						return (
-							<BookmarkCards
-								profile={true}
-								key={card._id}
-								{...card}
-								handleAdd={handleAdd}
-								deleteBookmark={deleteBookmark}
-							/>
-						);
-					}) || <h1>Nothing has been added to your collection yet!</h1>}
+					{Object.keys(bookmarkCards).map(key => {
+						const card = bookmarkCards[key]
+						return <BookmarkCards
+							profile={true}
+							key={card._id} {...card}
+							handleAdd={handleAdd}
+						/>
+					})}
+					{Object.keys(codeCards).map(key => {
+						const card = codeCards[key]
+						return <CodeJar
+							profile={true}
+							key={card._id} {...card}
+							handleAdd={handleAdd}
+							setCode={setCodeWrapper(card._id)}
+						/>
+					})}
 				</Grid>
 			</Grid>
 		</div>

@@ -87,21 +87,24 @@ export default function SimpleCard(props) {
 							<Icon className='fas fa-link' />
 						</Button>
 						{user && profile ? (
-							'added' 
+							'saved'
 						) : (
-							<Button size='small' onClick={handleAdd(_id)}>
-								{/* <Icon className="fas fa-plus" /> */}
-								<AddCircleIcon />
-								{/* add to collection */}
+								<Button size='small' onClick={handleAdd(_id)}>
+									{/* <Icon className="fas fa-plus" /> */}
+									<AddCircleIcon />
+									{/* add to collection */}
+								</Button>
+							)}
+						{props.profile ? '' :
+							<Button
+								onClick={() => props.deleteBookmark(props._id)}
+								className='remove'
+								variant='primary'
+							>
+								<HighlightOffIcon />
 							</Button>
-						)}
-						<Button
-							onClick={() => props.deleteBookmark(props._id)}
-							className='remove'
-							variant='primary'
-						>
-							<HighlightOffIcon />
-						</Button>
+						}
+
 					</Typography>
 				</CardContent>
 				<CardActions></CardActions>
