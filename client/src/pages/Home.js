@@ -102,24 +102,22 @@ export default function FullWidthGrid() {
   }
 
   const handleAdd = (id) => (e) => {
-    // filter the cards here too
     // I think this is saying
-    // save a previous value and then do something else // carrying 
-    // get this id and then => send this callback function too 
+    // save a previous value and then do something else // carrying the value 
     e.preventDefault();
 
+    // ** put all cards in an object 
     let card = transform.toObject(bookmarkCards.concat(transform.toArray(codeCards)))
 
+    // ? check the id of the snippet and if the user is logged in 
     if (card[id].snippet && user) {
-      console.log('this is a code card send it here')
+      // ** code card
       console.log(card[id]['_id']);
-      // Api.saveBookmarks(card[id],)
       // checkIfUser(card[id]['_id'])
 
-
+    // ? check if user is logged in 
     } else if (user) {
-      console.log('this is bookmark card send it here')
-      console.log(card[id]['_id']);
+      // ** bookmark card 
       // check if the user is logged in and add card to user database 
       checkIfUser(card[id]['_id'])
     } else {
