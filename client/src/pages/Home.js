@@ -148,18 +148,7 @@ export default function FullWidthGrid() {
   }
 
   const setCodeWrapper = (id) => (snippet) => {
-    // where is the snippet parameter being used in this fucntion 
-    // I want this info first // let me save it and the do something else 
-    // ! and do we need it 
-    // ! where is the snippet coming from 
-    // ** snippet is coming from the source code 
-
-    //we are saying save the id 
-    // then we are getting the snippet from a different place AND THEN
-    // setting the code cards 
-
-    // just setting each card to have an id as the key and then
-    // then rest of the object as the value of the key 
+    
     setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
   }
 
@@ -290,12 +279,6 @@ export default function FullWidthGrid() {
                         // saveBookmarkToUser(cardId, { email: user.email })
 
               // postNotification('added')
-
-
-
-
-
-
 
     // // ** existing member
     // // then you add the bookmark card
