@@ -65,6 +65,11 @@ export default function FullWidthGrid() {
     Api.saveBookmarks(cardId, userEmail);
     return 'added'
   }
+  const saveCodeCardToUser = ({ cardId, userEmail }) => {
+    Api.saveBookmarks(cardId, userEmail);
+    return 'added'
+  }
+
   const postNotification = (msg) => {
     setOpen(true)
     setMsg(msg)
@@ -88,14 +93,35 @@ export default function FullWidthGrid() {
         .then(res => {
 
           // ** now that the user is created, we save the bookmark to the user 
-          pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
+        pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
+
 
         })
     }
   }
 
+  // ** HERE 
   const codeCardChoices = (dataBase, cardId) => {
-    console.log('this is the code card choices')
+    // ** existing member
+    // then you add the bookmark card
+    // ? here we check if the user is in the database
+    if (Boolean(dataBase[user.email])) {
+      // ** add the card to the users database 
+      // pipe(saveCodeCardToUser, postNotification)({ cardId, user: { email: user.email } })
+
+      // ** new member // not in the database 
+      // ? we need to create a user 
+    } else {
+
+      // ** create the user here 
+      Api.createUser(user)
+        .then(res => {
+
+          // ** now that the user is created, we save the bookmark to the user 
+
+
+        })
+    }
   }
 
   const checkUser = async (cardId, cardType) => {
@@ -111,12 +137,12 @@ export default function FullWidthGrid() {
     switch (cardType) {
       case 'codeCard':
         // we gotta figure out this path 
-        // codeCardChoices(usersDatabase, cardId)
+        codeCardChoices(usersDatabase, cardId)
         break;
       case 'bookMarkCard':
-        bookmarkSaveChoices(usersDatabase, cardId)
-        break;
-    
+        return bookmarkSaveChoices(usersDatabase, cardId); 
+
+
       default: console.log('something went really wont in the switch for choices')
         break;
     }
@@ -148,7 +174,7 @@ export default function FullWidthGrid() {
   }
 
   const setCodeWrapper = (id) => (snippet) => {
-    
+
     setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
   }
 
@@ -301,3 +327,5 @@ export default function FullWidthGrid() {
     //     })
     // }
     // });
+
+    // patch

@@ -13,12 +13,7 @@ export default {
   deleteBookmarks: function(id) {
     return axios.delete("/api/resources/" + id);
   },
-  // Saves a book to the database
-  // we gotta check the id of the user 
-  saveBookmarks: (bookId, userId) =>  {
-    console.log(bookId, userId)
-    return axios.post(`/api/userAPI/${bookId}`, userId);
-  }, 
+  
   getSnippets: function() {
     return axios.get("/api/snippets");
   },
@@ -34,7 +29,12 @@ export default {
   saveSnippets: function(bookData) {
     return axios.post("/api/snippets", bookData);
   }, 
+
   createUser: (userData) => axios.post(`api/userAPI`, userData),
+
+  // Saves a book to the database // we gotta check the id of the user 
+  saveBookmarks: (bookId, userId) =>  axios.post(`/api/userAPI/${bookId}`, userId), 
+  saveCodeCards: (cardId, userId) =>  axios.post(`/api/userAPI/${cardId}`, cardId), 
   getUsersByEmail: () => axios.get(`/api/userAPI`)
 
 };
