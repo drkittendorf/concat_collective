@@ -66,7 +66,7 @@ export default function FullWidthGrid() {
     return 'added'
   }
   const saveCodeCardToUser = ({ cardId, userEmail }) => {
-    Api.saveBookmarks(cardId, userEmail);
+    Api.saveCodeCards(cardId, userEmail);
     return 'added'
   }
 
@@ -93,7 +93,7 @@ export default function FullWidthGrid() {
         .then(res => {
 
           // ** now that the user is created, we save the bookmark to the user 
-        pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
+          pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
 
 
         })
@@ -107,7 +107,7 @@ export default function FullWidthGrid() {
     // ? here we check if the user is in the database
     if (Boolean(dataBase[user.email])) {
       // ** add the card to the users database 
-      // pipe(saveCodeCardToUser, postNotification)({ cardId, user: { email: user.email } })
+      pipe(saveCodeCardToUser, postNotification)({ cardId, user: { email: user.email } })
 
       // ** new member // not in the database 
       // ? we need to create a user 
@@ -118,6 +118,7 @@ export default function FullWidthGrid() {
         .then(res => {
 
           // ** now that the user is created, we save the bookmark to the user 
+          pipe(saveCodeCardToUser, postNotification)({ cardId, user: { email: user.email } })
 
 
         })
@@ -134,15 +135,10 @@ export default function FullWidthGrid() {
     // we want two function one for adding bookmarks and the other for adding code snippets
     // this has to be split by a switch
     // the cardType will decide which function we use 
+    // we gotta figure out this path 
     switch (cardType) {
-      case 'codeCard':
-        // we gotta figure out this path 
-        codeCardChoices(usersDatabase, cardId)
-        break;
-      case 'bookMarkCard':
-        return bookmarkSaveChoices(usersDatabase, cardId); 
-
-
+      case 'codeCard': return codeCardChoices(usersDatabase, cardId)
+      case 'bookMarkCard': return bookmarkSaveChoices(usersDatabase, cardId)
       default: console.log('something went really wont in the switch for choices')
         break;
     }
