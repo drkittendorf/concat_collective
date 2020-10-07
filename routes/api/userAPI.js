@@ -7,7 +7,7 @@ router.route('/')
     .get(userController.findAll);
 
 router.route('/:id')
-    .get(userController.findById)
+    .get(userController.findByToken)
 
 router.route('/boomarkCards/:id')
     .post(userController.updateUserBookmarks);

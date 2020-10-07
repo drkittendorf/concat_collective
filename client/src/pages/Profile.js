@@ -6,6 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import SearchBar from '../components/SearchBar';
 import Typography from '@material-ui/core/Typography';
 import API from '../utils/API';
+import transform from '../utils/transform';
 import data from '../dummyData.json';
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 
@@ -36,7 +37,29 @@ function Profile() {
 	const classes = useStyles();
 	const { user } = useAuth0();
 	const { name, picture, email } = user;
+
 	const [bookmarkCards, setBookmarkCards] = useState([]);
+	const [codeCards, setCodeCards] = useState({});
+
+
+	useEffect(() => {
+		
+		API.getUserCards(user.email)
+		.then( userData => {
+
+			console.log(userData.data[0].userBookmarks)
+			console.log(userData.data[0].userSnippets)
+
+		})
+		// we need to call the user and get the arrays to populate the data
+
+		// Promise.all([]).then(([x, x]) => {
+		// 	const cardData = transform.toObject(snippets.data)
+		// 	setBookmarkCards(bookmarks.data)
+		// 	setCodeCards(cardData)
+		// });
+
+	}, [])
 
 	const handleAdd = (id) => (e) => {
 		return user ? console.log('bookmark already added') : '';
@@ -54,16 +77,6 @@ function Profile() {
 			.then((res) => loadBookmarks())
 			.catch((err) => console.log(err));
 	}
-
-	// user action to add a new card to the array
-	// get user bookmarks actions
-	// get home page bookmarks
-	// home action to add a new card to the array
-	// save all bookmarks
-	// and save the only key id in the arrays
-
-	// authencation is this correct
-	// authorize
 
 	return (
 		<div className={classes.root}>
