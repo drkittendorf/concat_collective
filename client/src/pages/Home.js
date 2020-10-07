@@ -76,6 +76,7 @@ export default function FullWidthGrid() {
   };
   // >>> 
 
+  /// *** choices 
   const bookmarkSaveChoices = (dataBase, cardId) => {
     // ** existing member
     // then you add the bookmark card
@@ -99,8 +100,6 @@ export default function FullWidthGrid() {
         })
     }
   }
-
-  // ** HERE 
   const codeCardChoices = (dataBase, cardId) => {
     // ** existing member
     // then you add the bookmark card
@@ -124,7 +123,6 @@ export default function FullWidthGrid() {
         })
     }
   }
-
   const checkUser = async (cardId, cardType) => {
     // ** GET USER DATA
     let response = await Api.getUsersByEmail()
@@ -170,7 +168,6 @@ export default function FullWidthGrid() {
   }
 
   const setCodeWrapper = (id) => (snippet) => {
-
     setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
   }
 
