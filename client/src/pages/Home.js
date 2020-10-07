@@ -10,6 +10,7 @@ import CodeJar from '../components/CodeJar/CodeJar';
 
 import Api from '../utils/API';
 import transform from '../utils/transform';
+import pipe from '../utils/pipe'
 
 import AlertMsg from '../components/AlertMsg'
 
@@ -41,8 +42,6 @@ export default function FullWidthGrid() {
   // what msg to send
   const [msg, setMsg] = useState('')
 
-  const pipe = (...fns) => (x) => fns.reduce((y, fn) => fn(y), x);
-
   useEffect(() => {
 
     Promise.all([Api.getBookmarks(), Api.getSnippets()]).then(([bookmarks, snippets]) => {
@@ -70,7 +69,7 @@ export default function FullWidthGrid() {
     setOpen(true)
     setMsg(msg)
   };
-  // >>>>> se
+  // >>> 
 
   const bookmarkSaveChoices = (dataBase, cardId) => {
     // ** existing member
@@ -154,6 +153,10 @@ export default function FullWidthGrid() {
     // ! and do we need it 
     // ! where is the snippet coming from 
     // ** snippet is coming from the source code 
+
+    //we are saying save the id 
+    // then we are getting the snippet from a different place AND THEN
+    // setting the code cards 
 
     // just setting each card to have an id as the key and then
     // then rest of the object as the value of the key 
