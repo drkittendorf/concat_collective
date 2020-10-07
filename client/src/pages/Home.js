@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import SearchBar from '../components/SearchBar';
-import Carousel from '../components/testCarousel/Carousel';
+import Carousel from '../components/Carousel/Carousel';
 import { useAuth0 } from '@auth0/auth0-react';
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 import CodeJar from '../components/CodeJar/CodeJar';
