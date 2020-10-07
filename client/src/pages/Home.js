@@ -4,10 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import SearchBar from '../components/SearchBar';
 import Carousel from '../components/testCarousel/Carousel';
 import { useAuth0 } from '@auth0/auth0-react';
-
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 import CodeJar from '../components/CodeJar/CodeJar';
-
 import API from '../utils/API';
 import transform from '../utils/Transform';
 
@@ -34,7 +32,7 @@ export default function FullWidthGrid() {
 	const [codeCards, setCodeCards] = useState({});
 	const { user } = useAuth0();
 
-	console.log(Boolean(user));
+	// console.log(Boolean(user));
 
 	useEffect(() => {
 		// promise.all([Api.getBookmarks, getUserBookmarks]).then(([resGetBookmarks, resGetUserBookmarks]) => {
@@ -81,6 +79,19 @@ export default function FullWidthGrid() {
 	function deleteBookmark(id) {
 		API.deleteBookmarks(id)
 			.then((res) => loadBookmarks())
+			.catch((err) => console.log(err));
+	}
+
+	function loadSnippets() {
+		API.getSnippets()
+			.then((res) => setCodeCards(res.data))
+			.catch((err) => console.log(err));
+	}
+
+	// Deletes a book from the database with a given id, then reloads books from the db
+	function deleteSnippet(id) {
+		API.deleteSnippets(id)
+			.then((res) => loadSnippets())
 			.catch((err) => console.log(err));
 	}
 
@@ -149,6 +160,7 @@ export default function FullWidthGrid() {
 								{...card}
 								handleAdd={handleAdd}
 								setCode={setCodeWrapper(card._id)}
+								deleteSnippet={deleteSnippet}
 							/>
 						);
 					})}

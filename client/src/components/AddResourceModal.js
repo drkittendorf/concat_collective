@@ -43,7 +43,7 @@ export default function FormDialog() {
 			{desktop && (
 				<Tooltip title='add new resource' arrow>
 					<Button className={classes.button} onClick={handleClickOpen}>
-						<AddIcon fontSize='medium' />
+						<AddIcon />
 					</Button>
 				</Tooltip>
 			)}

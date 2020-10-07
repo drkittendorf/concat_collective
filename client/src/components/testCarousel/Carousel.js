@@ -5,7 +5,7 @@ import './Carousel.css';
 
 function IntroCarousel() {
 	return (
-		<Grid xs={12} className='carousel'>
+		<Grid item xs={12} className='carousel'>
 			<Carousel indicators={false}>
 				<Carousel.Item>
 					<img

@@ -47,7 +47,7 @@ function Nav() {
 	
 
 	return (
-		<Grid container xs={12}>
+		<Grid container>
 			<AppBar position='static' className={classes.black}>
 				<Toolbar className={classes.space}>
 					<Grid item xs={6}>
@@ -68,12 +68,12 @@ function Nav() {
 									to='/profile'
 									className={classes.button}
 								>
-									<PersonIcon fontSize='medium' />
+									<PersonIcon />
 								</Button>
 							</Tooltip>
 							<Tooltip title='home' arrow>
 								<Button component={Link} to='/home' className={classes.button}>
-									<HomeIcon fontSize='medium' />
+									<HomeIcon />
 								</Button>
 							</Tooltip>
 							{isAuthenticated ? <LogoutButton /> : <LoginButton />}
