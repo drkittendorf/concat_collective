@@ -83,25 +83,31 @@ export default function SimpleCard(props) {
 						<Typography className={classes.pos} color='textSecondary'>
 							{category || 'this will be the category'}
 						</Typography>
-						<Button target='_blank' href={link || 'https://www.google.com'}>
-							<Icon className='fas fa-link' />
-						</Button>
-						{user && profile ? (
-							'added' 
-						) : (
-							<Button size='small' onClick={handleAdd(_id)}>
-								{/* <Icon className="fas fa-plus" /> */}
-								<AddCircleIcon />
-								{/* add to collection */}
-							</Button>
-						)}
-						<Button
-							onClick={() => props.deleteBookmark(props._id)}
-							className='remove'
-							variant='primary'
-						>
-							<HighlightOffIcon />
-						</Button>
+						<Grid container justify='space-between'>
+							<Grid item>
+								<Button target='_blank' href={link || 'https://www.google.com'}>
+									<Icon className='fas fa-link' />
+								</Button>
+								{user && profile ? (
+									'added'
+								) : (
+									<Button size='small' onClick={handleAdd(_id)}>
+										{/* <Icon className="fas fa-plus" /> */}
+										<AddCircleIcon />
+										{/* add to collection */}
+									</Button>
+								)}
+							</Grid>
+							<Grid item >
+								<Button
+									onClick={() => props.deleteBookmark(props._id)}
+									className='remove'
+									variant='primary'
+								>
+									<HighlightOffIcon />
+								</Button>
+							</Grid>
+						</Grid>
 					</Typography>
 				</CardContent>
 				<CardActions></CardActions>
