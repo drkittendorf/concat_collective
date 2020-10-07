@@ -8,10 +8,12 @@ router.route('/')
 
 router.route('/:id')
     .get(userController.findById)
-    .post(userController.update);
 
+router.route('/boomarkCards/:id')
+    .post(userController.updateUserBookmarks);
 
-
+router.route('/codeCards/:id')
+    .post(userController.updateUserSnippets);
 
 
 

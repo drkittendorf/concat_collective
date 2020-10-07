@@ -33,8 +33,8 @@ export default {
   createUser: (userData) => axios.post(`api/userAPI`, userData),
 
   // Saves a book to the database // we gotta check the id of the user 
-  saveBookmarks: (bookId, userId) =>  axios.post(`/api/userAPI/${bookId}`, userId), 
-  saveCodeCards: (cardId, userId) =>  axios.post(`/api/userAPI/${cardId}`, cardId), 
+  saveBookmarks: (bookId, userId) =>  axios.post(`/api/userAPI/boomarkCards/${bookId}`, userId), 
+  saveCodeCards: (cardId, userId) =>  axios.post(`/api/userAPI/codeCards/${cardId}`, userId), 
   getUsersByEmail: () => axios.get(`/api/userAPI`)
 
 };

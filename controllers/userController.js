@@ -22,23 +22,23 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  update: function (req, res) {
+  updateUserBookmarks: function (req, res) {
     // lets check so we can adapt the key for the push 
-    console.log(req.params.id)
     db.User
       .findOneAndUpdate(req.body , { $push: { userBookmarks: req.params.id } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
     console.log(req.body)
     console.log(`added to the database`)
+  },
+  updateUserSnippets: function (req, res) {
+    // lets check so we can adapt the key for the push 
+    db.User
+      .findOneAndUpdate(req.body , { $push: { userSnippets: req.params.id } })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+    console.log(req.body)
+    console.log(`added to the database`)
   }
-       // .findByIdAndUpdate(req.body)
-      // .findById({ _id: req.params.id })
-      // .updateOne({_id: req.params.id }, {$push:{ userBookmarks: req.params.bookmark }})
-      // .findById(req.params.id)
-      // .update({
 
-      //     userBookmarks: "5f6f9536d016d1733295ba06"
-      //   }
-      // )
 };
