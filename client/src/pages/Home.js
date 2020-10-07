@@ -43,13 +43,11 @@ export default function FullWidthGrid() {
 
   useEffect(() => {
 
-    Api.getBookmarks().then(res => {
-      setBookmarkCards(res.data)
-    })
-    Api.getSnippets().then(res => {
-      const cardData = transform.toObject(res.data)
+    Promise.all([Api.getBookmarks(), Api.getSnippets()]).then(([bookmarks, snippets]) => {
+      const cardData = transform.toObject(snippets.data)
+      setBookmarkCards(bookmarks.data)
       setCodeCards(cardData)
-    })
+    });
 
   }, [])
 
@@ -84,6 +82,9 @@ export default function FullWidthGrid() {
             console.log(`this is the cardId: ${cardId}`)
             console.log(`this is the user: ${user.email}`)
 
+            setOpen(true);
+            setMsg('added')
+
             // the user is not in the database
             // we need to create a user 
           } else {
@@ -115,7 +116,7 @@ export default function FullWidthGrid() {
       console.log(card[id]['_id']);
       // checkIfUser(card[id]['_id'])
 
-    // ? check if user is logged in 
+      // ? check if user is logged in 
     } else if (user) {
       // ** bookmark card 
       // check if the user is logged in and add card to user database 
@@ -238,3 +239,13 @@ export default function FullWidthGrid() {
       ////compare to the user cards  turn the arr in user
       //   })
       // } else {
+
+
+
+    // Api.getBookmarks().then(res => {
+    //   setBookmarkCards(res.data)
+    // })
+    // Api.getSnippets().then(res => {
+    //   const cardData = transform.toObject(res.data)
+    //   setCodeCards(cardData)
+    // })
