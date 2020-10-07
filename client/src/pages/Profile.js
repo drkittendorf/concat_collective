@@ -34,6 +34,8 @@ function Profile() {
 	const { user } = useAuth0();
 	const { name, picture, email } = user;
 	const [bookmarkCards, setBookmarkCards] = useState([]);
+	const [codeCards, setCodeCards] = useState({});
+	
 
 	const handleAdd = (id) => (e) => {
 		return user ? console.log('bookmark already added') : '';
@@ -49,6 +51,19 @@ function Profile() {
 	function deleteBookmark(id) {
 		API.deleteBookmarks(id)
 			.then((res) => loadBookmarks())
+			.catch((err) => console.log(err));
+	}
+
+	function loadSnippets() {
+		API.getSnippets()
+			.then((res) => setCodeCards(res.data))
+			.catch((err) => console.log(err));
+	}
+
+	// Deletes a book from the database with a given id, then reloads books from the db
+	function deleteSnippet(id) {
+		API.deleteSnippets(id)
+			.then((res) => loadSnippets())
 			.catch((err) => console.log(err));
 	}
 
