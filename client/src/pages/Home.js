@@ -41,6 +41,8 @@ export default function FullWidthGrid() {
   // what msg to send
   const [msg, setMsg] = useState('')
 
+  const pipe = (...fns) => (x) => fns.reduce((y, fn) => fn(y), x);
+
   useEffect(() => {
 
     Promise.all([Api.getBookmarks(), Api.getSnippets()]).then(([bookmarks, snippets]) => {
@@ -59,45 +61,46 @@ export default function FullWidthGrid() {
     setOpen(false);
   };
 
-  const checkIfUser = (cardId) => {
+  // >>>>>> 
+  const saveBookmarkToUser = ({ cardId, userEmail }) => {
+    Api.saveBookmarks(cardId, userEmail);
+    return 'added'
+  }
+  const postNotification = (msg) => {
+    setOpen(true)
+    setMsg(msg)
+  };
+
+
+
+  const checkUser = (cardId) => {
+
+    // ** GET USER DATA
     Api.getUsersByEmail()
       .then(res => {
+
+        // ** turn array of users to Object 
         let usersDatabase = transform.toObjectByEmail(res.data)
-        // ** CHECK IF USER IS LOGGED IN
-        if (Boolean(user)) {
 
+        // ** existing member
+        // then you add the bookmark card
+        // ? here we check if the user is in the database
+        if (Boolean(usersDatabase[user.email])) {
+          // ** add the card to the users database 
+          pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
 
-          // ** existing member
-          // then you add the bookmark card
-          // here we check if the user is in the database
-          if (Boolean(usersDatabase[user.email])) {
-            // ** add the card to the users database 
-            Api.saveBookmarks(cardId, { email: user.email })
-              .then(res => {
-                console.log(res, 'has been added! ')
-              })
+          // ** new member // not in the database 
+          // ? we need to create a user 
+        } else {
 
-            console.log(`this is the cardId: ${cardId}`)
-            console.log(`this is the user: ${user.email}`)
+          // ** create the user here 
+          Api.createUser(user)
+            .then(res => {
 
-            setOpen(true);
-            setMsg('added')
+              // ** now that the user is created, we save the bookmark to the user 
+              pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
 
-            // ** the user is not in the database
-            // ? we need to create a user 
-          } else {
-
-            // ** create the user here 
-            Api.createUser(user)
-              .then(res => {
-
-                console.log(`user created!!! ${JSON.stringify(res)}`)
-
-                // then we gotta attach the new bookmark to the user 
-
-              })
-          }
-
+            })
         }
       });
   }
@@ -110,21 +113,20 @@ export default function FullWidthGrid() {
     // ** put all cards in an object 
     let card = transform.toObject(bookmarkCards.concat(transform.toArray(codeCards)))
 
+    // ** CHECK IF USER IS LOGGED IN
     // ? check the id of the snippet and if the user is logged in 
     if (card[id].snippet && user) {
       // ** code card
-      console.log(card[id]['_id']);
-      // checkIfUser(card[id]['_id'])
+      checkIfUser(card[id]['_id'], 'codeCard')
 
       // ? check if user is logged in 
     } else if (user) {
       // ** bookmark card 
       // check if the user is logged in and add card to user database 
-      checkIfUser(card[id]['_id'])
+      checkUser(card[id]['_id'], 'bookMarkCard')
     } else {
       // user needs to sign in to add a card
-      setOpen(true);
-      setMsg('invalid')
+      postNotification('invalid')
     }
   }
 
@@ -249,3 +251,17 @@ export default function FullWidthGrid() {
     //   const cardData = transform.toObject(res.data)
     //   setCodeCards(cardData)
     // })
+
+
+
+
+    // adding user 
+     // saveBookmarkToUser(cardId, { email: user.email })
+
+          // postNotification('added')
+
+
+
+                        // saveBookmarkToUser(cardId, { email: user.email })
+
+              // postNotification('added')
