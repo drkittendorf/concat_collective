@@ -51,10 +51,6 @@ export default function FullWidthGrid() {
 
   }, [])
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -67,13 +63,15 @@ export default function FullWidthGrid() {
     Api.getUsersByEmail()
       .then(res => {
         let usersDatabase = transform.toObjectByEmail(res.data)
-        // check if user is logged in
+        // ** CHECK IF USER IS LOGGED IN
         if (Boolean(user)) {
-          // existing member
+
+
+          // ** existing member
           // then you add the bookmark card
           // here we check if the user is in the database
           if (Boolean(usersDatabase[user.email])) {
-            // add the card to the users database 
+            // ** add the card to the users database 
             Api.saveBookmarks(cardId, { email: user.email })
               .then(res => {
                 console.log(res, 'has been added! ')
@@ -85,17 +83,19 @@ export default function FullWidthGrid() {
             setOpen(true);
             setMsg('added')
 
-            // the user is not in the database
-            // we need to create a user 
+            // ** the user is not in the database
+            // ? we need to create a user 
           } else {
 
+            // ** create the user here 
             Api.createUser(user)
               .then(res => {
 
-                console.log(`user created!!! ${res}`)
+                console.log(`user created!!! ${JSON.stringify(res)}`)
+
+                // then we gotta attach the new bookmark to the user 
 
               })
-
           }
 
         }
