@@ -23,12 +23,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
+    // lets check so we can adapt the key for the push 
+    console.log(req.params.id)
     db.User
       .findOneAndUpdate(req.body , { $push: { userBookmarks: req.params.id } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-    // console.log(req.body)
-    // res.send(req.body)
+    console.log(req.body)
     console.log(`added to the database`)
   }
        // .findByIdAndUpdate(req.body)
