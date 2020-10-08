@@ -4,21 +4,15 @@ import Grid from '@material-ui/core/Grid';
 import SearchBar from '../components/SearchBar';
 import Carousel from '../components/Carousel/Carousel';
 import { useAuth0 } from '@auth0/auth0-react';
-<<<<<<< HEAD
-
-import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
-import CodeJar from '../components/CodeJar/CodeJar'
-=======
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 import CodeJar from '../components/CodeJar/CodeJar';
->>>>>>> 30bce4c7ae527ae959fd7da8e5dec039f260980b
 
 import API from '../utils/API';
 import transform from '../utils/Transform';
 
 
 import Api from '../utils/API';
-import transform from '../utils/transform';
+import transform from '../utils/Transform';
 import pipe from '../utils/pipe'
 
 import AlertMsg from '../components/AlertMsg'
