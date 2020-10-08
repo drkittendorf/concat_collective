@@ -67,19 +67,36 @@ export default function SimpleCard(props) {
 					subheader={skill || 'this would be the skill level '}
 				/>
 				<CardContent>
-					<Typography variant='body2' component='p'>
-						<Grid item>
-							<ReactTinyLink
-								className={classes.linkPreview}
-								cardSize='large'
-								showGraphic={true}
-								// maxLine={2}
-								// minLine={1}
-								url={link}
-								description={true}
-							/>
-						</Grid>
+					<Grid item>
+						<ReactTinyLink
+							className={classes.linkPreview}
+							cardSize='large'
+							showGraphic={true}
+							// maxLine={2}
+							// minLine={1}
+							url={link}
+							description={true}
+						/>
+					</Grid>
 
+					<Typography className={classes.pos} color='textSecondary'>
+						{category || 'this will be the category'}
+					</Typography>
+					<Grid container justify='space-between'>
+						<Grid item>
+							<Button target='_blank' href={link || 'https://www.google.com'}>
+								<Icon className='fas fa-link' />
+							</Button>
+							{user && profile ? (
+								'added'
+							) : (
+								<Button size='small' onClick={handleAdd(_id)}>
+									{/* <Icon className="fas fa-plus" /> */}
+									<AddCircleIcon />
+									{/* add to collection */}
+								</Button>
+							)}
+						</Grid>
 						<Typography className={classes.pos} color='textSecondary'>
 							{category || 'this will be the category'}
 						</Typography>
@@ -87,21 +104,24 @@ export default function SimpleCard(props) {
 							<Icon className='fas fa-link' />
 						</Button>
 						{user && profile ? (
-							'added' 
+							'saved'
 						) : (
-							<Button size='small' onClick={handleAdd(_id)}>
-								{/* <Icon className="fas fa-plus" /> */}
-								<AddCircleIcon />
-								{/* add to collection */}
+								<Button size='small' onClick={handleAdd(_id)}>
+									{/* <Icon className="fas fa-plus" /> */}
+									<AddCircleIcon />
+									{/* add to collection */}
+								</Button>
+							)}
+						{props.profile ? '' :
+							<Button
+								onClick={() => props.deleteBookmark(props._id)}
+								className='remove'
+								variant='primary'
+							>
+								<HighlightOffIcon />
 							</Button>
-						)}
-						<Button
-							onClick={() => props.deleteBookmark(props._id)}
-							className='remove'
-							variant='primary'
-						>
-							<HighlightOffIcon />
-						</Button>
+						}
+
 					</Typography>
 				</CardContent>
 				<CardActions></CardActions>

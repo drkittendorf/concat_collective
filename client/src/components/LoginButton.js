@@ -34,7 +34,7 @@ function LoginButton() {
 						onClick={() => loginWithRedirect()}
 						className={classes.button}
 					>
-						<Icon className='fas fa-sign-in-alt' fontSize='medium' />
+						<Icon className='fas fa-sign-in-alt'  />
 					</Button>
 				</Tooltip>
 			)}

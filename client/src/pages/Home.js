@@ -2,17 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import SearchBar from '../components/SearchBar';
-import Carousel from '../components/testCarousel/Carousel';
+import Carousel from '../components/Carousel/Carousel';
 import { useAuth0 } from '@auth0/auth0-react';
+<<<<<<< HEAD
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards'
 import CodeJar from '../components/CodeJar/CodeJar'
+=======
+import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
+import CodeJar from '../components/CodeJar/CodeJar';
+>>>>>>> 30bce4c7ae527ae959fd7da8e5dec039f260980b
+
+import API from '../utils/API';
+import transform from '../utils/Transform';
+
 
 import Api from '../utils/API';
 import transform from '../utils/transform';
 import pipe from '../utils/pipe'
 
 import AlertMsg from '../components/AlertMsg'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,9 +39,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// data[0].
 
-export default function FullWidthGrid() {
+export default function Home() {
   const classes = useStyles();
   const [bookmarkCards, setBookmarkCards] = useState([]);
   const [codeCards, setCodeCards] = useState({});
@@ -65,12 +74,18 @@ export default function FullWidthGrid() {
     Api.saveBookmarks(cardId, userEmail);
     return 'added'
   }
+  const saveCodeCardToUser = ({ cardId, userEmail }) => {
+    Api.saveCodeCards(cardId, userEmail);
+    return 'added'
+  }
+
   const postNotification = (msg) => {
     setOpen(true)
     setMsg(msg)
   };
   // >>> 
 
+  /// *** choices 
   const bookmarkSaveChoices = (dataBase, cardId) => {
     // ** existing member
     // then you add the bookmark card
@@ -90,14 +105,33 @@ export default function FullWidthGrid() {
           // ** now that the user is created, we save the bookmark to the user 
           pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
 
+
         })
     }
   }
-
   const codeCardChoices = (dataBase, cardId) => {
-    console.log('this is the code card choices')
-  }
+    // ** existing member
+    // then you add the bookmark card
+    // ? here we check if the user is in the database
+    if (Boolean(dataBase[user.email])) {
+      // ** add the card to the users database 
+      pipe(saveCodeCardToUser, postNotification)({ cardId, user: { email: user.email } })
 
+      // ** new member // not in the database 
+      // ? we need to create a user 
+    } else {
+
+      // ** create the user here 
+      Api.createUser(user)
+        .then(res => {
+
+          // ** now that the user is created, we save the bookmark to the user 
+          pipe(saveCodeCardToUser, postNotification)({ cardId, user: { email: user.email } })
+
+
+        })
+    }
+  }
   const checkUser = async (cardId, cardType) => {
     // ** GET USER DATA
     let response = await Api.getUsersByEmail()
@@ -108,15 +142,10 @@ export default function FullWidthGrid() {
     // we want two function one for adding bookmarks and the other for adding code snippets
     // this has to be split by a switch
     // the cardType will decide which function we use 
+    // we gotta figure out this path 
     switch (cardType) {
-      case 'codeCard':
-        // we gotta figure out this path 
-        // codeCardChoices(usersDatabase, cardId)
-        break;
-      case 'bookMarkCard':
-        bookmarkSaveChoices(usersDatabase, cardId)
-        break;
-    
+      case 'codeCard': return codeCardChoices(usersDatabase, cardId)
+      case 'bookMarkCard': return bookmarkSaveChoices(usersDatabase, cardId)
       default: console.log('something went really wont in the switch for choices')
         break;
     }
@@ -148,7 +177,6 @@ export default function FullWidthGrid() {
   }
 
   const setCodeWrapper = (id) => (snippet) => {
-    
     setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
   }
 
@@ -301,3 +329,5 @@ export default function FullWidthGrid() {
     //     })
     // }
     // });
+
+    // patch
