@@ -2,9 +2,6 @@ import axios from "axios";
 
 export default {
 
-
-  
-  
   // // Deletes the book with the given id
   deleteBookmarks: function(id) {
     return axios.delete("/api/resources/" + id);
