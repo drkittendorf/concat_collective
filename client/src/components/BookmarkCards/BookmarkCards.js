@@ -90,12 +90,12 @@ export default function SimpleCard(props) {
 							{user && profile ? (
 								'added'
 							) : (
-								<Button size='small' onClick={handleAdd(_id)}>
-									{/* <Icon className="fas fa-plus" /> */}
-									<AddCircleIcon />
-									{/* add to collection */}
-								</Button>
-							)}
+									<Button size='small' onClick={handleAdd(_id)}>
+										{/* <Icon className="fas fa-plus" /> */}
+										<AddCircleIcon />
+										{/* add to collection */}
+									</Button>
+								)}
 						</Grid>
 						<Typography className={classes.pos} color='textSecondary'>
 							{category || 'this will be the category'}
@@ -121,8 +121,7 @@ export default function SimpleCard(props) {
 								<HighlightOffIcon />
 							</Button>
 						}
-
-					</Typography>
+					</Grid>
 				</CardContent>
 				<CardActions></CardActions>
 			</Card>

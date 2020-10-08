@@ -8,7 +8,7 @@ import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 import CodeJar from '../components/CodeJar/CodeJar';
 
 import API from '../utils/API';
-import transform from '../utils/Transform';
+import Transform from '../utils/transform';
 
 
 import Api from '../utils/API';
