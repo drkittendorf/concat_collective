@@ -7,11 +7,13 @@ router.route('/')
     .get(userController.findAll);
 
 router.route('/:id')
-    .get(userController.findById)
-    .post(userController.update);
+    .get(userController.findByToken)
 
+router.route('/boomarkCards/:id')
+    .post(userController.updateUserBookmarks);
 
-
+router.route('/codeCards/:id')
+    .post(userController.updateUserSnippets);
 
 
 
