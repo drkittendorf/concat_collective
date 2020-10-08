@@ -2,17 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import SearchBar from '../components/SearchBar';
-import Carousel from '../components/testCarousel/Carousel';
+import Carousel from '../components/Carousel/Carousel';
 import { useAuth0 } from '@auth0/auth0-react';
-
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 import CodeJar from '../components/CodeJar/CodeJar';
+
+import API from '../utils/API';
+import transform from '../utils/Transform';
+
 
 import Api from '../utils/API';
 import transform from '../utils/transform';
 import pipe from '../utils/pipe'
 
 import AlertMsg from '../components/AlertMsg'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '20px',
   },
 }));
+
 
 export default function Home() {
   const classes = useStyles();

@@ -4,16 +4,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 // import Link from "@material-ui/core/Link";
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import AddResourceModal from './AddResourceModal';
+import AddResourceModal from '../AddResourceModal';
 import { useAuth0 } from '@auth0/auth0-react';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
+import LoginButton from '../LoginButton';
+import LogoutButton from '../LogoutButton';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import Tooltip from '@material-ui/core/Tooltip';
-import MenuDropdown from './MenuDropdown/MenuDropdown';
+import MenuDropdown from '../MenuDropdown/MenuDropdown';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import './Nav.css';
@@ -47,7 +47,7 @@ function Nav() {
 	
 
 	return (
-		<Grid container xs={12}>
+		<Grid container>
 			<AppBar position='static' className={classes.black}>
 				<Toolbar className={classes.space}>
 					<Grid item xs={6}>
@@ -68,12 +68,12 @@ function Nav() {
 									to='/profile'
 									className={classes.button}
 								>
-									<PersonIcon fontSize='medium' />
+									<PersonIcon />
 								</Button>
 							</Tooltip>
 							<Tooltip title='home' arrow>
 								<Button component={Link} to='/home' className={classes.button}>
-									<HomeIcon fontSize='medium' />
+									<HomeIcon />
 								</Button>
 							</Tooltip>
 							{isAuthenticated ? <LogoutButton /> : <LoginButton />}
