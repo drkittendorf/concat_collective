@@ -22,8 +22,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function FormDialog() {
+export default function FormDialog(props) {
 	const classes = useStyles();
+
+	
 
 	const mobile = useMediaQuery('(max-width:768px)');
 	const desktop = useMediaQuery('(min-width:768px)');

@@ -22,7 +22,9 @@ export default {
   saveBookmarks: (bookId, userId) =>  axios.post(`/api/userAPI/boomarkCards/${bookId}`, userId), 
   saveCodeCards: (cardId, userId) =>  axios.post(`/api/userAPI/codeCards/${cardId}`, userId), 
   getUsersByEmail: () => axios.get(`/api/userAPI`),
-  getUserCards: (userId) => axios.get(`api/userAPI/${userId}`)
+  getUserCards: (userId) => axios.get(`api/userAPI/${userId}`),
+
+  deleteBookmark:(userID, bookId) => axios.put(`api/userAPI/${bookId}`, userID)
 
 };
 
