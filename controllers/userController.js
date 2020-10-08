@@ -41,5 +41,4 @@ module.exports = {
     console.log(req.body)
     console.log(`added to the database`)
   }
-
 };
