@@ -15,19 +15,19 @@ if (!issuer || !audience) {
   throw new Error('Confirm .env is populated');
 }
 
-const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `${issuer}.well-known/jwks.json`,
+// const checkJwt = jwt({
+//   secret: jwksRsa.expressJwtSecret({
+//     cache: true,
+//     rateLimit: true,
+//     jwksRequestsPerMinute: 5,
+//     jwksUri: `${issuer}.well-known/jwks.json`,
 
-  }),
+//   }),
 
-  audience: 'https://concat.api/',
-  issuer: 'https://dev-2b7i14d1.us.auth0.com/',
-  algorithms: ['RS256'],
-});
+//   audience: 'https://concat.api/',
+//   issuer: 'https://dev-2b7i14d1.us.auth0.com/',
+//   algorithms: ['RS256'],
+// });
 
 
 // Define middleware here
