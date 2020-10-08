@@ -122,7 +122,7 @@ export default function SimpleCard(props) {
 							</Button>
 						}
 
-					</Typography>
+					</Grid>
 				</CardContent>
 				<CardActions></CardActions>
 			</Card>
