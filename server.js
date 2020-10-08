@@ -29,6 +29,7 @@ const checkJwt = jwt({
   algorithms: ['RS256'],
 });
 
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

@@ -15,8 +15,9 @@ export default {
   },
   // Saves a book to the database
   // we gotta check the id of the user 
-  saveBookmarks: (bookId) =>  {
-    return axios.post(`/api/userAPI/ ${bookId}`);
+  saveBookmarks: (bookId, userId) =>  {
+    console.log(bookId, userId)
+    return axios.post(`/api/userAPI/${bookId}`, userId);
   }, 
   getSnippets: function() {
     return axios.get("/api/snippets");
@@ -33,7 +34,8 @@ export default {
   saveSnippets: function(bookData) {
     return axios.post("/api/snippets", bookData);
   }, 
-  createUser: (userData) => axios.post(`api/userAPI`, userData)
+  createUser: (userData) => axios.post(`api/userAPI`, userData),
+  getUsersByEmail: () => axios.get(`/api/userAPI`)
 
 };
 
