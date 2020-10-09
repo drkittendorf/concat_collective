@@ -88,10 +88,10 @@ function Profile() {
 
 
 		// ** GET USER DATA
-		let response = await Api.getUsersByEmail()
+		// let response = await Api.getUsersByEmail()
 
 		// ** turn array of users to Object 
-		let usersDatabase = await transform.toObjectByEmail(response.data)
+		// let usersDatabase = await transform.toObjectByEmail(response.data)
 
 		// usersDatabase[user.email]
 		/// >>>>>>>>

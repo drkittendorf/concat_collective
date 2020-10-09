@@ -5,6 +5,9 @@ import SearchBar from '../components/SearchBar';
 import Carousel from '../components/testCarousel/Carousel';
 import { useAuth0 } from '@auth0/auth0-react';
 
+// form for adding bookmark 
+import AddResourceFrom from '../components/AddResourceForm';
+
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 import CodeJar from '../components/CodeJar/CodeJar';
 
@@ -40,6 +43,14 @@ export default function Home() {
   // what msg to send
   const [msg, setMsg] = useState('')
 
+
+  // form parameters
+  const [category, setCategory] = useState('');
+  const [skill, setSkill] = useState('');
+  const [linkInput, setLinkInput] = useState('');
+  const [titleInput, setTitleInput] = useState('');
+
+
   useEffect(() => {
 
     Promise.all([Api.getBookmarks(), Api.getSnippets()]).then(([bookmarks, snippets]) => {
@@ -73,8 +84,6 @@ export default function Home() {
     setMsg(msg)
   };
   // >>> 
-
-  
 
   /// *** choices 
   const bookmarkSaveChoices = (dataBase, cardId) => {
@@ -171,6 +180,50 @@ export default function Home() {
     setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
   }
 
+
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+    console.log(`this is the category selected ${event.target.value}`)
+  };
+
+  const handleSkillChange = (event) => {
+    setSkill(event.target.value);
+    console.log(`this is the skill selected ${event.target.value}`)
+  };
+
+
+  const handleInput = (event) => {
+    event.preventDefault();
+    setLinkInput(event.target.value)
+    console.log(`this is the skill selected ${event.target.value}`)
+  };
+
+
+  const handleTitleInput = (event) => {
+    event.preventDefault();
+    setTitleInput(event.target.value)
+    console.log(`this is the skill selected ${event.target.value}`)
+  };
+
+
+  const submitForm = () => {
+    // send the new card to the database 
+    // make api call to the server
+
+    let data = {
+
+      title: titleInput,
+      link: linkInput,
+      category: category,
+      skill: skill,
+
+    }
+
+    postNotification('newCard')
+    Api.createBookmark()
+
+  }
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3} justify="center">
@@ -182,7 +235,21 @@ export default function Home() {
               handleClose={handleClose}
             /> : ''}
           <Carousel />
-          <SearchBar />
+          <AddResourceFrom
+            submitForm={submitForm}
+            category={category}
+            setCategory={setCategory}
+            skill={skill}
+            setSkill={setSkill}
+            handleCategoryChange={handleCategoryChange}
+            handleSkillChange={handleSkillChange}
+            handleInput={handleInput}
+            linkInput={linkInput}
+            handleTitleInput={handleTitleInput}
+            titleInput={titleInput}
+
+          />
+          {/* <SearchBar /> */}
           {/* filter buttons here */}
         </Grid>
         <Grid item xs={10} container spacing={3} justify="flex-start" >

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 // import Link from "@material-ui/core/Link";
@@ -42,9 +42,32 @@ function Nav() {
 	const classes = useStyles();
 	const { isAuthenticated } = useAuth0();
 
+
+	// modal state for modal form 
+	const [linkInput, setLinkInput] = useState('')
+
 	const matches = useMediaQuery('(min-width:768px)');
 	const mobile = useMediaQuery('(max-width:768px)');
-	
+
+	const handleInputLink = (e) => {
+		const { name, value } = e.target;
+		console.log(name, value)
+		setLinkInput(e.target)
+	}
+
+	console.log(handleInputLink)
+
+	// function handleInputChange(event) {
+    //     const { name, value } = event.target;
+    //     setFormObject({ ...formObject, [name]: value })
+    // };
+
+	// const submitForm = () => {
+	// 	// send the new card to the database 
+	// 	// make api call to the server
+	// 	console.log(`you pressed the submit button`) 
+	// }
+
 
 	return (
 		<Grid container xs={12}>
@@ -61,7 +84,10 @@ function Nav() {
 
 					{matches && (
 						<Grid item xs={6} className={classes.menuIcon}>
-							<AddResourceModal />
+							<AddResourceModal 
+							handleInputLink={handleInputLink}
+							linkInput={linkInput} 
+							/>
 							<Tooltip title='profile' arrow>
 								<Button
 									component={Link}
@@ -79,11 +105,11 @@ function Nav() {
 							{isAuthenticated ? <LogoutButton /> : <LoginButton />}
 						</Grid>
 					)}
-					
+
 					{mobile && (
 						<MenuDropdown className='menuDropdown' />
 					)}
-					
+
 				</Toolbar>
 			</AppBar>
 		</Grid>

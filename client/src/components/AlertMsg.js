@@ -29,7 +29,7 @@ export default function CustomizedSnackbars(props) {
               </Alert>
       </Snackbar>)
         :
-        (props.msg === 'added') ? (<Snackbar open={props.open} autoHideDuration={6000} onClose={props.handleClose}>
+        (props.msg === 'added' || props.msg === 'newCard') ? (<Snackbar open={props.open} autoHideDuration={6000} onClose={props.handleClose}>
           <Alert onClose={props.handleClose} severity="success" >
             Card Succesfully Added!
               </Alert>

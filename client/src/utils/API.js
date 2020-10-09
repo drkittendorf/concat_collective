@@ -15,6 +15,7 @@ export default {
   },
 
   createUser: (userData) => axios.post(`api/userAPI`, userData),
+  createBookmark: (bookData) => axios.post(`/api/resources`, bookData),
   getBookmarks: () => axios.get("/api/resources"),
   getSnippets: () => axios.get("/api/snippets"),
 
