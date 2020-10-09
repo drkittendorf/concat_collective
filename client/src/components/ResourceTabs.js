@@ -63,6 +63,8 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleTabs(props) {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(0);
+
+	const { children } = props 
 	
 	// const { handleInputLink, submitForm, linkInput }  = props
 	
@@ -87,10 +89,11 @@ export default function SimpleTabs(props) {
 
 			{/* link resource add tab */}
 			<TabPanel value={value} index={0}>
-                <AddResourceForm
+                {/* <AddResourceForm
 				// handleInputLink={handleInputLink}
 				// linkInput={linkInput}
-				/>
+				/> */}
+				{children}
 			</TabPanel>
 			{/* snippet resource add tab  */}
 			<TabPanel value={value} index={1}>

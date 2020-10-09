@@ -5,6 +5,9 @@ import SearchBar from '../components/SearchBar';
 import Carousel from '../components/testCarousel/Carousel';
 import { useAuth0 } from '@auth0/auth0-react';
 
+// Resource Tab
+import ResourceTabs from '../components/ResourceTabs';
+
 // form for adding bookmark 
 import AddResourceFrom from '../components/AddResourceForm';
 
@@ -259,6 +262,7 @@ export default function Home() {
               handleClose={handleClose}
             /> : ''}
           <Carousel />
+          <ResourceTabs>
           <AddResourceFrom
             submitForm={submitForm}
             category={category}
@@ -271,8 +275,8 @@ export default function Home() {
             linkInput={linkInput}
             handleTitleInput={handleTitleInput}
             titleInput={titleInput}
-
           />
+          </ResourceTabs>
           {/* <SearchBar /> */}
           {/* filter buttons here */}
         </Grid>
