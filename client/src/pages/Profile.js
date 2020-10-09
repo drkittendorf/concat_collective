@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { useAuth0 } from '@auth0/auth0-react';
-import SearchBar from '../components/SearchBar';
-import Typography from '@material-ui/core/Typography';
 import API from '../utils/API';
-import transform from '../utils/transform';
+import transform from '../utils/Transform';
 import data from '../dummyData.json';
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
@@ -78,6 +75,30 @@ function Profile() {
 			.then((res) => loadBookmarks())
 			.catch((err) => console.log(err));
 	}
+
+
+	function loadSnippets() {
+		API.getSnippets()
+			.then((res) => setCodeCards(res.data))
+			.catch((err) => console.log(err));
+	}
+
+	// Deletes a book from the database with a given id, then reloads books from the db
+	function deleteSnippet(id) {
+		API.deleteSnippets(id)
+			.then((res) => loadSnippets())
+			.catch((err) => console.log(err));
+	}
+
+	// user action to add a new card to the array
+	// get user bookmarks actions
+	// get home page bookmarks
+	// home action to add a new card to the array
+	// save all bookmarks
+	// and save the only key id in the arrays
+
+	// authencation is this correct
+	// authorize
 
 	const setCodeWrapper = (id) => (snippet) => {
 		setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })

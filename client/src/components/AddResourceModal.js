@@ -4,7 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import Tooltip from '@material-ui/core/Tooltip';
-import ResourceTabs from './ResourceTabs';
+import ResourceTabs from './ResourceTabs/ResourceTabs';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import DialogActions from '@material-ui/core/DialogActions';
 
@@ -45,7 +45,7 @@ export default function FormDialog(props) {
 			{desktop && (
 				<Tooltip title='add new resource' arrow>
 					<Button className={classes.button} onClick={handleClickOpen}>
-						<AddIcon fontSize='medium' />
+						<AddIcon />
 					</Button>
 				</Tooltip>
 			)}

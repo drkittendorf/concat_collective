@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import { ReactCodeJar, useCodeJar } from "react-codejar";
-import "./index.css";
+import { ReactCodeJar, useCodeJar } from 'react-codejar';
+import './index.css';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,47 +11,40 @@ import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
 import IconButton from '@material-ui/core/IconButton';
 import CodeIcon from '@material-ui/icons/Code';
-import AddIcon from '@material-ui/icons/Add';
-import VisibilityIcon from '@material-ui/icons/Visibility';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        borderRadius: '10px',
-        backgroundColor: '#ECF0F1',
-        height: '100%'
-    },
-    button: {
-        // margin: theme.spacing(1.5),
-        color: 'white',
-    },
-    details: {
-        // mixHeight: '10px',
-        display: 'flex',
-        justifyContent: 'center'
-    },
-    accordion: {
-        backgroundColor: 'white',
-        borderRadius: '5px'
-    },
-    spacing: {
-        marginRight: '70px'
-    }
+
+	root: {
+		flexGrow: 1,
+		borderRadius: '10px',
+		backgroundColor: '#ECF0F1',
+		height: '100%',
+	},
+	button: {
+		// margin: theme.spacing(1.5),
+		paddingTop: '10px'
+	},
+	details: {
+		// mixHeight: '10px',
+		display: 'flex',
+		justifyContent: 'center',
+	},
+	spacing: {
+		marginRight: '70px',
+	},
 
 }));
 
-const highlight = editor => {
-    let code = editor.textContent;
-    code = code.replace(/\((\w+?)(\b)/g, '(<font color="#8a2be2">$1</font>$2');
-    editor.innerHTML = code;
+const highlight = (editor) => {
+	let code = editor.textContent;
+	code = code.replace(/\((\w+?)(\b)/g, '(<font color="#8a2be2">$1</font>$2');
+	editor.innerHTML = code;
 };
 
 const CodeJar = (props) => {
+
     const classes = useStyles();
     const [open, setOpen] = useState(false);
 
@@ -106,6 +99,7 @@ const CodeJar = (props) => {
                             <Typography >click to view snippet</Typography>
                         </AccordionSummary>
                         <AccordionDetails className={classes.details} > */}
+
                     <div className='editor'>
                         <div ref={editorRef}></div>
                     </div>
@@ -131,31 +125,47 @@ const CodeJar = (props) => {
                             {/* <div
                                 ref={editorRef}>
                             </div> */}
-                            <ReactCodeJar
-                                code={snippet} // Initial code value
-                                onUpdate={setCode} // Update the text
-                                highlight={highlight} // Highlight function, receive the editor
-                            />
-                        </div>
-                    </Dialog>
-                </CardContent>
-            </Card >
-        </Grid >
-    );
+							<ReactCodeJar
+								code={snippet} // Initial code value
+								onUpdate={setCode} // Update the text
+								highlight={highlight} // Highlight function, receive the editor
+							/>
+						</div>
+					</Dialog>
+					<Grid container justify='space-between' className={classes.button}>
+						<Grid item>
+							<Button size='small' onClick={handleAdd(_id)}>
+								<AddCircleIcon />
+							</Button>
+						</Grid>
+						{/* <br /> */}
+						{/* onClick={handleAdd} */}
+						{/* <Button size="small" onClick={handleClickOpen}  > */}
+						{/* <VisibilityIcon fontSize='large' /> */}
+						{/* </Button> */}
+						<Grid item>
+							<Button
+								onClick={() => props.deleteSnippet(props._id)}
+								className='remove'
+							>
+								<HighlightOffIcon />
+							</Button>
+						</Grid>
+					</Grid>
+				</CardContent>
+			</Card>
+		</Grid>
+	);
 };
 
 export default CodeJar;
 
+// //! dont do this
+// // dont make a prop => state  **antipattern
+// setCode(`${snippet} `);
 
-
-
-
- // //! dont do this 
-    // // dont make a prop => state  **antipattern
-    // setCode(`${snippet} `);
-
-    // // setCode(snippet)
-    // // change the snippet 
-    // // send a function with the id 
-    // // parent send function to change the snippet 
-    // // set snippet or something 
+// // setCode(snippet)
+// // change the snippet
+// // send a function with the id
+// // parent send function to change the snippet
+// // set snippet or something

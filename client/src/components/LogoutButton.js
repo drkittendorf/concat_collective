@@ -35,10 +35,9 @@ function LogoutButton() {
 								returnTo: window.location.origin,
 							})
 						}
-						variant='danger'
 						className={classes.button}
 					>
-						<Icon className='fas fa-sign-out-alt' fontSize='medium' />
+						<Icon className='fas fa-sign-out-alt'  />
 					</Button>
 				</Tooltip>
 			)}
