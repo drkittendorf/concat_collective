@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { useAuth0 } from '@auth0/auth0-react';
 import API from '../utils/API';
-import transform from '../utils/Transform';
+import transform from '../utils/Transform.js';
 import data from '../dummyData.json';
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
