@@ -13,7 +13,8 @@ import CodeJar from '../components/CodeJar/CodeJar';
 
 import Api from '../utils/API';
 import transform from '../utils/transform';
-import pipe from '../utils/pipe'
+import pipe from '../utils/pipe';
+import validation from '../utils/checkIfLink';
 
 import AlertMsg from '../components/AlertMsg'
 
@@ -49,6 +50,7 @@ export default function Home() {
   const [skill, setSkill] = useState('');
   const [linkInput, setLinkInput] = useState('');
   const [titleInput, setTitleInput] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
 
   useEffect(() => {
@@ -59,7 +61,8 @@ export default function Home() {
       setCodeCards(cardData)
     });
 
-  }, [])
+
+  }, [submitted])
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -210,6 +213,7 @@ export default function Home() {
     // send the new card to the database 
     // make api call to the server
 
+
     let data = {
 
       title: titleInput,
@@ -219,8 +223,17 @@ export default function Home() {
 
     }
 
-    postNotification('newCard')
-    Api.createBookmark()
+    if (validation.checkLink(linkInput) && validation.checkString(titleInput)) {
+
+      Api.createBookmark(data).then(res => {
+
+        postNotification('newCard')
+        setSubmitted(true)
+      })
+
+    } else {
+      postNotification('wrongInput')
+    }
 
   }
 
