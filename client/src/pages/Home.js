@@ -283,13 +283,13 @@ export default function Home() {
     if (snippetInput !== '') {
       let data = {snippetInput}
       
-      // Api.createBookmark(data).then(res => {
+      Api.createSnippet(data).then(res => {
         
-      //     postNotification('newCard')
-      //     setSubmitted(true)
-      //     clearForm();
+          postNotification('newCard')
+          setSubmitted(true)
+          clearForm();
         
-      //   })
+        })
 
     } else {
       postNotification('wrongInput')
