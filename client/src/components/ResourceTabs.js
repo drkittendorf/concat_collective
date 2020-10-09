@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import './ResourceTabs.css';
 import AddResourceForm from './AddResourceForm';
-import AddSnippetForm from './AddSnippetForm'
+import AddSnippetForm from './SnippetForm/AddSnippetForm'
 
 function TabPanel(props) {
 	const { 
@@ -65,6 +65,8 @@ export default function SimpleTabs(props) {
 	const [value, setValue] = React.useState(0);
 
 	const { children } = props 
+
+	console.log(children)
 	
 	// const { handleInputLink, submitForm, linkInput }  = props
 	
@@ -93,13 +95,14 @@ export default function SimpleTabs(props) {
 				// handleInputLink={handleInputLink}
 				// linkInput={linkInput}
 				/> */}
-				{children}
+				{children[0]}
 			</TabPanel>
 			{/* snippet resource add tab  */}
 			<TabPanel value={value} index={1}>
-				<AddSnippetForm 
+				{/* <AddSnippetForm 
 				
-				/>
+				/> */}
+				{children[1]}
 			</TabPanel>
 
 		</div>

@@ -11,6 +11,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { TextareaAutosize } from '@material-ui/core';
+import './style.css';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
@@ -22,11 +24,21 @@ const useStyles = makeStyles((theme) => ({
 	},
 	selectEmpty: {
 		marginTop: theme.spacing(2),
-    },
+	},
+	textArea: {
+		width: '100%', 
+		minHeight: '200px', 
+		 
+	}
 }));
 
-export default function AddResource() {
+export default function AddResource(props) {
 	const classes = useStyles();
+
+	const {
+		submitForm,
+
+	} = props
 
 	const [open, setOpen] = React.useState(false);
 
@@ -36,19 +48,23 @@ export default function AddResource() {
 
 	return (
 		<div>
-			<DialogTitle id='form-dialog-title'>Add Resource</DialogTitle>
+			<DialogTitle id='form-dialog-title'>Add Snippet</DialogTitle>
 			<DialogContent className={classes.formControl}>
 				<DialogContentText>Save code here!</DialogContentText>
 				{/* where they enter the snippet */}
-                <TextField
-					margin='dense'
-					id='snippet'
-					label='snippet'
-					type='text'
-                    fullWidth
-                    variant='outlined'
-					multiline
-				/>
+				<TextareaAutosize
+				id={'editor'}
+				className={classes.textArea}
+				aria-label="empty textarea" placeholder="Empty"
+					defaultValue="console.log('howdy 🤠')" />
+				<Button
+					onClick={submitForm}
+					fullWidth={true}
+					color='primary'>
+					Submit
+					</Button>
+
+				{/* {children} */}
 			</DialogContent>
 		</div>
 	);

@@ -5,11 +5,15 @@ import SearchBar from '../components/SearchBar';
 import Carousel from '../components/testCarousel/Carousel';
 import { useAuth0 } from '@auth0/auth0-react';
 
+// import editor 
+import { ReactCodeJar, useCodeJar } from "react-codejar";
+
 // Resource Tab
 import ResourceTabs from '../components/ResourceTabs';
 
 // form for adding bookmark 
 import AddResourceFrom from '../components/AddResourceForm';
+import AddSnippetForm from '../components/SnippetForm/AddSnippetForm'
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 import CodeJar from '../components/CodeJar/CodeJar';
@@ -241,7 +245,7 @@ export default function Home() {
 
         postNotification('newCard')
         setSubmitted(true)
-        clearForm(); 
+        clearForm();
 
       })
 
@@ -263,19 +267,24 @@ export default function Home() {
             /> : ''}
           <Carousel />
           <ResourceTabs>
-          <AddResourceFrom
-            submitForm={submitForm}
-            category={category}
-            setCategory={setCategory}
-            skill={skill}
-            setSkill={setSkill}
-            handleCategoryChange={handleCategoryChange}
-            handleSkillChange={handleSkillChange}
-            handleInput={handleInput}
-            linkInput={linkInput}
-            handleTitleInput={handleTitleInput}
-            titleInput={titleInput}
-          />
+            <AddResourceFrom
+              submitForm={submitForm}
+              category={category}
+              setCategory={setCategory}
+              skill={skill}
+              setSkill={setSkill}
+              handleCategoryChange={handleCategoryChange}
+              handleSkillChange={handleSkillChange}
+              handleInput={handleInput}
+              linkInput={linkInput}
+              handleTitleInput={handleTitleInput}
+              titleInput={titleInput}
+            />
+            <AddSnippetForm>
+
+            </AddSnippetForm>
+
+
           </ResourceTabs>
           {/* <SearchBar /> */}
           {/* filter buttons here */}

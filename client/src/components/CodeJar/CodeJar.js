@@ -109,17 +109,11 @@ const CodeJar = (props) => {
                     <div className='editor'>
                         <div ref={editorRef}></div>
                     </div>
-                    {/* </AccordionDetails> */}
-                    {/* </Accordion> */}
                     <Typography color="textSecondary">
                         {/* this will be the category */}
                     </Typography>
                     <Typography className={classes.pos}>
                         <br />
-                        {/* onClick={handleAdd} */}
-                        {/* <Button size="small" onClick={handleClickOpen}  > */}
-                        {/* <VisibilityIcon fontSize='large' /> */}
-                        {/* </Button> */}
                         {
                             props.profile ? 'saved' :
                                 <Button size="small" onClick={handleAdd(_id)} >
@@ -133,15 +127,6 @@ const CodeJar = (props) => {
                         onClose={handleClose}
                         aria-labelledby='form-dialog-title'
                     >
-                        {/* <div className='editor'>
-                            <div ref={editorRef}></div>
-                            <Button color='primary' className='Button' size="small" onClick={compile} >
-                                <CodeIcon fontSize='large' />
-                            </Button>
-                            <Button color="primary" size="small" onClick={handleAdd(_id)} >
-                                <AddIcon fontSize='large' />
-                            </Button>
-                        </div> */}
                         <div className='editor'>
                             {/* <div
                                 ref={editorRef}>
