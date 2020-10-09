@@ -47,7 +47,6 @@ export default function AddResource(props) {
 
 	return (
 		<div>
-			<DialogTitle id='form-dialog-title'>Add Resource</DialogTitle>
 			<DialogContent>
 				<DialogContentText>
 					Find something cool? Add it to the collection!

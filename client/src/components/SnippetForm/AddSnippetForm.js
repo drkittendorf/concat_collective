@@ -39,6 +39,10 @@ export default function AddResource(props) {
 		submitForm,
 		handleSnippetInput,
 		snippetInput,
+		descriptionInput,
+		handleDescriptionInput,
+		language,
+		handleLanguage
 
 	} = props
 
@@ -50,7 +54,44 @@ export default function AddResource(props) {
 
 	return (
 		<div>
-			<DialogTitle id='form-dialog-title'>Add Snippet</DialogTitle>
+			<FormControl
+			fullWidth={true}
+			 className={classes.formControl}>
+				<Select
+					value={language}
+					onChange={handleLanguage}
+					displayEmpty
+					className={classes.selectEmpty}
+					inputProps={{ 'aria-label': 'Without label' }}
+				>
+					<MenuItem value='' disabled>
+						Select Category
+						</MenuItem>
+					<MenuItem value={'Algorithms'}>Algorithms</MenuItem>
+					<MenuItem value={'C#'}>C#</MenuItem>
+					<MenuItem value={'C++'}>C++</MenuItem>
+					<MenuItem value={'CSS'}>CSS</MenuItem>
+					<MenuItem value={'Golang (Go)'}>Golang (Go)</MenuItem>
+					<MenuItem value={'HTML'}>HTML</MenuItem>
+					<MenuItem value={'Java'}>Java</MenuItem>
+					<MenuItem value={'JavaScript'}>JavaScript</MenuItem>
+					<MenuItem value={'MATLAB'}>MATLAB</MenuItem>
+					<MenuItem value={'Node.js'}>Node.js</MenuItem>
+					<MenuItem value={'Perl'}>Perl</MenuItem>
+					<MenuItem value={'PHP'}>PHP</MenuItem>
+					<MenuItem value={'R'}>R</MenuItem>
+					<MenuItem value={'React.js'}>React.js</MenuItem>
+					<MenuItem value={'Ruby'}>Ruby</MenuItem>
+					<MenuItem value={'Rust'}>Rust</MenuItem>
+					<MenuItem value={'Scheme'}>Scheme</MenuItem>
+					<MenuItem value={'Scala'}>Scala</MenuItem>
+					<MenuItem value={'SQL'}>SQL</MenuItem>
+					<MenuItem value={'Swift'}>Swift</MenuItem>
+					<MenuItem value={'TypeScript'}>TypeScript</MenuItem>
+					<MenuItem value={'Other'}>Other</MenuItem>
+				</Select>
+				<FormHelperText>EX: Javascript</FormHelperText>
+			</FormControl>
 			<DialogContent className={classes.formControl}>
 				<DialogContentText>Save code here!</DialogContentText>
 				{/* where they enter the snippet */}
@@ -61,7 +102,17 @@ export default function AddResource(props) {
 					className={classes.textArea}
 					aria-label="empty textarea" placeholder="Empty"
 					defaultValue="console.log('howdy')"
-					/>
+				/>
+				<TextField
+					// linkInput={linkInput}
+					margin='dense'
+					id='link'
+					label='description'
+					type='text'
+					fullWidth
+					onChange={handleDescriptionInput}
+					value={descriptionInput}
+				/>
 				<Button
 					onClick={submitForm}
 					fullWidth={true}

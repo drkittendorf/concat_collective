@@ -60,6 +60,8 @@ export default function Home() {
 
   // Snippet code 
   const [snippetInput, setSnippetInput] = useState(``)
+  const [descriptionInput, setDescriptionInput] = useState('');
+  const [language, setLanguage] = useState('');
 
   // submit button for form 
   const [submitted, setSubmitted] = useState(false);
@@ -200,27 +202,20 @@ export default function Home() {
     setCategory(event.target.value);
     console.log(`this is the category selected ${event.target.value}`)
   };
-
   const handleSkillChange = (event) => {
     setSkill(event.target.value);
     console.log(`this is the skill selected ${event.target.value}`)
   };
-
-
   const handleInput = (event) => {
     event.preventDefault();
     setLinkInput(event.target.value)
     console.log(`this is the skill selected ${event.target.value}`)
   };
-
-
   const handleTitleInput = (event) => {
     event.preventDefault();
     setTitleInput(event.target.value)
     console.log(`this is the skill selected ${event.target.value}`)
   };
-
-
   const clearForm = () => {
 
     setCategory('')
@@ -228,13 +223,16 @@ export default function Home() {
     setLinkInput('')
     setTitleInput('')
   }
-
   const handleSnippetInput = (event) => {
     setSnippetInput(event.target.value)
-    console.log(`this is the skill selected ${event.target.value}`)
   }
-
-
+  const handleDescriptionInput = (event) => {
+    setDescriptionInput(event.target.value)
+  }
+  const handleLanguage = (event) => {
+    let language = event.target.value;
+    setLanguage(language)
+  }
   const submitForm = (cardType) => () => {
     // send the new card to the database 
     // make api call to the server
@@ -246,12 +244,11 @@ export default function Home() {
         addSnippetProtocol()
         break;
 
-      default: return 'something went very wrong in the submit form switch'; 
+      default: return 'something went very wrong in the submit form switch';
     }
 
 
   }
-
   const addBookmarkProtocol = () => {
     let data = {
 
@@ -276,20 +273,19 @@ export default function Home() {
       postNotification('wrongInput')
     }
   }
-
   const addSnippetProtocol = () => {
 
-    
-    if (snippetInput !== '') {
-      let data = {snippetInput}
-      
-      Api.createSnippet(data).then(res => {
-        
-          postNotification('newCard')
-          setSubmitted(true)
-          clearForm();
-        
-        })
+
+    if (snippetInput !== '' && descriptionInput !== '') {
+      let data = {
+        snippetInput,
+        descriptionInput,
+        language
+      }
+
+      // ! save snippet data
+     
+      console.log(data)
 
     } else {
       postNotification('wrongInput')
@@ -327,6 +323,10 @@ export default function Home() {
               snippetInput={snippetInput}
               handleSnippetInput={handleSnippetInput}
               submitForm={submitForm('snippet')}
+              descriptionInput={descriptionInput}
+              handleDescriptionInput={handleDescriptionInput}
+              language={language}
+              handleLanguage={handleLanguage}
             />
           </ResourceTabs>
           {/* <SearchBar /> */}
