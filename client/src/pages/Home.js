@@ -9,7 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { ReactCodeJar, useCodeJar } from "react-codejar";
 
 // Resource Tab
-import ResourceTabs from '../components/ResourceTabs';
+import ResourceTabs from '../components/ResourceTabs/ResourceTabs.js'
 
 // form for adding bookmark 
 import AddResourceFrom from '../components/AddResourceForm';
@@ -18,8 +18,7 @@ import AddSnippetForm from '../components/SnippetForm/AddSnippetForm'
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 import CodeJar from '../components/CodeJar/CodeJar';
 import Api from '../utils/API';
-import transform from '../utils/Transform';
-import pipe from '../utils/pipe';
+import transform from '../utils/Transform.js';
 import validation from '../utils/checkIfLink';
 
 import AlertMsg from '../components/AlertMsg'
@@ -90,11 +89,9 @@ export default function Home() {
   // >>>>>> comp
   const saveBookmarkToUser = ({ cardId, userEmail }) => {
     Api.saveBookmarks(cardId, userEmail);
-    return 'added'
   }
   const saveCodeCardToUser = ({ cardId, userEmail }) => {
     Api.saveCodeCards(cardId, userEmail);
-    return 'added'
   }
 
   const postNotification = (msg) => {
@@ -110,7 +107,8 @@ export default function Home() {
     // ? here we check if the user is in the database
     if (Boolean(dataBase[user.email])) {
       // ** add the card to the users database 
-      pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
+      saveBookmarkToUser({ cardId, user: { email: user.email } })
+      postNotification('added')
 
       // ** new member // not in the database 
       // ? we need to create a user 
@@ -121,7 +119,8 @@ export default function Home() {
         .then(res => {
 
           // ** now that the user is created, we save the bookmark to the user 
-          pipe(saveBookmarkToUser, postNotification)({ cardId, user: { email: user.email } })
+          saveBookmarkToUser({ cardId, user: { email: user.email } })
+          postNotification('added')
 
 
         })
@@ -133,7 +132,8 @@ export default function Home() {
     // ? here we check if the user is in the database
     if (Boolean(dataBase[user.email])) {
       // ** add the card to the users database 
-      pipe(saveCodeCardToUser, postNotification)({ cardId, user: { email: user.email } })
+      saveCodeCardToUser({ cardId, user: { email: user.email } })
+      postNotification('added')
 
       // ** new member // not in the database 
       // ? we need to create a user 
@@ -144,7 +144,8 @@ export default function Home() {
         .then(res => {
 
           // ** now that the user is created, we save the bookmark to the user 
-          pipe(saveCodeCardToUser, postNotification)({ cardId, user: { email: user.email } })
+          saveCodeCardToUser({ cardId, user: { email: user.email } })
+          postNotification('added')
 
 
         })
@@ -260,7 +261,7 @@ export default function Home() {
 
     }
 
-    if (validation.checkLink(linkInput) && validation.checkString(titleInput)) {
+    if (validation.checkLink(linkInput) && titleInput !== '') {
 
       Api.createBookmark(data).then(res => {
 
