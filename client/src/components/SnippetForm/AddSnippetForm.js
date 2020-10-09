@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(2),
 	},
 	textArea: {
-		width: '100%', 
-		minHeight: '200px', 
-		 
+		width: '100%',
+		minHeight: '200px',
+
 	}
 }));
 
@@ -37,6 +37,8 @@ export default function AddResource(props) {
 
 	const {
 		submitForm,
+		handleSnippetInput,
+		snippetInput,
 
 	} = props
 
@@ -53,10 +55,13 @@ export default function AddResource(props) {
 				<DialogContentText>Save code here!</DialogContentText>
 				{/* where they enter the snippet */}
 				<TextareaAutosize
-				id={'editor'}
-				className={classes.textArea}
-				aria-label="empty textarea" placeholder="Empty"
-					defaultValue="console.log('howdy 🤠')" />
+					onChange={handleSnippetInput}
+					value={snippetInput}
+					id={'editor'}
+					className={classes.textArea}
+					aria-label="empty textarea" placeholder="Empty"
+					defaultValue="console.log('howdy')"
+					/>
 				<Button
 					onClick={submitForm}
 					fullWidth={true}

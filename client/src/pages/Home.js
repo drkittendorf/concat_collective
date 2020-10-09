@@ -52,11 +52,16 @@ export default function Home() {
   const [msg, setMsg] = useState('')
 
 
-  // form parameters
+  // Bookmark parameters
   const [category, setCategory] = useState('');
   const [skill, setSkill] = useState('');
   const [linkInput, setLinkInput] = useState('');
   const [titleInput, setTitleInput] = useState('');
+
+  // Snippet code 
+  const [snippetInput, setSnippetInput] = useState(``)
+
+  // submit button for form 
   const [submitted, setSubmitted] = useState(false);
 
 
@@ -224,12 +229,30 @@ export default function Home() {
     setTitleInput('')
   }
 
+  const handleSnippetInput = (event) => {
+    setSnippetInput(event.target.value)
+    console.log(`this is the skill selected ${event.target.value}`)
+  }
 
-  const submitForm = () => {
+
+  const submitForm = (cardType) => () => {
     // send the new card to the database 
     // make api call to the server
+    switch (cardType) {
+      case 'bookmark':
+        addBookmarkProtocol()
+        break;
+      case 'snippet':
+        addSnippetProtocol()
+        break;
+
+      default: return 'something went very wrong in the submit form switch'; 
+    }
 
 
+  }
+
+  const addBookmarkProtocol = () => {
     let data = {
 
       title: titleInput,
@@ -252,8 +275,28 @@ export default function Home() {
     } else {
       postNotification('wrongInput')
     }
-
   }
+
+  const addSnippetProtocol = () => {
+
+    
+    if (snippetInput !== '') {
+      let data = {snippetInput}
+      
+      // Api.createBookmark(data).then(res => {
+        
+      //     postNotification('newCard')
+      //     setSubmitted(true)
+      //     clearForm();
+        
+      //   })
+
+    } else {
+      postNotification('wrongInput')
+    }
+  }
+
+
 
   return (
     <div className={classes.root}>
@@ -268,7 +311,7 @@ export default function Home() {
           <Carousel />
           <ResourceTabs>
             <AddResourceFrom
-              submitForm={submitForm}
+              submitForm={submitForm('bookmark')}
               category={category}
               setCategory={setCategory}
               skill={skill}
@@ -280,11 +323,11 @@ export default function Home() {
               handleTitleInput={handleTitleInput}
               titleInput={titleInput}
             />
-            <AddSnippetForm>
-
-            </AddSnippetForm>
-
-
+            <AddSnippetForm
+              snippetInput={snippetInput}
+              handleSnippetInput={handleSnippetInput}
+              submitForm={submitForm('snippet')}
+            />
           </ResourceTabs>
           {/* <SearchBar /> */}
           {/* filter buttons here */}

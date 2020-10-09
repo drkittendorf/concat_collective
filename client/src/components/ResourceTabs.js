@@ -65,8 +65,6 @@ export default function SimpleTabs(props) {
 	const [value, setValue] = React.useState(0);
 
 	const { children } = props 
-
-	console.log(children)
 	
 	// const { handleInputLink, submitForm, linkInput }  = props
 	
