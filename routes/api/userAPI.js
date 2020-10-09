@@ -8,6 +8,7 @@ router.route('/')
 
 router.route('/:id')
     .get(userController.findByToken)
+    /// .put(userController.deletebookmarkCard)
 
 router.route('/boomarkCards/:id')
     .post(userController.updateUserBookmarks);

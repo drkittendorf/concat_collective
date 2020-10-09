@@ -7,11 +7,23 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import './ResourceTabs.css';
+<<<<<<< HEAD:client/src/components/ResourceTabs.js
+import AddResourceForm from './AddResourceForm';
+import AddSnippetForm from './SnippetForm/AddSnippetForm'
+=======
 import AddResourceForm from '../AddResourceForm';
 import AddSnippetForm from '../AddSnippetForm'
+>>>>>>> 469081061798b67381807ab024d382ae588ac9d8:client/src/components/ResourceTabs/ResourceTabs.js
 
 function TabPanel(props) {
-	const { children, value, index, ...other } = props;
+	const { 
+		// linkInput,
+		// handleInputLink, 
+		children, 
+		value, 
+		index,
+		 ...other
+		 } = props;
 
 	return (
 		<div
@@ -53,12 +65,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SimpleTabs() {
+export default function SimpleTabs(props) {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(0);
-	
-	
 
+	const { children } = props 
+	
+	// const { handleInputLink, submitForm, linkInput }  = props
+	
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
@@ -78,12 +92,20 @@ export default function SimpleTabs() {
 				</Tabs>
 			</AppBar>
 
+			{/* link resource add tab */}
 			<TabPanel value={value} index={0}>
-                <AddResourceForm/>
+                {/* <AddResourceForm
+				// handleInputLink={handleInputLink}
+				// linkInput={linkInput}
+				/> */}
+				{children[0]}
 			</TabPanel>
-
+			{/* snippet resource add tab  */}
 			<TabPanel value={value} index={1}>
-				<AddSnippetForm />
+				{/* <AddSnippetForm 
+				
+				/> */}
+				{children[1]}
 			</TabPanel>
 
 		</div>

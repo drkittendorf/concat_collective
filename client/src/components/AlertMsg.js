@@ -29,9 +29,15 @@ export default function CustomizedSnackbars(props) {
               </Alert>
       </Snackbar>)
         :
-        (props.msg === 'added') ? (<Snackbar open={props.open} autoHideDuration={6000} onClose={props.handleClose}>
+        (props.msg === 'added' || props.msg === 'newCard') ? (<Snackbar open={props.open} autoHideDuration={6000} onClose={props.handleClose}>
           <Alert onClose={props.handleClose} severity="success" >
             Card Succesfully Added!
+              </Alert>
+        </Snackbar>)
+          :
+        (props.msg === 'wrongInput' || props.msg === 'newCard') ? (<Snackbar open={props.open} autoHideDuration={6000} onClose={props.handleClose}>
+          <Alert onClose={props.handleClose} severity="error" >
+            The is something wrong with your link or Title is empty, please check and try again! 
               </Alert>
         </Snackbar>)
           : ''}
