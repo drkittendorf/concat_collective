@@ -209,6 +209,15 @@ export default function Home() {
   };
 
 
+  const clearForm = () => {
+
+    setCategory('')
+    setSkill('')
+    setLinkInput('')
+    setTitleInput('')
+  }
+
+
   const submitForm = () => {
     // send the new card to the database 
     // make api call to the server
@@ -229,6 +238,8 @@ export default function Home() {
 
         postNotification('newCard')
         setSubmitted(true)
+        clearForm(); 
+
       })
 
     } else {
