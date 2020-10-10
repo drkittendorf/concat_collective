@@ -1,4 +1,3 @@
-# concat(collective)
 ![logo](client\public\concatCollective.png)
 
 ## APP URLS
@@ -7,8 +6,7 @@ https://drkittendorf.github.io/concat_collective/ <br>
 https://concat-collective.herokuapp.com/
 
 
-## MEET THE TEAM
-## CONTRIBUTORS
+## MEET THE TEAM / CONTRIBUTORS
 * Mark McDonald
 * Lia Graham
 * Erik De Luna
@@ -19,7 +17,9 @@ https://concat-collective.herokuapp.com/
 
   WE WANT A RESOURCE TO SAVE USEFUL LINKS AND CODE SNIPPETS, THAT IS BROWSER INDEPENDENT,
 
-  WE ALSO WANT OTHER DEVELOPERS TO BE ABLE TO CREATE, SAVE AND ACCESS THESE LINKS & SNIPPETS TO THEIR PERSONAL PROFILE.
+  WE ALSO WANT OTHER DEVELOPERS TO BE ABLE TO CREATE, AS WELL AS TO SAVE AND ACCESS 
+  
+  THESE LINKS & SNIPPETS IN THEIR OWN PERSONAL PROFILE.
 
 ## SCREENSHOTS
   ![screenshot1](client\public\headerscreenshot.png)
