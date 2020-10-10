@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { useAuth0 } from '@auth0/auth0-react';
 import API from '../utils/API';
-import transform from '../utils/Transform';
+import transform from '../utils/Transform.js';
 import data from '../dummyData.json';
 
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
@@ -31,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 	},
 }));
+
+/// send the token to the backend so that both parts are in sync
 
 function Profile() {
 	const classes = useStyles();
@@ -102,6 +104,22 @@ function Profile() {
 		setCodeCards({ ...codeCards, [id]: { ...codeCards[id], snippet } })
 	}
 
+	const handleDelete = (id) => (e) => {
+		e.prevetDefault();
+
+
+		// ** GET USER DATA
+		// let response = await Api.getUsersByEmail()
+
+		// ** turn array of users to Object 
+		// let usersDatabase = await transform.toObjectByEmail(response.data)
+
+		// usersDatabase[user.email]
+		/// >>>>>>>>
+		// api call to the user api/userAPI
+
+		//Api.deleteBookmark(user.email,id)
+	}
 
 	return (
 		<div className={classes.root}>
@@ -122,6 +140,7 @@ function Profile() {
 							profile={true}
 							key={card._id} {...card}
 							handleAdd={handleAdd}
+							handleDelete={handleDelete(card._id)}
 						/>
 					})}
 					{Object.keys(codeCards).map(key => {

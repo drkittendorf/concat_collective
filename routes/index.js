@@ -5,8 +5,15 @@ const snippetRoutes = require('./api/snippet');
 const userRoutes = require('./api/userAPI');
 // const jwt = require('express-jwt');
 // const jwksRsa = require('jwks-rsa');
+// const issuer = process.env.REACT_APP_ISSUER;
+// const audience = process.env.REACT_APP_AUDIENCE
 
-// const checkJwt = () => jwt({
+// if (!issuer || !audience) {
+//   throw new Error('Confirm .env is populated');
+// }
+
+// how to send token in jwt 
+// const checkJwt = jwt({
 //   secret: jwksRsa.expressJwtSecret({
 //     cache: true,
 //     rateLimit: true,
@@ -15,10 +22,12 @@ const userRoutes = require('./api/userAPI');
 
 //   }),
 
-//   audience: 'https://concat.api/',
-//   issuer: 'https://dev-2b7i14d1.us.auth0.com/',
+//   audience: audience,
+//   issuer: issuer,
 //   algorithms: ['RS256'],
 // });
+
+
 
 router.use('/api/resources', resourceRoutes);
 router.use('/api/snippets', snippetRoutes);

@@ -2,15 +2,15 @@ const db = require("../models");
 
 module.exports = {
   findAll: function (req, res) {
-  db.User
-    .find({}).select('email')
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
+    db.User
+      .find({}).select('email')
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
-  
+
   findByToken: function (req, res) {
-  db.User
-      .find({email: req.params.id})
+    db.User
+      .find({ email: req.params.id })
       .populate("userBookmarks")
       .populate("userSnippets")
       .then(dbModel => res.json(dbModel))
@@ -26,7 +26,7 @@ module.exports = {
   updateUserBookmarks: function (req, res) {
     // lets check so we can adapt the key for the push 
     db.User
-      .findOneAndUpdate(req.body , { $push: { userBookmarks: req.params.id } })
+      .findOneAndUpdate(req.body, { $push: { userBookmarks: req.params.id } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
     console.log(req.body)
@@ -35,11 +35,28 @@ module.exports = {
   updateUserSnippets: function (req, res) {
     // lets check so we can adapt the key for the push 
     db.User
-      .findOneAndUpdate(req.body , { $push: { userSnippets: req.params.id } })
+      .findOneAndUpdate(req.body, { $push: { userSnippets: req.params.id } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
     console.log(req.body)
     console.log(`added to the database`)
+  },
+
+  deletebookmarkCard: (req, res) => {
+
+    let bookId = req.params.id
+    // email dluna5629@icloud.com
+    let userId = req.body
+
+    db.User
+      .findOneAndUpdate(req.body, { $push: { userSnippets: req.params.id } })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+    console.log(req.body)
+    console.log(`added to the database`)
+
+
   }
+
 
 };

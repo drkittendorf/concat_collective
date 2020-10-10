@@ -22,8 +22,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function FormDialog() {
+export default function FormDialog(props) {
 	const classes = useStyles();
+
+	// const { handleInputLink, linkInput }  = props
 
 	const mobile = useMediaQuery('(max-width:768px)');
 	const desktop = useMediaQuery('(min-width:768px)');
@@ -54,7 +56,10 @@ export default function FormDialog() {
 				onClose={handleClose}
 				aria-labelledby='form-dialog-title'
 			>
-				<ResourceTabs />
+				<ResourceTabs 
+				// handleInputLink={handleInputLink}
+				// linkInput={linkInput}
+				/>
 				<DialogActions>
 					<Button onClick={handleClose} color='primary'>
 						Cancel

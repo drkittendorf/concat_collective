@@ -11,7 +11,14 @@ import AddResourceForm from '../AddResourceForm';
 import AddSnippetForm from '../AddSnippetForm'
 
 function TabPanel(props) {
-	const { children, value, index, ...other } = props;
+	const { 
+		// linkInput,
+		// handleInputLink, 
+		children, 
+		value, 
+		index,
+		 ...other
+		 } = props;
 
 	return (
 		<div
@@ -53,12 +60,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SimpleTabs() {
+export default function SimpleTabs(props) {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(0);
-	
-	
 
+	const { children } = props 
+	
+	// const { handleInputLink, submitForm, linkInput }  = props
+	
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
@@ -78,12 +87,20 @@ export default function SimpleTabs() {
 				</Tabs>
 			</AppBar>
 
+			{/* link resource add tab */}
 			<TabPanel value={value} index={0}>
-                <AddResourceForm/>
+                {/* <AddResourceForm
+				// handleInputLink={handleInputLink}
+				// linkInput={linkInput}
+				/> */}
+				{children[0]}
 			</TabPanel>
-
+			{/* snippet resource add tab  */}
 			<TabPanel value={value} index={1}>
-				<AddSnippetForm />
+				{/* <AddSnippetForm 
+				
+				/> */}
+				{children[1]}
 			</TabPanel>
 
 		</div>

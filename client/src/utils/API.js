@@ -2,9 +2,6 @@ import axios from "axios";
 
 export default {
 
-
-  
-  
   // // Deletes the book with the given id
   deleteBookmarks: function(id) {
     return axios.delete("/api/resources/" + id);
@@ -15,6 +12,7 @@ export default {
   },
 
   createUser: (userData) => axios.post(`api/userAPI`, userData),
+  createBookmark: (bookData) => axios.post(`/api/resources`, bookData),
   getBookmarks: () => axios.get("/api/resources"),
   getSnippets: () => axios.get("/api/snippets"),
 
@@ -22,7 +20,9 @@ export default {
   saveBookmarks: (bookId, userId) =>  axios.post(`/api/userAPI/boomarkCards/${bookId}`, userId), 
   saveCodeCards: (cardId, userId) =>  axios.post(`/api/userAPI/codeCards/${cardId}`, userId), 
   getUsersByEmail: () => axios.get(`/api/userAPI`),
-  getUserCards: (userId) => axios.get(`api/userAPI/${userId}`)
+  getUserCards: (userId) => axios.get(`api/userAPI/${userId}`),
+
+  deleteBookmark:(userID, bookId) => axios.put(`api/userAPI/${bookId}`, userID)
 
 };
 

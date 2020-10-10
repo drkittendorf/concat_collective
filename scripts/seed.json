@@ -1,0 +1,58 @@
+[
+ { 
+     "title": "Java 101",
+    "link": "https://youtu.be/r59xYe3Vyks",
+    "category": "Java",
+    "skill": "Beginner",
+    "created": " "
+ },
+ {
+    "title": "Python 101",
+    "link": "https://youtu.be/_uQrJ0TkZlc",
+    "category": "Python",
+    "skill": "Beginner",
+    "created": " "
+ },
+ {
+    "title": "JavaScript 101",
+    "link": "https://youtu.be/GPFDsBImjiE",
+    "category": "JavaScript",
+    "skill": "Beginner",
+    "created": ""
+ },
+ {
+    "title": "C# 101",
+    "link": "https://youtu.be/gfkTfcpWqAY",
+    "category": "C#",
+    "skill": "Beginner",
+    "created": ""
+ },
+ {
+    "title": "Ruby 101",
+    "link": "https://youtu.be/Dji9ALCgfpM",
+    "category": "Ruby",
+    "skill": "Beginner",
+    "created": ""
+ },
+ {
+    "title": "HTML & CSS 101",
+    "link": "https://youtu.be/kMT54MPz9oE",
+    "category": "HTML",
+    "skill": "Beginner",
+    "created": ""
+ },
+ {
+    "title": "C++ 101",
+    "link": "https://youtu.be/NxS_0vR-PPg",
+    "category": "C++",
+    "skill": "Beginner",
+    "created": ""
+ },
+ {
+    "title": "Golang 101",
+    "link": "https://youtu.be/CF9S4QZuV30",
+    "category": "Golang",
+    "skill": "Beginner",
+    "created": ""
+ }
+]

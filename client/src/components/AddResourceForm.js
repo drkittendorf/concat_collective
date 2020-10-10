@@ -8,6 +8,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
 	button: {
@@ -23,38 +24,53 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function AddResource() {
-    const classes = useStyles()
-    
-    const [open, setOpen] = React.useState(false);
+export default function AddResource(props) {
+	const classes = useStyles()
 
-    const [category, setCategory] = React.useState('');
-    const [skill, setSkill] = React.useState('');
-    
-    const handleCategoryChange = (event) => {
-		setCategory(event.target.value);
-	};
+	const [open, setOpen] = React.useState(false);
 
-	const handleSkillChange = (event) => {
-		setCategory(event.target.value);
-    };
-    
-    
+	const {
+		submitForm,
+		category,
+		setCategory,
+		skill,
+		setSkill,
+		handleCategoryChange,
+		handleSkillChange,
+		handleInput,
+		linkInput,
+		handleTitleInput,
+		titleInput,
+
+
+	} = props
 
 	return (
 		<div>
-			<DialogTitle id='form-dialog-title'>Add Resource</DialogTitle>
 			<DialogContent>
 				<DialogContentText>
 					Find something cool? Add it to the collection!
 				</DialogContentText>
 				{/* where they enter the link/resource */}
 				<TextField
+					// linkInput={linkInput}
+					margin='dense'
+					id='link'
+					label='Title'
+					type='text'
+					fullWidth
+					onChange={handleTitleInput}
+					value={titleInput}
+				/>
+				<TextField
+					// linkInput={linkInput}
 					margin='dense'
 					id='link'
 					label='link'
 					type='text'
 					fullWidth
+					onChange={handleInput}
+					value={linkInput}
 				/>
 
 				{/* select category */}
@@ -113,6 +129,12 @@ export default function AddResource() {
 					</Select>
 					<FormHelperText>EX: Beginner</FormHelperText>
 				</FormControl>
+				<Button
+					onClick={submitForm}
+					fullWidth={true}
+					color='primary'>
+					Submit
+					</Button>
 			</DialogContent>
 		</div>
 	);
