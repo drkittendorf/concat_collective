@@ -7,13 +7,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import './ResourceTabs.css';
-<<<<<<< HEAD:client/src/components/ResourceTabs.js
-import AddResourceForm from './AddResourceForm';
-import AddSnippetForm from './SnippetForm/AddSnippetForm'
-=======
 import AddResourceForm from '../AddResourceForm';
 import AddSnippetForm from '../AddSnippetForm'
->>>>>>> 469081061798b67381807ab024d382ae588ac9d8:client/src/components/ResourceTabs/ResourceTabs.js
 
 function TabPanel(props) {
 	const { 
