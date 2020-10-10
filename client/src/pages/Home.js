@@ -7,12 +7,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 import BookmarkCards from '../components/BookmarkCards/BookmarkCards';
 import CodeJar from '../components/CodeJar/CodeJar';
 
-import API from '../utils/API';
-import transform from '../utils/Transform';
-
 
 import Api from '../utils/API';
-import transform from '../utils/transform';
+import transform from '../utils/Transform';
 import pipe from '../utils/pipe'
 
 import AlertMsg from '../components/AlertMsg'

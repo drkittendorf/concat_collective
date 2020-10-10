@@ -106,13 +106,15 @@ export default function SimpleCard(props) {
 						{user && profile ? (
 							'saved'
 						) : (
-								<Button size='small' onClick={handleAdd(_id)}>
-									{/* <Icon className="fas fa-plus" /> */}
-									<AddCircleIcon />
-									{/* add to collection */}
-								</Button>
-							)}
-						{props.profile ? '' :
+							<Button size='small' onClick={handleAdd(_id)}>
+								{/* <Icon className="fas fa-plus" /> */}
+								<AddCircleIcon />
+								{/* add to collection */}
+							</Button>
+						)}
+						{props.profile ? (
+							''
+						) : (
 							<Button
 								onClick={() => props.deleteBookmark(props._id)}
 								className='remove'
@@ -120,9 +122,8 @@ export default function SimpleCard(props) {
 							>
 								<HighlightOffIcon />
 							</Button>
-						}
-
-					</Typography>
+						)}
+					</Grid>
 				</CardContent>
 				<CardActions></CardActions>
 			</Card>
