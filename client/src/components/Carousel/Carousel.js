@@ -1,11 +1,20 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Grid from '@material-ui/core/Grid';
-import './Carousel.css';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+	carousel:{
+		paddingBottom: '20px'
+	}
+});
 
 function IntroCarousel() {
+	const classes = useStyles();
+
+	
 	return (
-		<Grid item xs={12} className='carousel'>
+		<Grid item xs={12} className={classes.carousel}>
 			<Carousel indicators={false}>
 				<Carousel.Item>
 					<img

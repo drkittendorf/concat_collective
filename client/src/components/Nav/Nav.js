@@ -84,10 +84,10 @@ function Nav() {
 
 					{matches && (
 						<Grid item xs={6} className={classes.menuIcon}>
-							<AddResourceModal 
+							{/* <AddResourceModal 
 							handleInputLink={handleInputLink}
 							linkInput={linkInput} 
-							/>
+							/> */}
 							<Tooltip title='profile' arrow>
 								<Button
 									component={Link}

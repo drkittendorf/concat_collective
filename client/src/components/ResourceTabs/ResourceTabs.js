@@ -1,24 +1,25 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import Paper from '@material-ui/core/Paper'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import './ResourceTabs.css';
 import AddResourceForm from '../AddResourceForm';
-import AddSnippetForm from '../AddSnippetForm'
+import AddSnippetForm from '../AddSnippetForm';
 
 function TabPanel(props) {
-	const { 
+	const {
 		// linkInput,
-		// handleInputLink, 
-		children, 
-		value, 
+		// handleInputLink,
+		children,
+		value,
 		index,
-		 ...other
-		 } = props;
+		...other
+	} = props;
 
 	return (
 		<div
@@ -53,10 +54,9 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
-		
 	},
-	appBar:{
-		backgroundColor: '#B6D3D2'
+	appBar: {
+		backgroundColor: '#B6D3D2',
 	},
 }));
 
@@ -64,45 +64,45 @@ export default function SimpleTabs(props) {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(0);
 
-	const { children } = props 
-	
+	const { children } = props;
+
 	// const { handleInputLink, submitForm, linkInput }  = props
-	
+
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
 
 	return (
 		<div className={classes.root}>
+			<Paper>
+				<AppBar position='static' className={classes.appBar}>
+					<Tabs
+						value={value}
+						onChange={handleChange}
+						aria-label='simple tabs example'
+						indicatorColor='primary'
+					>
+						<Tab label='Add Resource' {...a11yProps(0)} />
+						<Tab label='Add Snippet' {...a11yProps(1)} />
+					</Tabs>
+				</AppBar>
 
-			<AppBar position='static' className={classes.appBar}>
-				<Tabs
-					value={value}
-					onChange={handleChange}
-					aria-label='simple tabs example'
-					indicatorColor='primary'
-				>
-					<Tab label='Add Resource' {...a11yProps(0)} />
-					<Tab label='Add Snippet' {...a11yProps(1)} />
-				</Tabs>
-			</AppBar>
-
-			{/* link resource add tab */}
-			<TabPanel value={value} index={0}>
-                {/* <AddResourceForm
+				{/* link resource add tab */}
+				<TabPanel value={value} index={0}>
+					{/* <AddResourceForm
 				// handleInputLink={handleInputLink}
 				// linkInput={linkInput}
 				/> */}
-				{children[0]}
-			</TabPanel>
-			{/* snippet resource add tab  */}
-			<TabPanel value={value} index={1}>
-				{/* <AddSnippetForm 
+					{children[0]}
+				</TabPanel>
+				{/* snippet resource add tab  */}
+				<TabPanel value={value} index={1}>
+					{/* <AddSnippetForm 
 				
 				/> */}
-				{children[1]}
-			</TabPanel>
-
+					{children[1]}
+				</TabPanel>
+			</Paper>
 		</div>
 	);
 }

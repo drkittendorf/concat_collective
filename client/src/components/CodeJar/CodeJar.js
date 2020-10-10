@@ -13,6 +13,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CodeIcon from '@material-ui/icons/Code';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -117,9 +118,11 @@ const CodeJar = (props) => {
 					></Dialog>
 					<Grid container justify='space-between' className={classes.button}>
 						<Grid item>
-							<Button size='small' onClick={handleAdd(_id)}>
-								<AddCircleIcon />
-							</Button>
+							<Tooltip title='add to profile' arrow>
+								<Button size='small' onClick={handleAdd(_id)}>
+									<AddCircleIcon />
+								</Button>
+							</Tooltip>
 						</Grid>
 						{/* <br /> */}
 						{/* onClick={handleAdd} */}
@@ -128,13 +131,15 @@ const CodeJar = (props) => {
 						{/* </Button> */}
 						<Grid item>
 							{profile ? (
-								<Button
-									onClick={() => props.deleteSnippet(props._id)}
-									className='remove'
-									variant='primary'
-								>
-									<HighlightOffIcon />
-								</Button>
+								<Tooltip title='delete' arrow>
+									<Button
+										onClick={() => props.deleteSnippet(props._id)}
+										className='remove'
+										variant='primary'
+									>
+										<HighlightOffIcon />
+									</Button>
+								</Tooltip>
 							) : (
 								''
 							)}
