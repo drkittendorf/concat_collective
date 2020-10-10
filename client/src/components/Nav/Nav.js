@@ -55,7 +55,7 @@ function Nav() {
 		setLinkInput(e.target)
 	}
 
-	console.log(handleInputLink)
+	// console.log(handleInputLink)
 
 	// function handleInputChange(event) {
     //     const { name, value } = event.target;

@@ -140,7 +140,7 @@ function Profile() {
 							profile={true}
 							key={card._id} {...card}
 							handleAdd={handleAdd}
-							handleDelete={handleDelete(card._id)}
+							deleteBookmark={deleteBookmark}
 						/>
 					})}
 					{Object.keys(codeCards).map(key => {
@@ -150,6 +150,7 @@ function Profile() {
 							key={card._id} {...card}
 							handleAdd={handleAdd}
 							setCode={setCodeWrapper(card._id)}
+							deleteSnippet={deleteSnippet}
 						/>
 					})}
 				</Grid>

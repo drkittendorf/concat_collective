@@ -15,7 +15,6 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 const useStyles = makeStyles((theme) => ({
-
 	root: {
 		flexGrow: 1,
 		borderRadius: '10px',
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	button: {
 		// margin: theme.spacing(1.5),
-		paddingTop: '10px'
+		paddingTop: '10px',
 	},
 	details: {
 		// mixHeight: '10px',
@@ -34,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
 	spacing: {
 		marginRight: '70px',
 	},
-
 }));
 
 const highlight = (editor) => {
@@ -44,94 +42,79 @@ const highlight = (editor) => {
 };
 
 const CodeJar = (props) => {
+	const classes = useStyles();
+	const [open, setOpen] = useState(false);
 
-    const classes = useStyles();
-    const [open, setOpen] = useState(false);
+	const {
+		description,
+		language,
+		snippet,
+		_id,
+		handleAdd,
+		setCode,
+		created,
+		profile,
+	} = props;
 
-    const {
-        description,
-        language,
-        snippet,
-        _id,
-        handleAdd,
-        setCode,
-        created,
-        profile
-    } = props;
+	const editorRef = useCodeJar({
+		code: snippet, // Initial code value
+		onUpdate: setCode, // Update the text
+		highlight, // Highlight function, receive the editor
+	});
 
-    const editorRef = useCodeJar({
-        code: snippet,// Initial code value
-        onUpdate: setCode, // Update the text
-        highlight // Highlight function, receive the editor
-    });
+	// handles component funciton
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
 
-    // handles component funciton
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+	const handleClose = () => {
+		setOpen(false);
+	};
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+	const [expanded, setExpanded] = useState('');
+	const handleChange = (panel) => (event, newExpanded) => {
+		setExpanded(newExpanded ? panel : false);
+	};
 
-    const [expanded, setExpanded] = useState('');
-    const handleChange = (panel) => (event, newExpanded) => {
-        setExpanded(newExpanded ? panel : false);
-    };
-
-    return (
-        <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.root}>
-                <CardHeader
-                    action={
-                        <IconButton aria-label="settings"
-                            onClick={handleClickOpen}
-                        >
-                            <CodeIcon fontSize='large' />
-                        </IconButton>
-                    }
-                    title={language}
-                    subheader={description}
-                />
-                <CardContent>
-                    {/* <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+	return (
+		<Grid item xs={12} sm={6} md={4}>
+			<Card className={classes.root}>
+				<CardHeader
+					action={
+						<IconButton aria-label='settings' onClick={handleClickOpen}>
+							<CodeIcon fontSize='large' />
+						</IconButton>
+					}
+					title={language}
+					subheader={description}
+				/>
+				<CardContent>
+					{/* <Accordion className={classes.accordion} square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                             <Typography >click to view snippet</Typography>
                         </AccordionSummary>
                         <AccordionDetails className={classes.details} > */}
 
-                    <div className='editor'>
-                        <div ref={editorRef}></div>
-                    </div>
-                    <Typography color="textSecondary">
-                        {/* this will be the category */}
-                    </Typography>
-                    <Typography className={classes.pos}>
-                        <br />
-                        {
-                            props.profile ? 'saved' :
-                                <Button size="small" onClick={handleAdd(_id)} >
-                                    <AddCircleIcon />
-                                </Button>
-                        }
-
-                    </Typography>
-                    <Dialog
-                        open={open}
-                        onClose={handleClose}
-                        aria-labelledby='form-dialog-title'
-                    >
-                        <div className='editor'>
-                            {/* <div
+					<div className='editor'>
+						<div ref={editorRef}>
+							<div className='editor'>
+								{/* <div
                                 ref={editorRef}>
                             </div> */}
-							<ReactCodeJar
-								code={snippet} // Initial code value
-								onUpdate={setCode} // Update the text
-								highlight={highlight} // Highlight function, receive the editor
-							/>
+								<ReactCodeJar
+									code={snippet} // Initial code value
+									onUpdate={setCode} // Update the text
+									highlight={highlight} // Highlight function, receive the editor
+								/>
+							</div>
 						</div>
-					</Dialog>
+					</div>
+
+					<Dialog
+						open={open}
+						onClose={handleClose}
+						aria-labelledby='form-dialog-title'
+					></Dialog>
 					<Grid container justify='space-between' className={classes.button}>
 						<Grid item>
 							<Button size='small' onClick={handleAdd(_id)}>
@@ -144,12 +127,17 @@ const CodeJar = (props) => {
 						{/* <VisibilityIcon fontSize='large' /> */}
 						{/* </Button> */}
 						<Grid item>
-							<Button
-								onClick={() => props.deleteSnippet(props._id)}
-								className='remove'
-							>
-								<HighlightOffIcon />
-							</Button>
+							{profile ? (
+								<Button
+									onClick={() => props.deleteSnippet(props._id)}
+									className='remove'
+									variant='primary'
+								>
+									<HighlightOffIcon />
+								</Button>
+							) : (
+								''
+							)}
 						</Grid>
 					</Grid>
 				</CardContent>
