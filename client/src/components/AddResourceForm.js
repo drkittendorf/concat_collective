@@ -97,6 +97,7 @@ export default function AddResource(props) {
 						<MenuItem value={'Node.js'}>Node.js</MenuItem>
 						<MenuItem value={'Perl'}>Perl</MenuItem>
 						<MenuItem value={'PHP'}>PHP</MenuItem>
+						<MenuItem value={'Python'}>PHP</MenuItem>
 						<MenuItem value={'R'}>R</MenuItem>
 						<MenuItem value={'React.js'}>React.js</MenuItem>
 						<MenuItem value={'Ruby'}>Ruby</MenuItem>

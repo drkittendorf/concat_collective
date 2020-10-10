@@ -51,7 +51,7 @@ export default function SimpleCard(props) {
 	const classes = useStyles();
 	const { user } = useAuth0();
 
-	const { title, link, _id, category, skill, handleAdd, profile } = props;
+	const { title, link, _id, category, skill, handleAdd, profile, deleteBookmark } = props;
 
 	return (
 		<Grid item xs={12} sm={6} md={4}>
@@ -78,49 +78,39 @@ export default function SimpleCard(props) {
 							description={true}
 						/>
 					</Grid>
-
+					
 					<Typography className={classes.pos} color='textSecondary'>
 						{category || 'this will be the category'}
 					</Typography>
+					
 					<Grid container justify='space-between'>
 						<Grid item>
 							<Button target='_blank' href={link || 'https://www.google.com'}>
 								<Icon className='fas fa-link' />
 							</Button>
 							{user && profile ? (
-								'added'
+								'saved'
 							) : (
-									<Button size='small' onClick={handleAdd(_id)}>
-										{/* <Icon className="fas fa-plus" /> */}
-										<AddCircleIcon />
-										{/* add to collection */}
-									</Button>
-								)}
-						</Grid>
-						<Typography className={classes.pos} color='textSecondary'>
-							{category || 'this will be the category'}
-						</Typography>
-						<Button target='_blank' href={link || 'https://www.google.com'}>
-							<Icon className='fas fa-link' />
-						</Button>
-						{user && profile ? (
-							'saved'
-						) : (
 								<Button size='small' onClick={handleAdd(_id)}>
 									{/* <Icon className="fas fa-plus" /> */}
 									<AddCircleIcon />
 									{/* add to collection */}
 								</Button>
 							)}
-						{props.profile ? '' :
-							<Button
+						</Grid>
+						<Grid item>
+							{profile ? (
+								<Button
 								onClick={() => props.deleteBookmark(props._id)}
 								className='remove'
 								variant='primary'
 							>
 								<HighlightOffIcon />
 							</Button>
-						}
+							) : (
+								''
+							)}
+						</Grid>
 					</Grid>
 				</CardContent>
 				<CardActions></CardActions>
