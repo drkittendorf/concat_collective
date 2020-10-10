@@ -12,6 +12,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Icon from '@material-ui/core/Icon';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import Tooltip from '@material-ui/core/Tooltip';
 
 //link preview package
 import { ReactTinyLink } from 'react-tiny-link';
@@ -51,7 +52,16 @@ export default function SimpleCard(props) {
 	const classes = useStyles();
 	const { user } = useAuth0();
 
-	const { title, link, _id, category, skill, handleAdd, profile, deleteBookmark } = props;
+	const {
+		title,
+		link,
+		_id,
+		category,
+		skill,
+		handleAdd,
+		profile,
+		deleteBookmark,
+	} = props;
 
 	return (
 		<Grid item xs={12} sm={6} md={4}>
@@ -78,35 +88,41 @@ export default function SimpleCard(props) {
 							description={true}
 						/>
 					</Grid>
-					
+
 					<Typography className={classes.pos} color='textSecondary'>
 						{category || 'this will be the category'}
 					</Typography>
-					
+
 					<Grid container justify='space-between'>
 						<Grid item>
-							<Button target='_blank' href={link || 'https://www.google.com'}>
-								<Icon className='fas fa-link' />
-							</Button>
+							<Tooltip title='link to resource' arrow>
+								<Button target='_blank' href={link || 'https://www.google.com'}>
+									<Icon className='fas fa-link' />
+								</Button>
+							</Tooltip>
 							{user && profile ? (
 								'saved'
 							) : (
-								<Button size='small' onClick={handleAdd(_id)}>
-									{/* <Icon className="fas fa-plus" /> */}
-									<AddCircleIcon />
-									{/* add to collection */}
-								</Button>
+								<Tooltip title='add to profile' arrow>
+									<Button size='small' onClick={handleAdd(_id)}>
+										{/* <Icon className="fas fa-plus" /> */}
+										<AddCircleIcon />
+										{/* add to collection */}
+									</Button>
+								</Tooltip>
 							)}
 						</Grid>
 						<Grid item>
 							{profile ? (
+								<Tooltip title='delete' arrow>
 								<Button
-								onClick={() => props.deleteBookmark(props._id)}
-								className='remove'
-								variant='primary'
-							>
-								<HighlightOffIcon />
-							</Button>
+									onClick={() => props.deleteBookmark(props._id)}
+									className='remove'
+									variant='primary'
+								>
+									<HighlightOffIcon />
+								</Button>
+								</Tooltip>
 							) : (
 								''
 							)}
