@@ -48,10 +48,10 @@ audience<br>
 
 
 ## FOR FURTHER DEVELOPMENT
-Adding Snippets
-Deleting Resources for users
-Migrate to Redux
-Rating System (per resource/snippet)
-Comments that allow granular insight into links or snippets
-Community Forum (a la StackOverflow)
-Social Media connections to create network of fellow devs
+Adding Snippets <br>
+Deleting Resources for users <br>
+Migrate to Redux <br>
+Rating System (per resource/snippet) <br>
+Comments that allow granular insight into links or snippets<br>
+Community Forum (a la StackOverflow)<br>
+Social Media connections to create network of fellow devs<br>
